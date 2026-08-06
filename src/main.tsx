@@ -1,3 +1,6 @@
+// Mantine base styles MUST load before any plasma-mantine import: Plasma's
+// CSS-module overrides need to come later in the cascade to win.
+import '@mantine/core/styles.css';
 import {Plasmantine} from '@coveord/plasma-mantine/plasmantine';
 import {createTheme} from '@mantine/core';
 import {StrictMode} from 'react';
@@ -7,7 +10,6 @@ import {App} from './App';
 import {Home} from './pages/Home';
 import {HowToUse} from './pages/HowToUse';
 import {PlayPage} from './pages/PlayPage';
-import '@mantine/core/styles.css';
 import '@fontsource-variable/inter';
 import './styles/theme.css';
 import './styles/app.css';

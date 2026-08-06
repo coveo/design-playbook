@@ -374,6 +374,15 @@
 
 /* ---------- MDX prose ---------- */
 
+/* Prose paragraph margins must not bleed into Alert callouts */
+.prose .mantine-Alert-message p {
+    margin: 0;
+}
+
+.prose .mantine-Alert-message p + p {
+    margin-top: 8px;
+}
+
 .prose {
     font-size: 15.5px;
     line-height: 1.6;
