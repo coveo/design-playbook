@@ -12,7 +12,8 @@ The interactive playbook for how we design at Coveo — plays (workshops, sessio
 
 ## Agent-operable by design
 
-- **`plays.json`** — the build emits the whole playbook as structured data (`public/plays.json`). Agents can fetch it from the deployed site; it's also the data source for a future playbook MCP server.
+- **`plays.json`** — the build emits the whole playbook as structured data (`public/plays.json`, committed in sync). Agents can fetch it from the deployed site or read it at any git ref.
+- **Playbook MCP server** — `mcp/` is a stdio MCP server with `list_plays`, `get_play(slug, version?)`, `recommend_play(context)`, and `list_versions`. Reads are live from the repo (git refs = versions), authenticated by your existing GitHub SSO. See [mcp/README.md](./mcp/README.md).
 - **Per-play agent recipes** — plays declare an `agent` block (needed MCP servers, a recipe, an optional skill). The play page renders it as "Run it with an agent".
 - **Workshop skills** — `skills/` contains skills that *run* plays, not just edit them: `run-design-smash` interviews you and scaffolds the full Miro board (gallery wall, voting dots, agenda) from the play's steps via the Miro MCP. `add-play` scaffolds new plays. (`.claude/skills` symlinks here so Claude Code auto-discovers them.)
 - **`.mcp.json`** registers the `plasma` and `mantine` MCP servers so agents working on the site get component docs.
