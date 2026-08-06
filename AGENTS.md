@@ -24,6 +24,8 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Border radii come from Mantine tokens only (`--radius-card` = radius-md, `--radius-panel` = radius-lg) — no hardcoded radii.
 - Icons: Tabler via `@coveord/plasma-react-icons` (it re-exports `@tabler/icons-react`). Never install other icon sets.
 - Play cross-links in MDX render as hovercard previews (image + summary) via `PlayAnchor`.
+- External links render as `ResourceChip` pills. **Icon = destination**, derived from the URL: `atlassian.net/wiki` → Confluence, `github.com` → invertocat, `miro.com` → Miro, `figma.com` → Figma, else external-link. Brand SVGs live in `src/assets/`. Confluence wins over product brands (a page about Miro hosted on Confluence gets the Confluence icon).
+- Every play ends with the `PlayToolbox` component (frontmatter-driven, rendered automatically): agent recipe with copyable docs-CLI commands, MCP setup chips (Confluence pages, registry in `PlayToolbox.tsx` `MCP_DOCS`), and templates & skills chips. Keep agent copy agent-agnostic — "your agent", never a specific product.
 - **Never hardcode another play's name or coming-soon status in MDX.** Reference plays with `<PlayRef slug="design-smash" />` — it renders the live title (with "(coming soon)" derived from frontmatter) and the hovercard. When a play goes live, every reference updates automatically.
 - MDX blockquotes (`> **Before you start** — ...`) render as Mantine Alert callouts.
 - Coming-soon plays render a placeholder page with contribution guidance; they are navigable everywhere (nav, cards, refs).

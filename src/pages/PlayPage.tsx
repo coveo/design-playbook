@@ -5,7 +5,7 @@ import {Link, useParams} from 'react-router-dom';
 import {Callout} from '../components/Callout';
 import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
-import {ResourceChip} from '../components/ResourceChip';
+import {PlayToolbox} from '../components/PlayToolbox';
 import {asset, playBySlug, sections} from '../plays';
 import type {Play} from '../plays';
 
@@ -137,44 +137,7 @@ export const PlayPage = () => {
                 </MDXProvider>
             </article>
 
-            {(frontmatter.skills?.length || frontmatter.miroTemplate || frontmatter.agent?.recipe) && (
-                <aside className="play-toolbox">
-                    <div className="toolbox-title">Toolbox</div>
-                    {frontmatter.agent?.recipe && (
-                        <div className="toolbox-section">
-                            <div className="kicker">Run it with an agent</div>
-                            <p>{frontmatter.agent.recipe}</p>
-                            {frontmatter.agent.mcp?.length && (
-                                <p className="toolbox-mcp">
-                                    Works with any agent. Needs MCP:{' '}
-                                    {frontmatter.agent.mcp.map((name) => (
-                                        <Badge key={name} variant="light" mr={6}>
-                                            {name}
-                                        </Badge>
-                                    ))}
-                                </p>
-                            )}
-                        </div>
-                    )}
-                    {(frontmatter.skills?.length || frontmatter.miroTemplate) && (
-                        <div className="toolbox-section">
-                            <div className="kicker">Templates &amp; skills</div>
-                            <div className="resource-row">
-                                {frontmatter.miroTemplate && (
-                                    <ResourceChip href={frontmatter.miroTemplate} kind="miro">
-                                        Miro template
-                                    </ResourceChip>
-                                )}
-                                {frontmatter.skills?.map((skill) => (
-                                    <ResourceChip key={skill.url} href={skill.url}>
-                                        {skill.name}
-                                    </ResourceChip>
-                                ))}
-                            </div>
-                        </div>
-                    )}
-                </aside>
-            )}
+            <PlayToolbox frontmatter={frontmatter} />
         </div>
     );
 };
