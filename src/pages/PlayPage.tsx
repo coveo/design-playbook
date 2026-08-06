@@ -105,15 +105,21 @@ export const PlayPage = () => {
                     <p className="summary">{frontmatter.summary}</p>
                     <div className="play-hero-footer">
                         <ConfidenceLevel level={frontmatter.confidence} />
-                        {frontmatter.agent?.skill && (
-                            <Badge
-                                variant="light"
-                                leftSection={<IconSparkles size={12} />}
-                                mt="sm"
-                                style={{display: 'flex', width: 'fit-content'}}
-                            >
-                                Agent skill available
-                            </Badge>
+                        {(frontmatter.duration || frontmatter.participants || frontmatter.agent?.skill) && (
+                            <div className="hero-meta-row">
+                                {frontmatter.duration && (
+                                    <span className="meta-chip">Time: {frontmatter.duration}</span>
+                                )}
+                                {frontmatter.participants && (
+                                    <span className="meta-chip">People: {frontmatter.participants}</span>
+                                )}
+                                {frontmatter.agent?.skill && (
+                                    <span className="meta-chip skill">
+                                        <IconSparkles size={12} />
+                                        Agent skill available
+                                    </span>
+                                )}
+                            </div>
                         )}
                     </div>
                 </div>
@@ -123,23 +129,6 @@ export const PlayPage = () => {
                     </div>
                 )}
             </div>
-
-            {(frontmatter.duration || frontmatter.participants) && (
-                <div className="play-facts">
-                    {frontmatter.duration && (
-                        <div className="fact">
-                            <div className="kicker">Duration</div>
-                            <div>{frontmatter.duration}</div>
-                        </div>
-                    )}
-                    {frontmatter.participants && (
-                        <div className="fact">
-                            <div className="kicker">Participants</div>
-                            <div>{frontmatter.participants}</div>
-                        </div>
-                    )}
-                </div>
-            )}
 
             <article className="prose">
                 <MDXProvider components={mdxComponents}>

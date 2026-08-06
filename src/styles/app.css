@@ -347,19 +347,29 @@
     object-fit: contain;
 }
 
-.play-facts {
+.hero-meta-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 28px;
-    margin-bottom: 36px;
+    gap: 8px;
+    margin-top: 14px;
 }
 
-.play-facts .fact .kicker {
-    margin-bottom: 4px;
+.meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-card);
+    background: var(--mantine-color-gray-1, #f1f3f5);
+    color: var(--pb-text);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
 }
 
-.play-facts .fact div:last-child {
-    font-size: 15px;
+.meta-chip.skill {
+    background: var(--mantine-color-violet-0, #f3f0ff);
+    color: var(--mantine-color-violet-7, #6741d9);
 }
 
 /* ---------- MDX prose ---------- */
