@@ -6,6 +6,7 @@ import {Callout} from '../components/Callout';
 import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
+import {ResourceChip} from '../components/ResourceChip';
 import {asset, playBySlug, sections} from '../plays';
 import type {Play} from '../plays';
 
@@ -67,6 +68,19 @@ const ComingSoon = ({play}: {play: Play}) => {
                         Contribute this play
                     </Button>
                 </Text>
+                {frontmatter.skills?.length && (
+                    <>
+                        <h2>Meanwhile</h2>
+                        <p>An agent skill already covers this ground:</p>
+                        <div className="resource-row">
+                            {frontmatter.skills.map((skill) => (
+                                <ResourceChip key={skill.url} href={skill.url}>
+                                    {skill.name}
+                                </ResourceChip>
+                            ))}
+                        </div>
+                    </>
+                )}
             </article>
         </div>
     );
@@ -105,7 +119,10 @@ export const PlayPage = () => {
                     <p className="summary">{frontmatter.summary}</p>
                     <div className="play-hero-footer">
                         <ConfidenceLevel level={frontmatter.confidence} />
-                        {(frontmatter.duration || frontmatter.participants || frontmatter.agent?.skill) && (
+                        {(frontmatter.duration ||
+                        frontmatter.participants ||
+                        frontmatter.agent?.skill ||
+                        frontmatter.agent?.mcp?.length) && (
                             <div className="hero-meta-row">
                                 {frontmatter.duration && (
                                     <span className="meta-chip">Time: {frontmatter.duration}</span>
@@ -119,6 +136,11 @@ export const PlayPage = () => {
                                         Agent skill available
                                     </span>
                                 )}
+                                {frontmatter.agent?.mcp?.map((name) => (
+                                    <span key={name} className="meta-chip">
+                                        Needs {name} MCP
+                                    </span>
+                                ))}
                             </div>
                         )}
                     </div>
