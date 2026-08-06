@@ -16,11 +16,11 @@
 
     --pb-panel: #efefef; /* cover right-panel gray */
 
-    /* Shell surfaces (sampled from reference) */
-    --pb-sidebar-bg: #f4f1ea;
+    /* Shell surfaces — brand-neutral grays + Plasma violet selection */
+    --pb-sidebar-bg: var(--mantine-color-gray-1, #f1f3f5);
     --pb-content-bg: #fafafa;
-    --pb-nav-selected: #dae1f1;
-    --pb-sidebar-border: #e6e1d7;
+    --pb-nav-selected: var(--mantine-color-violet-0, #f3f0ff);
+    --pb-sidebar-border: var(--mantine-color-gray-3, #dee2e6);
     --pb-text: #1f1f22;
     --pb-text-muted: #66666d;
     --pb-text-faint: #8b8b93;
