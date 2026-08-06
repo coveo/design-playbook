@@ -105,6 +105,7 @@
       "section": "understanding",
       "summary": "Design the ideal user journey or scope what the first version of a feature should be.",
       "comingSoon": true,
+      "cover": "/illustrations/user-story-mapping.svg",
       "order": 8,
       "body": "Coming soon."
     },
@@ -114,6 +115,7 @@
       "section": "designing",
       "summary": "Turn unresolved questions and competing assumptions into testable provocations.",
       "comingSoon": true,
+      "cover": "/illustrations/provocations.svg",
       "order": 10,
       "body": "Coming soon."
     },
@@ -123,6 +125,7 @@
       "section": "designing",
       "summary": "Build a low-fidelity prototype when there is a lot to test, or the idea is far from today's product.",
       "comingSoon": true,
+      "cover": "/illustrations/lofi-prototyping.svg",
       "order": 11,
       "body": "Coming soon."
     },
@@ -132,6 +135,7 @@
       "section": "designing",
       "summary": "Skip straight into the gradient world of high-fidelity prototyping when you are confident the idea will resonate.",
       "comingSoon": true,
+      "cover": "/illustrations/hifi-prototyping.svg",
       "order": 12,
       "body": "Coming soon."
     },

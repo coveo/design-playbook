@@ -1,20 +1,21 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="840" height="560" fill="#f1ece1"/>
-  <circle cx="130" cy="124" r="46" stroke="#29456e" stroke-width="16" fill="none"/>
-  <circle cx="130" cy="216" r="46" stroke="#29456e" stroke-width="16" fill="none"/>
-  <circle cx="310" cy="127" r="38" stroke="#e0684b" stroke-width="16" fill="none"/>
-  <circle cx="310" cy="203" r="38" stroke="#e0684b" stroke-width="16" fill="none"/>
-  <circle cx="480" cy="122" r="50" stroke="#e9b345" stroke-width="16" fill="none"/>
-  <circle cx="480" cy="222" r="50" stroke="#e9b345" stroke-width="16" fill="none"/>
-  <circle cx="650" cy="124" r="42" stroke="#4e86c6" stroke-width="16" fill="none"/>
-  <circle cx="650" cy="208" r="42" stroke="#4e86c6" stroke-width="16" fill="none"/>
-  <circle cx="130" cy="390" r="40" stroke="#74bfae" stroke-width="16" fill="none"/>
-  <circle cx="130" cy="470" r="40" stroke="#74bfae" stroke-width="16" fill="none"/>
-  <circle cx="310" cy="384" r="52" stroke="#4e86c6" stroke-width="16" fill="none"/>
-  <circle cx="310" cy="488" r="52" stroke="#4e86c6" stroke-width="16" fill="none"/>
-  <circle cx="480" cy="394" r="36" stroke="#e0684b" stroke-width="16" fill="none"/>
-  <circle cx="480" cy="466" r="36" stroke="#e0684b" stroke-width="16" fill="none"/>
-  <path d="M596 430 H920" stroke="#29456e" stroke-width="24" stroke-linecap="round" fill="none"/>
-  <circle cx="596" cy="430" r="17" stroke="#29456e" stroke-width="14" fill="none"/>
-  <g fill="#e9b345"><circle cx="756" cy="382" r="9"/><circle cx="784" cy="382" r="9"/><circle cx="812" cy="382" r="9"/></g>
+  <circle cx="130" cy="128" r="42" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="212" r="42" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="300" cy="130" r="36" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="300" cy="202" r="36" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="470" cy="128" r="44" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="470" cy="216" r="44" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="640" cy="128" r="38" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="640" cy="204" r="38" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="390" r="38" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="466" r="38" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="300" cy="390" r="44" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="300" cy="478" r="44" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="470" cy="394" r="34" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="470" cy="462" r="34" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="660" cy="394" r="40" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <circle cx="660" cy="474" r="40" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <circle cx="660" cy="434" r="112" stroke="#e9b345" stroke-width="14" fill="none"/>
+  <g fill="#e0684b"><circle cx="782" cy="310" r="9"/><circle cx="810" cy="332" r="9"/><circle cx="830" cy="360" r="9"/></g>
 </svg>

@@ -1,14 +1,10 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="840" height="560" fill="#f1ece1"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#29456e" stroke-width="106" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="91" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#4e86c6" stroke-width="84" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="68" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#74bfae" stroke-width="61" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="46" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#e9b345" stroke-width="38" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="23" stroke-linecap="round" fill="none"/>
-  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#e0684b" stroke-width="15" stroke-linecap="round" fill="none"/>
+  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#29456e" stroke-width="84" stroke-linecap="round" fill="none"/>
+  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="66" stroke-linecap="round" fill="none"/>
+  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#e0684b" stroke-width="54" stroke-linecap="round" fill="none"/>
+  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#f1ece1" stroke-width="36" stroke-linecap="round" fill="none"/>
+  <path d="M-80 150 H170 Q310 150 310 270 Q310 390 220 390 Q130 390 130 300 Q130 210 240 210 Q420 210 460 320 Q485 388 570 388 H920" stroke="#e9b345" stroke-width="24" stroke-linecap="round" fill="none"/>
   <circle cx="700" cy="170" r="32" fill="#e9b345"/>
   <circle cx="700" cy="170" r="14" fill="#f1ece1"/>
 </svg>

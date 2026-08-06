@@ -32,6 +32,11 @@ const ComingSoon = ({play}: {play: Play}) => {
                         </Badge>
                     </div>
                 </div>
+                {frontmatter.cover && (
+                    <div className="play-hero-panel">
+                        <img src={asset(frontmatter.cover)} alt="" />
+                    </div>
+                )}
             </div>
 
             <article className="prose">
