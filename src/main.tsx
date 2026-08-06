@@ -1,11 +1,21 @@
+import {Plasmantine} from '@coveord/plasma-mantine/plasmantine';
+import {createTheme} from '@mantine/core';
 import {StrictMode} from 'react';
 import {createRoot} from 'react-dom/client';
 import {createHashRouter, RouterProvider} from 'react-router-dom';
 import {App} from './App';
 import {Home} from './pages/Home';
 import {PlayPage} from './pages/PlayPage';
+import '@mantine/core/styles.css';
+import '@fontsource-variable/inter';
 import './styles/theme.css';
 import './styles/app.css';
+
+const theme = createTheme({
+    primaryColor: 'violet',
+    fontFamily:
+        "Gibson, 'Inter Variable', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+});
 
 // Hash routing keeps deep links working on GitHub Pages without a 404 shim.
 const router = createHashRouter([
@@ -21,6 +31,8 @@ const router = createHashRouter([
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
-        <RouterProvider router={router} />
+        <Plasmantine defaultColorScheme="light" theme={theme}>
+            <RouterProvider router={router} />
+        </Plasmantine>
     </StrictMode>,
 );

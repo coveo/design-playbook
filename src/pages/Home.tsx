@@ -1,50 +1,77 @@
 import {Link} from 'react-router-dom';
-import {categories, plays} from '../plays';
+import {ConfidenceMeter} from '../components/ConfidenceMeter';
+import {playsInSection, sections} from '../plays';
+import type {Play} from '../plays';
+
+const PlayCard = ({play}: {play: Play}) => {
+    const {frontmatter} = play;
+    if (frontmatter.comingSoon) {
+        return (
+            <div className="play-card coming-soon">
+                <div className="play-card-top">
+                    <ConfidenceMeter level={frontmatter.confidence} small />
+                    <span className="play-card-title">{frontmatter.title}</span>
+                </div>
+                <span className="eyebrow-soon">Coming soon</span>
+            </div>
+        );
+    }
+    return (
+        <Link to={`/plays/${frontmatter.slug}`} className="play-card">
+            <div className="play-card-top">
+                <ConfidenceMeter level={frontmatter.confidence} small />
+                <span className="play-card-title">{frontmatter.title}</span>
+            </div>
+            <p>{frontmatter.summary}</p>
+        </Link>
+    );
+};
 
 export const Home = () => (
-    <>
-        <section className="hero">
-            <div className="hero-inner">
-                <div className="kicker">Coveo Design</div>
-                <h1>
-                    The <span className="emphasis">Design Playbook</span>
-                </h1>
-                <p>
-                    Plays, workshops, and methods for how we design at Coveo — from framing a
-                    problem to testing a solution, with the agents and tools that back them.
-                </p>
+    <div className="home">
+        <div className="home-intro">
+            <h1>
+                <span className="gradient-heading">Coveo Design Playbook</span>
+            </h1>
+            <p>
+                A guide on product design and research, created to democratise our design and
+                research processes. Its sole purpose is to make sure teams are always focusing
+                on the right problems and the right solutions.
+            </p>
+            <p>
+                It won&rsquo;t give you the perfect solution for every problem — each of these
+                plays can (and probably should) be adapted to your team&rsquo;s needs and
+                context. A good playbook is never finished.
+            </p>
+            <div className="confidence-key">
+                <ConfidenceMeter level={2} />
+                <span>
+                    Each play shows the confidence level it works best at — check it to see if
+                    you are at the right stage.
+                </span>
             </div>
-        </section>
-        <main className="content">
-            {categories.map((category) => {
-                const categoryPlays = plays.filter((p) => p.frontmatter.category === category);
-                return (
-                    <section key={category} className="category-section">
-                        <h2>{category}</h2>
-                        <div className="play-grid">
-                            {categoryPlays.map(({frontmatter}) => (
-                                <Link
-                                    key={frontmatter.slug}
-                                    to={`/plays/${frontmatter.slug}`}
-                                    className="play-card"
-                                >
-                                    <div className="play-card-header">{frontmatter.category}</div>
-                                    <div className="play-card-body">
-                                        <h3>{frontmatter.title}</h3>
-                                        <p>{frontmatter.summary}</p>
-                                        <div className="play-meta">
-                                            {frontmatter.duration && (
-                                                <span>{frontmatter.duration}</span>
-                                            )}
-                                            {frontmatter.format && <span>{frontmatter.format}</span>}
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </section>
-                );
-            })}
-        </main>
-    </>
+        </div>
+
+        {sections.map((section) => {
+            const sectionPlays = playsInSection(section.id);
+            if (sectionPlays.length === 0) {
+                return null;
+            }
+            return (
+                <section key={section.id} className="home-section">
+                    <div className="home-section-heading">
+                        <span className="arrow">&rarr;</span>
+                        <h2>
+                            <span className="gradient-heading">{section.label}</span>
+                        </h2>
+                    </div>
+                    <div className="play-grid">
+                        {sectionPlays.map((play) => (
+                            <PlayCard key={play.frontmatter.slug} play={play} />
+                        ))}
+                    </div>
+                </section>
+            );
+        })}
+    </div>
 );

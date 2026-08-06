@@ -1,92 +1,61 @@
-/* Coveo Design Playbook theme — tokens from research-narrative theme-coveo.md */
+/* Coveo Design Playbook theme — palette sampled from the Figma playbook
+   (file WmXa6mH4tPZQ5hppqqJCgi). Gradient headings, confidence-meter purple,
+   split cover panels. */
 
 :root {
-    /* Primary */
-    --color-dark: #2a005c;
-    --color-primary: #1371ec;
-    --color-primary-dark: #2850d8;
-    --color-accent: #00adff;
-    --color-accent-light: #c2fef5;
+    /* Playbook palette */
+    --pb-purple: #7b30ee; /* play titles, links, accents */
+    --pb-purple-deep: #6910cb; /* gradient end */
+    --pb-magenta: #ac40b4; /* gradient middle */
+    --pb-coral: #f4574d; /* gradient start */
+    --pb-pink: #d24c86;
 
-    /* Neutral */
-    --color-bg-light: #ffffff;
-    --color-surface: #ffffff;
-    --color-border: #dddddf;
-    --color-text: #1f1f22;
-    --color-text-muted: #66666d;
-    --color-text-faint: #8b8b93;
+    --pb-meter-filled: #732dfb;
+    --pb-meter-empty: #d8d8d8;
 
-    /* Semantic */
-    --color-risk-high: #c62828;
-    --color-risk-medium: #e67e22;
-    --color-risk-low: #2e7d32;
+    --pb-panel: #efefef; /* cover right-panel gray */
+    --pb-bg: #ffffff;
+    --pb-text: #1f1f26;
+    --pb-text-muted: #66666d;
+    --pb-text-faint: #8b8b93;
+    --pb-border: #e4e4e7;
 
-    /* Gradients */
-    --gradient-card-header: linear-gradient(90deg, #1371ec 0%, #2850d8 100%);
+    --gradient-heading: linear-gradient(
+        90deg,
+        var(--pb-coral) 0%,
+        var(--pb-pink) 28%,
+        var(--pb-magenta) 52%,
+        var(--pb-purple-deep) 100%
+    );
 
     --font-stack:
-        -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
-
-    --radius-card: 16px;
-    --max-content-width: 1080px;
-}
-
-* {
-    box-sizing: border-box;
+        Gibson, 'Inter Variable', Inter, -apple-system, BlinkMacSystemFont,
+        'Segoe UI', Helvetica, Arial, sans-serif;
 }
 
 body {
-    margin: 0;
     font-family: var(--font-stack);
-    color: var(--color-text);
-    background: var(--color-bg-light);
-    line-height: 1.4;
+    color: var(--pb-text);
+    background: var(--pb-bg);
 }
 
-a {
-    color: var(--color-primary);
-}
-
-h1 {
-    font-size: 52px;
+/* Gradient display heading, as on the playbook Home */
+.gradient-heading {
+    display: inline-block;
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -1px;
-    margin: 0;
-}
-
-h2 {
-    font-size: 38px;
-    font-weight: 700;
-    line-height: 1.12;
-    letter-spacing: -0.8px;
-}
-
-h3 {
-    font-size: 22px;
-    font-weight: 600;
-    line-height: 1.22;
-}
-
-.eyebrow {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
     text-transform: uppercase;
-    color: var(--color-text-muted);
+    letter-spacing: -0.02em;
+    background: var(--gradient-heading);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
 }
 
-/* One anchor phrase per light-surface header */
-.emphasis {
-    color: var(--color-primary);
-}
-
-/* Dark statement surfaces use flat accent, never gradient text */
-.dark-surface {
-    background: var(--color-dark);
-    color: #ffffff;
-}
-
-.dark-surface .emphasis {
-    color: var(--color-accent);
+.kicker {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--pb-text-muted);
 }
