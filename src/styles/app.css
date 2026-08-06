@@ -1,0 +1,229 @@
+/* Layout */
+
+.site-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: var(--color-dark);
+    color: #ffffff;
+}
+
+.site-header img {
+    height: 28px;
+    width: 28px;
+}
+
+.site-header a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.site-header .header-kicker {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-left: auto;
+}
+
+.content {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+    padding: 40px 32px 96px;
+}
+
+/* Home hero */
+
+.hero {
+    background: var(--color-dark);
+    color: #ffffff;
+    padding: 72px 32px;
+}
+
+.hero-inner {
+    max-width: var(--max-content-width);
+    margin: 0 auto;
+}
+
+.hero .kicker {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 16px;
+}
+
+.hero p {
+    font-size: 22px;
+    max-width: 640px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Play cards */
+
+.category-section {
+    margin-top: 48px;
+}
+
+.category-section > h2 {
+    margin-bottom: 8px;
+}
+
+.category-section > p {
+    color: var(--color-text-muted);
+    margin-top: 0;
+}
+
+.play-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+.play-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--color-text);
+    background: var(--color-surface);
+    transition: transform 0.12s ease;
+}
+
+.play-card:hover {
+    transform: translateY(-2px);
+}
+
+.play-card-header {
+    background: var(--gradient-card-header);
+    color: #ffffff;
+    padding: 14px 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.play-card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.play-card-body h3 {
+    margin: 0;
+}
+
+.play-card-body p {
+    margin: 0;
+    color: var(--color-text-muted);
+    font-size: 16px;
+    flex: 1;
+}
+
+.play-meta {
+    display: flex;
+    gap: 16px;
+    font-size: 13px;
+    color: var(--color-text-faint);
+}
+
+/* Play page */
+
+.play-page-header {
+    background: var(--color-dark);
+    color: #ffffff;
+    padding: 56px 32px;
+}
+
+.play-page-header .hero-inner p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 22px;
+    max-width: 640px;
+}
+
+.play-page-header .kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+}
+
+.play-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+}
+
+.play-facts .fact .eyebrow {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.play-facts .fact div:last-child {
+    font-size: 18px;
+    margin-top: 4px;
+}
+
+/* MDX prose */
+
+.prose {
+    font-size: 18px;
+    max-width: 720px;
+}
+
+.prose h2 {
+    font-size: 28px;
+    margin-top: 48px;
+}
+
+.prose h3 {
+    margin-top: 32px;
+}
+
+.prose li {
+    margin-bottom: 8px;
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--color-primary);
+    margin-left: 0;
+    padding-left: 20px;
+    color: var(--color-text-muted);
+}
+
+.prose table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.prose th {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 2px solid var(--color-border);
+    padding: 8px 12px;
+}
+
+.prose td {
+    font-size: 16px;
+    border-bottom: 1px solid var(--color-border);
+    padding: 8px 12px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 24px;
+    text-decoration: none;
+    font-size: 16px;
+}
