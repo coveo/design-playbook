@@ -77,9 +77,6 @@ export const App = () => {
                     </div>
                 </AppShell.Section>
                 <AppShell.Section grow component={ScrollArea}>
-                    <NavRow to="/" active={location.pathname === '/'}>
-                        Home
-                    </NavRow>
                     {sections.map((section) => {
                         const sectionPlays = playsInSection(section.id);
                         if (sectionPlays.length === 0) {
