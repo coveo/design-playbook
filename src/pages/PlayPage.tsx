@@ -157,6 +157,32 @@ export const PlayPage = () => {
                     </ul>
                 </div>
             )}
+
+            {frontmatter.agent?.recipe && (
+                <div className="prose">
+                    <h2>Run it with an agent</h2>
+                    <p>{frontmatter.agent.recipe}</p>
+                    {(frontmatter.agent.mcp?.length || frontmatter.agent.skill) && (
+                        <p className="agent-meta">
+                            {frontmatter.agent.mcp?.length && (
+                                <>
+                                    Needs MCP:{' '}
+                                    {frontmatter.agent.mcp.map((name) => (
+                                        <Badge key={name} variant="light" mr={6}>
+                                            {name}
+                                        </Badge>
+                                    ))}
+                                </>
+                            )}
+                            {frontmatter.agent.skill && (
+                                <>
+                                    Skill: <code>{frontmatter.agent.skill}</code>
+                                </>
+                            )}
+                        </p>
+                    )}
+                </div>
+            )}
         </div>
     );
 };

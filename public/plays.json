@@ -1,0 +1,151 @@
+{
+  "plays": [
+    {
+      "title": "Shaping Workshop",
+      "slug": "shaping-workshop",
+      "section": "understanding",
+      "summary": "Design, product and engineering define the constraints and shape of the problem we're solving.",
+      "confidence": 1,
+      "cover": "/covers/shaping-workshop.png",
+      "agent": {
+        "mcp": [
+          "Miro"
+        ],
+        "recipe": "Point an agent at this play (paste the URL or open the repo) with the Miro MCP connected and ask it to prepare a shaping workshop: it can scaffold a board with the opportunity brief, breakout areas per group, and a pitch template (problem, concept, questions, pivot switches) from the steps on this page."
+      },
+      "order": 1,
+      "body": "## When?\n\n**It kicks off every larger feature or problem.** Most roadmap initiatives that involve design begin with a shaping workshop. It helps us all understand the problem space, define the constraints, and begin to explore how we might solve it. One of the key outcomes is a path forward for research, and explicit constraints of what's in scope and out of scope.\n\n## Why?\n\n**Shaping the problem and defining a path forward.** It gives the whole team time to sit down and explore the problem and why it is a problem, discuss technical and design solutions, and define a clear path forward for kicking off the project. Smaller BAU design changes don't need one.\n\nShaping is different from normal specifications: we don't start with all the stuff we want to do and then estimate how long it will take. We start by setting how much time we want to budget, then reframe the problem, and mainly decide what we're *not* going to do.\n\n**Involve engineers early.** Engineering having a seat at the table helps us stage the approach to building a new capability, and surfaces technical approaches that enable possibilities — or introduce constraints — we may not otherwise have thought of.\n\n## Step by step\n\n### 1. Introduce the opportunity\n\nThe product manager runs the team through what we know so far. Why this? Why now? They share supporting evidence — current customer behaviours, pain points, requests — the desired outcome, how big a bet we want to make, and what's in and out of scope.\n\n### 2. Break out into groups\n\nIdeally two or more groups, each made up of engineers plus a designer or product manager for customer context. Separate groups give us different ideas and perspectives on how to approach the problem.\n\n### 3. Write a pitch\n\nDiscuss what we think the problem we're *really* solving is, then explore concepts for how to address it. Capture questions and assumptions along the way (and what problems we're not solving). Explore the technical implications, how we might build it, how long it might take, and how we'll detect the outcome we're looking for — what behaviours and metrics will tell us it works. Add *pivot switches*: signals that indicate we're on the wrong path. This is also a good moment to sequence the work into smaller releases.\n\n### 4. Share with the group\n\nEach team takes it in turns to share their pitch, and we all ask questions and pull the ideas apart. Sometimes all the ideas overlap a lot; sometimes everyone's gone wild.\n\n## What next?\n\n**Discuss and align.** After all pitches are presented, discuss which approach feels best to move forward with. Then take the precise, clear opportunity into a <PlayRef slug=\"design-smash\" /> session to ideate on our best bets to tackle it."
+    },
+    {
+      "title": "Design Smash",
+      "slug": "design-smash",
+      "section": "understanding",
+      "summary": "A 1–2 hour session to come up with many ideas for how to tackle a problem or opportunity, and decide next steps.",
+      "confidence": 2,
+      "duration": "1–2 hours",
+      "cover": "/covers/design-smash.png",
+      "agent": {
+        "mcp": [
+          "Miro",
+          "Figma"
+        ],
+        "skill": "run-design-smash",
+        "recipe": "Open this repo in Claude Code with the Miro MCP connected and say \"set up a Design Smash for <your problem>\". The run-design-smash skill interviews you about the opportunity, participants and format, then scaffolds the gallery wall, voting dots and session agenda on a Miro board for you."
+      },
+      "order": 2,
+      "body": "## When?\n\n**After a Shaping Workshop… probably.** We need a precise and clear opportunity from a <PlayRef slug=\"shaping-workshop\" />. We use a Design Smash to explore as many ideas as possible from as many people as possible — we need to get past the \"obvious\" ideas to find better ones. That means LOTS of ideas, including bad, silly and naive ones.\n\nIt works for the right *size* of opportunity — around 1–3 screens or 1–3 steps for the user. Too big and you'll end up with a broad, shallow set of ideas; too small and a Design Smash is overkill.\n\n## Why?\n\n**Write drunk; edit sober.**\n\n- **We generate ideas separately and share ideas collaboratively.** Bad ideas are good — one bad idea can inspire someone else's brilliant idea. We're smashing ideas together, in a sort of imaginary CERN supercollider.\n- **Quantity over quality.** It can feel uncomfortable to turn off the embarrassment filter, but it's a proven way to get to breakthrough ideas.\n- **Diverse minds get diverse ideas.** Engineers, product managers, data scientists and designers all join in.\n- **Making over talking.** We make concrete things rather than talk about abstract ideas, then choose the clearest and most promising to take forward — building shared understanding along the way.\n\n## What do you need?\n\n**The team needs:** a facilitator with a plan for the recipe you're going to use, and a Figma gallery ready to go with a \"wall\" and dots for voting later.\n\n**Each participant needs:** a stack of blank paper, a chunky pen that photographs well, a camera to upload sketches, the Figma gallery open in their browser, and a readiness to scrape the barrel and share lots of ideas — the good, bad and ugly.\n\n## Step by step\n\n### 1. Overview of the problem (15 min)\n\nQuick overview of the problem/opportunity plus the high-level ideas from the shaping workshop. Agree on a short summary and add it to the top of the Figma gallery. This is critical — we have to know the boundaries of the idea space we're exploring.\n\n### 1b. Warm up (10 min)\n\nA blank page is daunting. Break the ice with a fun warm-up: squiggle birds, 30 circles, telephone Pictionary, emoji self-portrait. It isn't part of the final outcome, so be as silly as you can.\n\n### 2. Idea generation (remix these to suit)\n\n- **Prime the pump** — gather inspiration from competitors and adjacent areas. What catches your eye? What's awful — could we do the opposite?\n- **Crazy 8s** — fold a sheet into 8 sections, set a timer for 8 minutes, get 8 different ideas out. Scrappy is good; the interesting ideas are often at the bottom of the barrel.\n- **Mini-gallery** — each person shares 3–4 ideas from their Crazy 8s (a broad range, not the \"best\"). Riff on each other's ideas, then do another round.\n- **Take a break** — your subconscious needs time while your conscious brain is otherwise engaged. Walk away for 20 minutes; another wave of ideas will come.\n\n### 3. Sketching (20–30 min)\n\nRefer back to the context, then sketch your best idea in detail as a three-frame comic strip. Give it a catchy title. The sketch must be self-explanatory — no pitch allowed, but include as much copy as possible. Copy matters.\n\n### 4. Coffee break and art gallery (10–20 min)\n\nStroll among the ideas. Dot the details and sketches you find interesting; post questions on post-its. It's not important whose idea \"wins\" — the idea that comes out is the team's idea.\n\n### 5. Interpretation and feedback (~20 min)\n\nThe facilitator walks the gallery, describing what each sketch is trying to achieve — 60 seconds each, user hat on. No debate yet. Optionally the sketcher gets 15 seconds to clarify at the end.\n\n### 6. Final vote\n\nRead out the opportunity. Everyone places 3 dots on the sketches that best address it. The PM makes the final decision: either **3–4 provocations** (very different directions to explore) or **1 coherent solution** built from 1–3 ideas to storyboard and prototype.\n\n## Common mistakes\n\n1. **Not going deep, broad and bad** — one idea is a trap, two is a dilemma, three opens the door to four, five and six.\n2. **Final sketch not self-explanatory** — DO NOT PITCH IT. Seriously. UI is made of words, boxes and arrows; we need to see UI in the gallery.\n3. **Goal and steps not clear** — the facilitator needs to be clear about where we're going, why, and how many rounds.\n4. **Not finishing / rushing** — without a satisfying dot-vote decision at the end, everyone leaves feeling a bit… meh.\n\n## What next?\n\n**Divergent ideas, no clear winner?** You have unresolved questions or competing assumptions — a designer turns the biggest ones into <PlayRef slug=\"provocations\" />.\n\n**Similar ideas from everyone?** The winning sketches become the seed for a <PlayRef slug=\"storyboarding\" /> session, which becomes a low-fidelity prototype."
+    },
+    {
+      "title": "Storyboarding",
+      "slug": "storyboarding",
+      "section": "understanding",
+      "summary": "A one hour collaborative session to turn any sketch into a prototype.",
+      "confidence": 2,
+      "duration": "1 hour",
+      "cover": "/covers/storyboarding.png",
+      "order": 3,
+      "body": "## When?\n\n**After a Design Smash or provocations research.** The goal of the session is to align on what the user journey should look like and what we need to show in each step of the prototype.\n\n## Step by step\n\n### 1. Collate sketches/provocations\n\nBring the top-voted sketch from <PlayRef slug=\"design-smash\" /> or all provocation concepts that were tested into a new file for the group. Agree on the direction or what's needed for this idea to be put in front of users. *Tip: it's usually just a few extra screens added before and after for it to work.*\n\n### 2. Decide on the primary goal of the prototype\n\nTalk about what you want to learn most by validating this idea. What is the primary goal? Are there secondary goals — are you testing multiple approaches, does the prototype have multiple user flows?\n\n### 3. Write down the names of each step\n\nGrab 6–7 post-its and treat them as the names of the screens. Your most-voted idea may go somewhere in the middle, but you may also want to deconstruct or expand it. *Tip: feeling stuck? Start with the first and last steps of the user journey.*\n\n### 4. Flesh out what's going into the prototype\n\nStarting with the first step, list everything you might want to show, then do this for all screens. Once you've listed all ideas, talk through them and decide which ones go into the prototype and which aren't important enough.\n\n## What next?\n\n**Prototyping.** Happy with the result? Time to turn the storyboard into an interactive prototype. Too many things to test, or too different from what users experience now? Start with <PlayRef slug=\"lofi-prototyping\" />. Confident enough that some of this will work? Skip straight into the gradient world of <PlayRef slug=\"hifi-prototyping\" />."
+    },
+    {
+      "title": "Design Dash",
+      "slug": "design-dash",
+      "section": "understanding",
+      "summary": "A workshop to understand and align on a problem and create a storyboard for the solution.",
+      "duration": "2 sessions",
+      "cover": "/covers/design-dash.png",
+      "miroTemplate": "https://miro.com/app/board/o9J_lcdoGtI=/",
+      "agent": {
+        "mcp": [
+          "Miro"
+        ],
+        "recipe": "With the Miro MCP connected, ask an agent to clone the Design Dash template and prepare it for your session: context area filled from your problem statement, crazy-8s and 4-step-sketch spaces per participant, and voting dots for session 2."
+      },
+      "order": 4,
+      "body": "## When?\n\n**Anytime!** If the problem isn't clear, the team doesn't have shared knowledge, or there are too many \"solutions\".\n\n## Why?\n\n**Understanding the problem and collaborating on our best bet at solving it.** Design dashes (and sprints) are the fastest way to find out if a product is worth developing, if a feature is worth the effort, or if your value proposition is really valid. The outcome is a high-fidelity interactive prototype, tested by real users, with clear insights on where to go next — not a wireframe or paper prototype; it looks and feels like a real product.\n\n**But… it's a sprint?** The original *Design Sprint* is a 4–5 day workshop. We adjusted it to fit our context:\n\n| Design Sprint | Design Dash |\n| --- | --- |\n| Day 1 — interviews, problem definition, sketching | Session 1 — context & ideation |\n| Day 2 — voting, storyboarding | Session 2 — voting & storyboarding |\n| Day 3 & 4 — prototyping, research rounds | Done outside the dash, in the same order |\n\n## Step by step\n\n### Session 1 — Getting the context\n\nAlign on the problem: share existing client feedback, the output of a user story mapping session, technical debt, or demo how competitors approach similar issues. The key is a shared understanding before ideation. Defining the goal or sprint questions pre-meeting also works well.\n\n### Session 1 — Ideation\n\nTake notes, do crazy 8s, and ultimately create a **4-step sketch**. Rounds can be amended or repeated, as in <PlayRef slug=\"design-smash\" />. The 4-step sketch should:\n\n- ✅ have a cool codename\n- ✅ show multiple pages/states\n- ✅ carry as much detail and copy as possible\n- ❌ include no explanation on the pages\n\n### Session 2 — Voting\n\nUpload the sketches to a Figma/Miro board, gallery-style. Everyone browses individually and votes on any small detail or concept they like. Then everyone votes on their favourite idea, while the master voter (usually the PM) casts two votes — together or split to combine ideas. It's not important whose idea \"wins\".\n\n### Session 2 — Storyboarding\n\nThe winning idea moves to a separate space, and the process follows a <PlayRef slug=\"storyboarding\" /> session: agree on the primary goal of the prototype and establish the steps around the sketch.\n\n## What next?\n\n**Prototyping.** Do you have agreement that what's going to be tested is our strongest bet? Turn the storyboard into an interactive prototype — <PlayRef slug=\"lofi-prototyping\" /> if there's a lot to test or it's far from today's product, <PlayRef slug=\"hifi-prototyping\" /> if you're confident it will resonate."
+    },
+    {
+      "title": "User Journey Mapping",
+      "slug": "user-journey-mapping",
+      "section": "understanding",
+      "summary": "A session to understand the user flow through the product, or a part of the product, in detail.",
+      "confidence": 2,
+      "cover": "/covers/user-journey-mapping.png",
+      "agent": {
+        "mcp": [
+          "Miro"
+        ],
+        "recipe": "Ask an agent with the Miro MCP to scaffold a journey-mapping board from this play: swimlanes for the chosen journey's phases, a row per user involved, plus the emotions and opportunities lanes, ready for the session."
+      },
+      "order": 5,
+      "body": "> **Before you start** — Looking to design the *ideal* user journey, or scope what the first version of a feature should be instead? See <PlayRef slug=\"user-story-mapping\" /> instead.\n\n## When?\n\n**Early, when needed.** This session gives the team shared knowledge around an existing user journey, so it applies to many situations: when a team is newly formed, when the team is exploring a new space, or when there are lots of UX unknowns.\n\n## Step by step\n\n### 1. Choose a journey\n\nThe journey can vary from high-level to a particular one (e.g. *creating a campaign* vs *user views a health issue*).\n\n### 2. Define the users involved\n\nStart with the users involved in the process. If there are multiple, understand what overlaps and what doesn't to decide between separate journeys or a unified one — e.g. merchandiser, client developer, customer support.\n\n### 3. Journey phases\n\nEvery journey has phases, whether high-level or specific — *Notification → Investigation → Resolution*. It's up to the facilitator and team to find the granularity that works.\n\n### 4. Start sketching\n\nWrite down the steps, starting with the first phase. Make things granular enough to establish a story of what actions are happening.\n\n### 5. Add emotions!\n\nHighlight the ups and downs of the journey. It helps everyone understand at what stage the user is delighted or frustrated.\n\n### 6. Opportunities\n\nThink of these as questions we need to ask ourselves based on the evidence so far: \"How can we build trust when everything's running smoothly?\" or \"What level of detail is *enough* for key stakeholders?\"\n\n![Example journey map: user views a health issue](covers/ujm-example.png)\n\n## What next?\n\n**Explore the opportunities.** Evaluating your opportunities helps you understand what could be prioritised next. Once you're confident about the best problem to tackle, do more of the understanding-the-problem plays."
+    },
+    {
+      "title": "P.O.I.N.T. Analysis",
+      "slug": "point-analysis",
+      "section": "understanding",
+      "summary": "A user-centric framework to facilitate the analysis and synthesis of any kind of documentation.",
+      "cover": "/covers/point-analysis.png",
+      "order": 6,
+      "body": "## When?\n\n**1st step of a project.** When you're starting a project, it's always worth taking the time to gather all the internal information and documentation related to the problem you're designing for. The last thing you want is to repeat efforts.\n\n*Start at: Coveo@Coveo, PowerPoints, Confluence pages, RCA reports, Tableau dashboards, Salesforce, Gainsight, SupportLogic, Slack threads…*\n\n## Why?\n\n**State what is known and identify the gaps.** Every department generates knowledge in its day-to-day work, but rarely does anyone gather cross-department knowledge to solve common problems with a holistic view. The outcome of a P.O.I.N.T. analysis is to (1) state what is known and work from that, and (2) identify the knowledge gaps and generate working hypotheses.\n\n## Step by step\n\n### 1. Gather data\n\nPut on your investigator hat and gather all the documentation you can find about the problem. Don't forget to look outside your department — you might be surprised by what you find (service stats, win/loss workbooks, support RCAs, UX research, voice-of-customer feedback, competitive research…).\n\n### 2. Unpack data\n\nGo through the documentation one piece at a time and unpack what are:\n\n- **P** — Problems (business, user, product, service)\n- **O** — Opportunities for improvement\n- **I** — Insights\n- **N** — Needs (user)\n- **T** — Trends (competitive, statistics, etc.)\n\nPrint everything and run a collaborative cut–glue–post-it workshop, or analyse digitally and paste into a spreadsheet. Laid out like this, the data is easier to digest.\n\n### 3. Data overview\n\nSynthesise your data and identify the main problems, opportunities, insights and needs that are well documented and known. When complete, the gaps will come to you easily — and you'll know where to go next.\n\n## What next?\n\n**Explore the opportunities.** Evaluating your opportunities helps you understand what could be prioritised next. Once you're confident about the best problem to tackle, continue with the other understanding-the-problem plays — a <PlayRef slug=\"shaping-workshop\" /> or a <PlayRef slug=\"design-dash\" />."
+    },
+    {
+      "title": "Testing your Solutions",
+      "slug": "testing-your-solutions",
+      "section": "beyond",
+      "summary": "Sessions with our users to make sure we deliver a useful and functional product.",
+      "confidence": 2,
+      "cover": "/covers/testing-your-solutions.png",
+      "skills": [
+        {
+          "name": "Research synthesis",
+          "url": "https://github.com/coveo/ai-tools/tree/main/skills"
+        },
+        {
+          "name": "Research narrative",
+          "url": "https://github.com/coveo/ai-tools/tree/main/skills"
+        }
+      ],
+      "agent": {
+        "recipe": "After your sessions, point Claude at your notes and run the research synthesis skill to get evidence-backed findings with confidence labels, then the research narrative skill to turn them into a shareable story (steps 6 and 7 of this play)."
+      },
+      "order": 7,
+      "body": "## When?\n\n**Anytime!** You can test your solutions at any stage. There are some differences between testing provocations and a fully functioning prototype, but the key steps and guidelines are the same.\n\n## Why?\n\n**To make sure we build the right thing, in the right way.** While we may be experts in our product, we are not our users. We don't know their wants and needs, and we can't predict how they'll respond to new ideas. We test with users to make sure we build things that are functional, understandable and usable.\n\n## Step by step\n\n### 1. Identify your research questions\n\nBefore you do anything: what are you trying to find out? Keep a record of all your research questions — broad or specific depending on your confidence level. They'll shape your discussion guide so you get the answers you need without wasting time.\n\n### 2. Check your assumptions\n\nBe aware of your assumptions and biases; we all have them. Do you favour one idea, or believe users already know how to do something? Write them all down so you can mitigate them in your research design.\n\n### 3. Create a discussion guide\n\nOne of the most important steps to keep research fair, unbiased and consistent. Set the scene, write a script and tasks from your research questions, and think about how participants will navigate the prototype. Remind them we're not testing *them*, and have them speak their thoughts aloud as they complete the tasks.\n\n### 4. In the session: watch what they do, not what they say\n\nIt's common for participants to say things that contradict their actions. Ignore general comments like \"it feels intuitive\" and look at what they're really doing. Ask for examples to clarify.\n\n### 5. Don't fill the silence\n\nSilence is awkward — people naturally fill it with words. Staying quiet (or just saying \"mmhmm\") gives users time to get past the obvious comments and give you richer insights.\n\n### 6. Gather all your insights in one place\n\nIt's easier to find patterns when you can see everything. Gather your notes into a spreadsheet, Miro board or post-its. Group observations, compare them, find themes — and check back against your research questions.\n\n### 7. Share your insights\n\nSummarise everything in one shareable document: a research summary addressing your research questions, in-depth findings, and — most importantly — evidence in the form of customer quotes. Now tell your story.\n\n## What next?\n\nFeed what you learned back into the playbook loop: refine the prototype, revisit your <PlayRef slug=\"storyboarding\" />, or go back to understanding the problem if the questions got bigger. Use the **research synthesis** and **research narrative** agent skills below to speed up steps 6 and 7."
+    },
+    {
+      "title": "User Story Mapping",
+      "slug": "user-story-mapping",
+      "section": "understanding",
+      "summary": "Design the ideal user journey or scope what the first version of a feature should be.",
+      "comingSoon": true,
+      "order": 8,
+      "body": "Coming soon."
+    },
+    {
+      "title": "Provocations",
+      "slug": "provocations",
+      "section": "designing",
+      "summary": "Turn unresolved questions and competing assumptions into testable provocations.",
+      "comingSoon": true,
+      "order": 10,
+      "body": "Coming soon."
+    },
+    {
+      "title": "Lo-Fi Prototyping",
+      "slug": "lofi-prototyping",
+      "section": "designing",
+      "summary": "Build a low-fidelity prototype when there is a lot to test, or the idea is far from today's product.",
+      "comingSoon": true,
+      "order": 11,
+      "body": "Coming soon."
+    },
+    {
+      "title": "Hi-Fi Prototyping",
+      "slug": "hifi-prototyping",
+      "section": "designing",
+      "summary": "Skip straight into the gradient world of high-fidelity prototyping when you are confident the idea will resonate.",
+      "comingSoon": true,
+      "order": 12,
+      "body": "Coming soon."
+    }
+  ]
+}

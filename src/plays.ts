@@ -27,6 +27,15 @@ export interface PlayFrontmatter {
     cover?: string;
     miroTemplate?: string;
     skills?: Array<{name: string; url: string}>;
+    /** How to run this play with an agent */
+    agent?: {
+        /** MCP servers the agent needs connected (e.g. Miro, Figma) */
+        mcp?: string[];
+        /** One-paragraph instruction for pointing an agent at this play */
+        recipe?: string;
+        /** Name of a skill in this repo's .claude/skills/ that runs the play */
+        skill?: string;
+    };
     order?: number;
 }
 
