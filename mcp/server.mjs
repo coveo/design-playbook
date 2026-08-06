@@ -14,6 +14,7 @@ import {readFile} from 'node:fs/promises';
 import {promisify} from 'node:util';
 import {McpServer} from '@modelcontextprotocol/sdk/server/mcp.js';
 import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
+import {dump as dumpYaml} from 'js-yaml';
 import {z} from 'zod';
 
 const REPO = process.env.PLAYBOOK_REPO ?? 'coveo-incubator/design-playbook';
@@ -195,6 +196,186 @@ server.registerTool(
                 'Testing your Solutions applies whenever there is something to put in front of users. ' +
                 'Match the situation against each candidate\'s summary and confidence below, and check its When? section via get_play before committing.',
             candidates: plays.filter((p) => !p.comingSoon).map(summarize),
+        });
+    },
+);
+
+async function loadRepoFile(path, version) {
+    // Dev mode first, unless a version is pinned.
+    if (!version) {
+        try {
+            return await readFile(new URL(`../${path}`, import.meta.url), 'utf8');
+        } catch {
+            // fall through
+        }
+    }
+    const ref = version ?? DEFAULT_REF;
+    const res = await githubApi(`/repos/${REPO}/contents/${path}?ref=${encodeURIComponent(ref)}`);
+    return res.text();
+}
+
+server.registerTool(
+    'run_play',
+    {
+        title: 'Run a play',
+        description:
+            'Get everything needed to FACILITATE a play with the user, not just read it: the play content plus its facilitation guide (interview questions, how to scaffold the session in Miro/Figma when those MCP servers are connected). Call this when the user wants to actually run, set up, or prepare a workshop or session. Follow the returned instructions.',
+        inputSchema: {
+            slug: z.string().describe('Play slug, e.g. design-smash'),
+            version: versionParam,
+        },
+    },
+    async ({slug, version}) => {
+        const {plays, source} = await loadPlays(version);
+        const play = plays.find((p) => p.slug === slug);
+        if (!play) {
+            return text({error: `No play with slug "${slug}"`, available: plays.map((p) => p.slug)});
+        }
+        let facilitationGuide = null;
+        const skillName = play.agent?.skill ?? `run-${slug}`;
+        try {
+            facilitationGuide = await loadRepoFile(`skills/${skillName}/SKILL.md`, version);
+        } catch {
+            // No dedicated skill for this play yet — fall back to generic guidance.
+        }
+        return text({
+            source,
+            play,
+            facilitationGuide:
+                facilitationGuide ??
+                'No dedicated facilitation skill exists for this play yet. Facilitate from the play ' +
+                    'content itself: (1) interview the user for whatever the "When?" and "What do you ' +
+                    'need?" sections require and confirm this is the right play for their confidence ' +
+                    'level; (2) if a Miro or Figma MCP is connected, offer to scaffold the session ' +
+                    'space following the "Step by step" section (use the miroTemplate link if present); ' +
+                    '(3) share the setup back with a short facilitator brief including the "Common ' +
+                    'mistakes" section if the play has one.',
+            note: 'Follow facilitationGuide now. It may direct you to use Miro/Figma MCP tools — use the ones you have; if missing, tell the user which MCP server to connect.',
+        });
+    },
+);
+
+const FRONTMATTER_KEYS = [
+    'title',
+    'slug',
+    'section',
+    'summary',
+    'confidence',
+    'comingSoon',
+    'duration',
+    'participants',
+    'cover',
+    'miroTemplate',
+    'skills',
+    'agent',
+    'order',
+];
+
+server.registerTool(
+    'propose_play',
+    {
+        title: 'Propose a play (opens a PR)',
+        description:
+            'Create or update a play and open a pull request — the write path for the playbook. Use when the user wants to add a new play/section or edit an existing one. Interview the user first (title, one-line summary, which stage it belongs to, the content itself following the play grammar: When? / Why? / What do you need? / Step by step / Common mistakes / What next?). Nothing lands without PR review, so propose confidently. Cross-reference other plays with <PlayRef slug="..." /> in the body.',
+        inputSchema: {
+            slug: z.string().regex(/^[a-z0-9-]+$/).describe('kebab-case slug; reuse an existing slug to update that play'),
+            title: z.string().describe('Display name, e.g. "Vibe Coding"'),
+            section: z.enum(['understanding', 'designing', 'beyond']).describe('Which stage the play belongs to'),
+            summary: z.string().describe('One sentence shown on the card and play hero'),
+            body: z.string().describe('The MDX body following the play grammar (## When? / ## Why? / ## Step by step / ## What next?)'),
+            confidence: z.number().int().min(1).max(5).optional().describe('1–5 on the confidence meter; omit for "anytime" plays'),
+            comingSoon: z.boolean().optional(),
+            duration: z.string().optional(),
+            miroTemplate: z.string().optional(),
+            prDescription: z.string().optional().describe('Context for reviewers: who proposed this and why'),
+        },
+    },
+    async ({slug, title, section, summary, body, confidence, comingSoon, duration, miroTemplate, prDescription}) => {
+        const token = await githubToken();
+        if (!token) {
+            return text({error: 'No GitHub credentials. Run `gh auth login` (and authorize the coveo-incubator org) or set GITHUB_TOKEN.'});
+        }
+
+        const api = async (path, method = 'GET', payload) => {
+            const res = await fetch(`https://api.github.com${path}`, {
+                method,
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept: 'application/vnd.github+json',
+                    'X-GitHub-Api-Version': '2022-11-28',
+                },
+                body: payload ? JSON.stringify(payload) : undefined,
+            });
+            if (!res.ok) {
+                throw new Error(`GitHub API ${res.status} ${method} ${path}: ${await res.text()}`);
+            }
+            return res.json();
+        };
+
+        // Compose the MDX file
+        const {plays} = await loadPlays();
+        const existing = plays.find((p) => p.slug === slug);
+        const frontmatter = {
+            ...Object.fromEntries(
+                Object.entries(existing ?? {}).filter(([k]) => FRONTMATTER_KEYS.includes(k)),
+            ),
+            title,
+            slug,
+            section,
+            summary,
+            ...(confidence !== undefined && {confidence}),
+            ...(comingSoon !== undefined && {comingSoon}),
+            ...(duration !== undefined && {duration}),
+            ...(miroTemplate !== undefined && {miroTemplate}),
+        };
+        if (comingSoon === false) {
+            delete frontmatter.comingSoon;
+        }
+        if (existing && !('order' in frontmatter)) {
+            frontmatter.order = existing.order;
+        }
+        const mdx = `---\n${dumpYaml(frontmatter).trim()}\n---\n\n${body.trim()}\n`;
+
+        // Keep plays.json in sync in the same PR (CI enforces it)
+        const updatedPlays = [...plays.filter((p) => p.slug !== slug), {...frontmatter, body: body.trim()}].sort(
+            (a, b) => (a.order ?? 99) - (b.order ?? 99),
+        );
+        const playsJson = `${JSON.stringify({plays: updatedPlays}, null, 2)}\n`;
+
+        // Branch from main, commit both files, open the PR
+        const branch = `playbook-mcp/${slug}-${Date.now().toString(36)}`;
+        const base = await api(`/repos/${REPO}/git/ref/heads/${DEFAULT_REF}`);
+        await api(`/repos/${REPO}/git/refs`, 'POST', {ref: `refs/heads/${branch}`, sha: base.object.sha});
+
+        const putFile = async (path, content) => {
+            let sha;
+            try {
+                const current = await api(`/repos/${REPO}/contents/${path}?ref=${branch}`);
+                sha = current.sha;
+            } catch {
+                // new file
+            }
+            await api(`/repos/${REPO}/contents/${path}`, 'PUT', {
+                message: `${existing ? 'Update' : 'Add'} play: ${title}`,
+                content: Buffer.from(content).toString('base64'),
+                branch,
+                ...(sha && {sha}),
+            });
+        };
+        await putFile(`plays/${slug}.mdx`, mdx);
+        await putFile('public/plays.json', playsJson);
+
+        const pr = await api(`/repos/${REPO}/pulls`, 'POST', {
+            title: `${existing ? 'Update' : 'Add'} play: ${title}`,
+            head: branch,
+            base: DEFAULT_REF,
+            body: `${prDescription ?? 'Proposed via the playbook MCP server.'}\n\n---\nContent PR — needs a rendering check, not a code review (see CONTRIBUTING.md).`,
+        });
+        return text({
+            pullRequest: pr.html_url,
+            branch,
+            action: existing ? 'updated' : 'created',
+            next: 'Share the PR link with the user. The play goes live when the PR is reviewed and merged.',
         });
     },
 );

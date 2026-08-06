@@ -1,6 +1,8 @@
 # Design Playbook MCP server
 
-Exposes the playbook to any MCP client as live, versioned tools. No content ships with the server: **the repo is the database, git refs are the versions, the GitHub API is the read path.**
+Exposes the playbook to any MCP client as live, versioned tools — read, facilitate, and contribute, without ever opening the app or cloning the repo. No content ships with the server: **the repo is the database, git refs are the versions, the GitHub API is the read/write path.**
+
+The intended experience: a PM tells their agent "I want to run a Design Smash" → the agent calls `run_play` → the playbook MCP returns the play plus its facilitation skill → the agent interviews the PM and scaffolds the Miro board using its connected Miro MCP. A designer says "I want to add a play about vibe coding" → `propose_play` opens the PR. One MCP connection, same shape as the Atlassian MCP.
 
 ## Tools
 
@@ -9,6 +11,8 @@ Exposes the playbook to any MCP client as live, versioned tools. No content ship
 | `list_plays` | All plays with section, confidence, summary; filter by stage |
 | `get_play` | One play in full — frontmatter + complete markdown body |
 | `recommend_play` | Given a team situation, returns the playbook's selection guidance + candidates |
+| `run_play` | Everything needed to *facilitate* a play: content + the facilitation guide (served from `skills/` at the requested ref). The guide directs the agent to interview the user and scaffold the session via whatever Miro/Figma MCP it has connected |
+| `propose_play` | The write path: create or update a play and open a PR (keeps `plays.json` in sync in the same branch). Nothing lands without review |
 | `list_versions` | Published playbook versions (git tags) |
 
 Every read tool takes an optional `version` (tag / branch / SHA). Omitted → `main`, i.e. the freshest merged content, always. Reads are ETag-cached, so repeat calls are cheap without going stale.
