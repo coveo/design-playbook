@@ -1,6 +1,14 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="840" height="560" fill="#f1ece1"/>
   <g transform="translate(60 -50) scale(0.95)">
+  <path d="M 188 230 V 600" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 198 230 V 600" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 208 230 V 600" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 218 230 V 600" stroke="#e9b345" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 228 230 V 600" stroke="#e0684b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 238 230 V 600" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 248 230 V 600" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M 258 230 V 600" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 189.0 227 A 10.0 10.0 0 1 0 179 237.0 H 430 A 115.0 115.0 0 0 1 430 467.0 H -160" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 189.0 227 V 237" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 198.5 227 A 19.5 19.5 0 1 0 179 246.5 H 430 A 105.5 105.5 0 0 1 430 457.5 H -160" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -17,22 +25,6 @@
   <path d="M 246.3 227 V 237" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 255.8 227 A 76.8 76.8 0 1 0 179 303.8 H 430 A 48.2 48.2 0 0 1 430 400.2 H -160" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 255.8 227 V 237" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 188 343 V 361" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 188 468 V 479" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 198 343 V 361" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 198 468 V 479" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 208 343 V 361" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 208 468 V 479" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 218 343 V 361" stroke="#e9b345" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 218 468 V 479" stroke="#e9b345" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 228 343 V 361" stroke="#e0684b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 228 468 V 479" stroke="#e0684b" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 238 343 V 361" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 238 468 V 479" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 248 343 V 361" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 248 468 V 479" stroke="#4e86c6" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 258 343 V 361" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M 258 468 V 479" stroke="#74bfae" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 179 585.0 H 1000" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 179 585.0 A 10.0 10.0 0 1 0 189.0 595" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
   <path d="M 189.0 595 V 585" stroke="#29456e" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
