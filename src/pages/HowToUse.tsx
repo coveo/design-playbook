@@ -95,6 +95,10 @@ const McpTab = () => (
         </p>
 
         <h2>Connect</h2>
+        <p>
+            Once the server is published, connecting will be one line — exactly like the Plasma
+            MCP. Until then, it runs from a clone:
+        </p>
         <Copyable label="1. Get the repo" command={`git clone ${REPO_SSH}`} />
         <Copyable label="2. Install the server" command="cd design-playbook/mcp && pnpm install" />
         <Copyable
