@@ -152,7 +152,7 @@
     line-height: 1.08;
     letter-spacing: -0.5px;
     margin: 0 0 20px;
-    font-weight: 700;
+    font-weight: var(--coveo-fw-bold, 500);
 }
 
 .home-hero h1 .accent {
@@ -232,7 +232,7 @@
 
 .play-card-title {
     font-size: 17px;
-    font-weight: 600;
+    font-weight: var(--coveo-fw-bold, 500);
     color: var(--pb-blue);
 }
 
@@ -249,7 +249,7 @@
 
 .play-card.coming-soon .eyebrow-soon {
     font-size: 11px;
-    font-weight: 600;
+    font-weight: var(--coveo-fw-bold, 500);
     letter-spacing: 1px;
     text-transform: uppercase;
     color: var(--pb-text-faint);
@@ -372,7 +372,7 @@
 
 .prose h2 {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: var(--coveo-fw-bold, 500);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin: 44px 0 12px;
@@ -381,7 +381,7 @@
 
 .prose h3 {
     font-size: 20px;
-    font-weight: 600;
+    font-weight: var(--coveo-fw-bold, 500);
     margin: 28px 0 8px;
 }
 
@@ -442,7 +442,7 @@
 }
 
 .play-preview .title {
-    font-weight: 600;
+    font-weight: var(--coveo-fw-bold, 500);
     font-size: 14px;
     color: var(--pb-text);
     margin-bottom: 4px;
@@ -534,7 +534,7 @@
 
 .play-toolbox .toolbox-title {
     font-size: 14px;
-    font-weight: 700;
+    font-weight: var(--coveo-fw-bold, 500);
     letter-spacing: 1.5px;
     text-transform: uppercase;
     background: var(--gradient-heading);
