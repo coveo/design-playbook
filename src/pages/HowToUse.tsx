@@ -200,7 +200,7 @@ const SkillsTab = () => (
 export const HowToUse = () => (
     <div className="page howto">
         <h1>
-            <span className="gradient-heading">How to use the playbook</span>
+            <span className="gradient-heading">How to Use the Playbook</span>
         </h1>
         <p className="lead">
             The playbook is a collection of plays — workshops, sessions and frameworks — organised
@@ -208,7 +208,7 @@ export const HowToUse = () => (
         </p>
         <Tabs defaultValue="general" keepMounted={false}>
             <Tabs.List>
-                <Tabs.Tab value="general">General usage</Tabs.Tab>
+                <Tabs.Tab value="general">General Usage</Tabs.Tab>
                 <Tabs.Tab value="mcp">MCP</Tabs.Tab>
                 <Tabs.Tab value="skills">Skills</Tabs.Tab>
             </Tabs.List>

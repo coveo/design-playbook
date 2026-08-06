@@ -8,11 +8,11 @@ export interface Section {
 }
 
 export const sections: Section[] = [
-    {id: 'understanding', label: 'Understanding the problem'},
-    {id: 'designing', label: 'Designing a solution'},
-    {id: 'beyond', label: 'Beyond the solution'},
+    {id: 'understanding', label: 'Understanding the Problem'},
+    {id: 'designing', label: 'Designing a Solution'},
+    {id: 'beyond', label: 'Beyond the Solution'},
     // Cross-cutting skills invoked by stage plays — not a stage themselves
-    {id: 'craft', label: 'Research craft'},
+    {id: 'craft', label: 'Research Craft'},
 ];
 
 export interface PlayFrontmatter {

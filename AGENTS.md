@@ -17,6 +17,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 
 ## Visual language (do not invent new colors)
 
+- **Case convention**: Title Case for play titles, section labels, and navigation ("Presenting Your Findings", "Research Craft", "How to Use"); sentence case for body copy, chips, and inline labels.
 - Font: `Gibson` via the admin-ui Typekit kit (`canada-type-gibson`), falling back to bundled `Inter Variable`.
 - **Never bold. Never a weight Plasma doesn't have.** Plasma's maximum is `--coveo-fw-bold` = 500; 600/700 are banned everywhere (they render as heavy or synthesized Gibson). `theme.css` clamps `--mantine-font-weight-bold` to 500 and covers `b/strong/th` — do not undo this, and never write a literal `font-weight` above 500.
 - White background; **gradient display headings** (`.gradient-heading`) use the Coveo brand blue-green gradient from the research-narrative theme: `#1371ec` → `#00adff` → `#1cebcf`, uppercase, background-clip. Reserved for section/display headings only — everything else stays quiet.

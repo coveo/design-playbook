@@ -115,7 +115,7 @@ export const App = () => {
                         active={location.pathname === '/how-to-use'}
                         right={<IconHelpCircle size={15} className="nav-help-icon" />}
                     >
-                        How to use
+                        How to Use
                     </NavRow>
                 </AppShell.Section>
             </AppShell.Navbar>
