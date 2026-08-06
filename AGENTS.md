@@ -13,7 +13,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Vite + React + TypeScript + MDX, pnpm, Node 22.
 - **Plasma design system**: `@coveord/plasma-mantine` (Mantine 9 under the hood). The app is wrapped in `Plasmantine` with `createTheme({primaryColor: 'violet'})` — violet resolves to Plasma's grape. Use Plasma/Mantine components for structure (AppShell, NavLink, Breadcrumbs, Group…) before writing custom UI. The `plasma` and `mantine` MCP servers in `.mcp.json` serve component docs.
 - Hash routing (`createHashRouter`) — required for GitHub Pages deep links. Do not switch to browser routing without adding a 404 shim.
-- `BASE_PATH` env var controls the Vite base (GitHub Pages uses `/design-playbook/`). Keep builds base-path-agnostic: resolve public/ assets via the `asset()` helper in `src/plays.ts` in components, and use *relative* paths (`covers/x.png`, no leading slash) for images inside MDX.
+- `BASE_PATH` env var controls the Vite base (GitHub Pages uses `/design-playbook/`). Keep builds base-path-agnostic: resolve public/ assets via the `asset()` helper in `src/plays.ts` in components, and use *relative* paths (`covers/ujm-example.png`, no leading slash) for images inside MDX.
 
 ## Visual language (do not invent new colors)
 
@@ -26,6 +26,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Icons: Tabler via `@coveord/plasma-react-icons` (it re-exports `@tabler/icons-react`). Never install other icon sets.
 - Play cross-links in MDX render as hovercard previews (image + summary) via `PlayAnchor`.
 - External links render as `ResourceChip` pills. **Icon = destination**, derived from the URL: `atlassian.net/wiki` → Confluence, `github.com` → invertocat, `miro.com` → Miro, `figma.com` → Figma, else external-link. Brand SVGs live in `src/assets/`. Confluence wins over product brands (a page about Miro hosted on Confluence gets the Confluence icon).
+- Hero meta chips (Time, People, Agent skill, "MCP support:" with brand SVG icons) are frontmatter-driven — never hardcode them.
 - Every play ends with the `PlayToolbox` component (frontmatter-driven, rendered automatically): agent recipe with copyable docs-CLI commands, MCP setup chips (Confluence pages, registry in `PlayToolbox.tsx` `MCP_DOCS`), and templates & skills chips. Keep agent copy agent-agnostic — "your agent", never a specific product.
 - **Never hardcode another play's name or coming-soon status in MDX.** Reference plays with `<PlayRef slug="design-smash" />` — it renders the live title (with "(coming soon)" derived from frontmatter) and the hovercard. When a play goes live, every reference updates automatically.
 - MDX blockquotes (`> **Before you start** — ...`) render as Mantine Alert callouts.
@@ -49,10 +50,10 @@ slug: design-smash             # URL segment, kebab-case, unique
 section: understanding         # understanding | designing | beyond | craft
 summary: One sentence shown on the card and play hero.
 confidence: 2                  # 1–5 bars on the meter; OMIT for "anytime" plays
-comingSoon: true               # optional: renders a faded, non-clickable card
+comingSoon: true               # optional: renders a placeholder page with contribution guidance
 duration: 1–2 hours            # optional
 participants: 3–8              # optional
-cover: /covers/design-smash.png# optional, under public/
+cover: /illustrations/design-smash.svg # optional; hero art, see illustration language
 miroTemplate: https://miro...  # optional
 skills:                        # optional links to agent skills (coveo/ai-tools)
   - name: Research synthesis
