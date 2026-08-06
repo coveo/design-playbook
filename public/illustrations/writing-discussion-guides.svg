@@ -4,6 +4,6 @@
   <path d="M110 205 H720" stroke="#4e86c6" stroke-width="22" stroke-linecap="round" fill="none"/>
   <path d="M110 300 H560" stroke="#74bfae" stroke-width="22" stroke-linecap="round" fill="none"/>
   <path d="M110 395 H500" stroke="#e9b345" stroke-width="22" stroke-linecap="round" fill="none"/>
-  <path d="M560 470 A78 78 0 1 1 638 396" stroke="#e0684b" stroke-width="22" stroke-linecap="round" fill="none"/>
-  <circle cx="560" cy="512" r="13" fill="#e0684b"/>
+  <path d="M544 372 A56 56 0 1 1 600 428 V462" stroke="#e0684b" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <circle cx="600" cy="508" r="14" fill="#e0684b"/>
 </svg>
