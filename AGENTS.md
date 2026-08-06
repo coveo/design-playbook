@@ -17,7 +17,8 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 
 ## Visual language (do not invent new colors)
 
-- Font: `Gibson` (installed on Coveo laptops) falling back to bundled `Inter Variable`.
+- Font: `Gibson` via the admin-ui Typekit kit (`canada-type-gibson`), falling back to bundled `Inter Variable`.
+- **Never bold. Never a weight Plasma doesn't have.** Plasma's maximum is `--coveo-fw-bold` = 500; 600/700 are banned everywhere (they render as heavy or synthesized Gibson). `theme.css` clamps `--mantine-font-weight-bold` to 500 and covers `b/strong/th` — do not undo this, and never write a literal `font-weight` above 500.
 - White background; **gradient display headings** (`.gradient-heading`) use the Coveo brand blue-green gradient from the research-narrative theme: `#1371ec` → `#00adff` → `#1cebcf`, uppercase, background-clip. Reserved for section/display headings only — everything else stays quiet.
 - Prose kickers (`## When?` etc.) and links: solid brand blue `#1371ec`. Cover right-panels: gray `#efefef`.
 - **Confidence meter** (the site's signature element): 5 vertical bars, filled `#732dfb`, empty `#d8d8d8` (`ConfidenceMeter`; `ConfidenceLevel` adds the label + info tooltip). Every play declares the confidence level it works best at; all-empty means "anytime". Keep it visible on cards, nav, and play heroes. `/how-to-use` explains it.

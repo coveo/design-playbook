@@ -49,8 +49,16 @@ body {
     color: var(--pb-text);
 }
 
+/* Plasma typography has no true bold — 500 is the maximum weight anywhere.
+   Clamping Mantine's bold variable kills 700 in every Mantine component
+   (Badge, Tabs, etc.); the element rule catches raw HTML. */
+:root {
+    --mantine-font-weight-bold: var(--coveo-fw-bold, 500);
+}
+
 b,
-strong {
+strong,
+th {
     font-weight: var(--coveo-fw-bold, 500);
 }
 
