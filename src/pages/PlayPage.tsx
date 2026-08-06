@@ -9,6 +9,10 @@ import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
 import {asset, playBySlug, sections} from '../plays';
 import type {Play} from '../plays';
+import figmaLogo from '../assets/figma.svg';
+import miroLogo from '../assets/miro.svg';
+
+const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo};
 
 const REPO_URL = 'https://github.com/coveo-incubator/design-playbook';
 
@@ -141,11 +145,24 @@ export const PlayPage = () => {
                                         Agent skill available
                                     </span>
                                 )}
-                                {frontmatter.agent?.mcp?.map((name) => (
-                                    <span key={name} className="meta-chip">
-                                        Works with {name} MCP
+                                {frontmatter.agent?.mcp?.length && (
+                                    <span className="meta-chip">
+                                        MCP support:
+                                        {frontmatter.agent.mcp.map((name) =>
+                                            MCP_ICONS[name] ? (
+                                                <img
+                                                    key={name}
+                                                    src={MCP_ICONS[name]}
+                                                    alt={name}
+                                                    title={`${name} MCP`}
+                                                    height={14}
+                                                />
+                                            ) : (
+                                                <span key={name}>{name}</span>
+                                            ),
+                                        )}
                                     </span>
-                                ))}
+                                )}
                             </div>
                         )}
                     </div>
