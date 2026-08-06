@@ -33,8 +33,8 @@ const GeneralTab = () => (
             </div>
         </div>
 
-        <h2>The three stages</h2>
-        <p>Plays are grouped into the stages of a design effort:</p>
+        <h2>Stages and craft</h2>
+        <p>Plays are grouped by the stage of a design effort, plus one cross-cutting shelf:</p>
         <ul>
             <li>
                 <strong>Understanding the problem</strong> — align on what we are solving and why,
@@ -42,16 +42,16 @@ const GeneralTab = () => (
             </li>
             <li>
                 <strong>Designing a solution</strong> — turn the chosen direction into something
-                testable.
+                testable, and test it.
             </li>
             <li>
-                <strong>Beyond the solution</strong> — test with users and feed what you learn back
-                into the loop.
+                <strong>Research craft</strong> — the stage-independent skills every research round
+                uses: planning, discussion guides, running calls, synthesis, readouts.
             </li>
         </ul>
         <p>
             Stages are a compass, not a pipeline — plays tell you in their <em>What next?</em>{' '}
-            section where to go from there.
+            section where to go from there, and stage plays lean on the craft plays for the how.
         </p>
 
         <h2>Reading a play</h2>
