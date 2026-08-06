@@ -1,5 +1,5 @@
 import {Tooltip} from '@mantine/core';
-import {InfoToken} from '@coveord/plasma-mantine/components/InfoToken/InfoToken.js';
+import {InfoToken} from '@coveord/plasma-mantine/components/InfoToken';
 
 interface ConfidenceMeterProps {
     /** 1–5 bars filled from the left; undefined renders all bars empty ("anytime") */

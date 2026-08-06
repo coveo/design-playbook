@@ -73,10 +73,6 @@ export const PlayAnchor = ({href = '', children, ...rest}: AnchorHTMLAttributes<
     }
 
     // External links render as Slack-style chips so leaving the playbook is
-    // visually signalled.
-    return (
-        <ResourceChip href={href} kind={/miro\.com/.test(href) ? 'miro' : 'external'}>
-            {children}
-        </ResourceChip>
-    );
+    // visually signalled; the icon is derived from the destination.
+    return <ResourceChip href={href}>{children}</ResourceChip>;
 };

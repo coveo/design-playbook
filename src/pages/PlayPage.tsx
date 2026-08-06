@@ -50,8 +50,8 @@ const ComingSoon = ({play}: {play: Play}) => {
                         Step by step / What next?
                     </li>
                     <li>
-                        Or open the repo with Claude Code and ask it to run the{' '}
-                        <code>add-play</code> skill — it scaffolds everything for you.
+                        Or open the repo with your agent and ask for the <code>add-play</code> skill — it
+                        scaffolds everything for you.
                     </li>
                     <li>Open a PR; a rendering check is all a content PR needs.</li>
                 </ul>
@@ -137,48 +137,43 @@ export const PlayPage = () => {
                 </MDXProvider>
             </article>
 
-            {(frontmatter.skills?.length || frontmatter.miroTemplate) && (
-                <div className="prose">
-                    <h2>Tools for this play</h2>
-                    <div className="resource-row">
-                        {frontmatter.miroTemplate && (
-                            <ResourceChip href={frontmatter.miroTemplate} kind="miro">
-                                Miro template
-                            </ResourceChip>
-                        )}
-                        {frontmatter.skills?.map((skill) => (
-                            <ResourceChip key={skill.url} href={skill.url} kind="skill">
-                                {skill.name}
-                            </ResourceChip>
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {frontmatter.agent?.recipe && (
-                <div className="prose">
-                    <h2>Run it with an agent</h2>
-                    <p>{frontmatter.agent.recipe}</p>
-                    {(frontmatter.agent.mcp?.length || frontmatter.agent.skill) && (
-                        <p className="agent-meta">
+            {(frontmatter.skills?.length || frontmatter.miroTemplate || frontmatter.agent?.recipe) && (
+                <aside className="play-toolbox">
+                    <div className="toolbox-title">Toolbox</div>
+                    {frontmatter.agent?.recipe && (
+                        <div className="toolbox-section">
+                            <div className="kicker">Run it with an agent</div>
+                            <p>{frontmatter.agent.recipe}</p>
                             {frontmatter.agent.mcp?.length && (
-                                <>
-                                    Needs MCP:{' '}
+                                <p className="toolbox-mcp">
+                                    Works with any agent. Needs MCP:{' '}
                                     {frontmatter.agent.mcp.map((name) => (
                                         <Badge key={name} variant="light" mr={6}>
                                             {name}
                                         </Badge>
                                     ))}
-                                </>
+                                </p>
                             )}
-                            {frontmatter.agent.skill && (
-                                <>
-                                    Skill: <code>{frontmatter.agent.skill}</code>
-                                </>
-                            )}
-                        </p>
+                        </div>
                     )}
-                </div>
+                    {(frontmatter.skills?.length || frontmatter.miroTemplate) && (
+                        <div className="toolbox-section">
+                            <div className="kicker">Templates &amp; skills</div>
+                            <div className="resource-row">
+                                {frontmatter.miroTemplate && (
+                                    <ResourceChip href={frontmatter.miroTemplate} kind="miro">
+                                        Miro template
+                                    </ResourceChip>
+                                )}
+                                {frontmatter.skills?.map((skill) => (
+                                    <ResourceChip key={skill.url} href={skill.url}>
+                                        {skill.name}
+                                    </ResourceChip>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </aside>
             )}
         </div>
     );
