@@ -138,7 +138,7 @@ export const PlayPage = () => {
                                 )}
                                 {frontmatter.agent?.mcp?.map((name) => (
                                     <span key={name} className="meta-chip">
-                                        Needs {name} MCP
+                                        Works with {name} MCP
                                     </span>
                                 ))}
                             </div>
