@@ -1,15 +1,20 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect width="840" height="560" fill="#f1ece1"/>
-  <path d="M90 620 V300 A160 160 0 0 1 410 300 V620" stroke="#29456e" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M122 620 V300 A128 128 0 0 1 378 300 V620" stroke="#4e86c6" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M154 620 V300 A96 96 0 0 1 346 300 V620" stroke="#74bfae" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M186 620 V300 A64 64 0 0 1 314 300 V620" stroke="#e9b345" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M218 620 V300 A32 32 0 0 1 282 300 V620" stroke="#e0684b" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M448 620 V400 A112 112 0 0 1 672 400 V620" stroke="#e0684b" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M480 620 V400 A80 80 0 0 1 640 400 V620" stroke="#e9b345" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M512 620 V400 A48 48 0 0 1 608 400 V620" stroke="#4e86c6" stroke-width="20" stroke-linecap="round" fill="none"/>
-  <path d="M740 620 V220 Q740 140 820 140 H920" stroke="#29456e" stroke-width="22" stroke-linecap="round" fill="none"/>
-  <g fill="#e0684b"><circle cx="756" cy="92" r="9"/><circle cx="784" cy="92" r="9"/><circle cx="812" cy="92" r="9"/></g>
-  <circle cx="160" cy="160" r="30" fill="#e0684b"/>
-  <circle cx="160" cy="160" r="14" fill="#f1ece1"/>
+  <circle cx="130" cy="124" r="46" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="216" r="46" stroke="#29456e" stroke-width="16" fill="none"/>
+  <circle cx="310" cy="127" r="38" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <circle cx="310" cy="203" r="38" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <circle cx="480" cy="122" r="50" stroke="#e9b345" stroke-width="16" fill="none"/>
+  <circle cx="480" cy="222" r="50" stroke="#e9b345" stroke-width="16" fill="none"/>
+  <circle cx="650" cy="124" r="42" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="650" cy="208" r="42" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="390" r="40" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="130" cy="470" r="40" stroke="#74bfae" stroke-width="16" fill="none"/>
+  <circle cx="310" cy="384" r="52" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="310" cy="488" r="52" stroke="#4e86c6" stroke-width="16" fill="none"/>
+  <circle cx="480" cy="394" r="36" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <circle cx="480" cy="466" r="36" stroke="#e0684b" stroke-width="16" fill="none"/>
+  <path d="M596 430 H920" stroke="#29456e" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <circle cx="596" cy="430" r="17" stroke="#29456e" stroke-width="14" fill="none"/>
+  <g fill="#e9b345"><circle cx="756" cy="382" r="9"/><circle cx="784" cy="382" r="9"/><circle cx="812" cy="382" r="9"/></g>
 </svg>
