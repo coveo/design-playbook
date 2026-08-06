@@ -1,6 +1,22 @@
 # Coveo Design Playbook
 
-Interactive playbook of design plays — workshops, methods, and studies — for how we design at Coveo. Content lives as MDX files in `plays/`; the site deploys to GitHub Pages on merge to `main`.
+The interactive playbook for how we design at Coveo — plays (workshops, sessions, frameworks) for understanding problems, designing solutions, and testing them with users. Migrated from the original [Figma playbook](https://www.figma.com/design/WmXa6mH4tPZQ5hppqqJCgi/Design-Playbook) into a site that agents can read, run, and extend.
+
+## What's inside
+
+- **Plays as content** — every play is one MDX file in `plays/` with a frontmatter contract (section, confidence level, Miro template, agent recipe…). Files are auto-discovered; there is no registry to edit.
+- **The confidence meter** — the playbook's signature concept. Every play declares the confidence level it works best at (1–5 bars, empty = anytime); it shows on cards, navigation, and play pages, and `/how-to-use` explains it.
+- **Plasma design system** — built with `@coveord/plasma-mantine` (Gibson typography, Tabler icons) plus the Coveo brand layer: blue-green gradient display headings and the dark-violet statement hero.
+- **Live cross-references** — plays reference each other with `<PlayRef slug="…" />`, which renders the current title, coming-soon status, and a Wikipedia-style hovercard from frontmatter. Update a play once and every reference follows.
+- **Coming-soon plays** are first-class: placeholder pages with contribution guidance, referenced like any other play, and they flip to live everywhere the moment `comingSoon: true` is removed.
+
+## Agent-operable by design
+
+- **`plays.json`** — the build emits the whole playbook as structured data (`public/plays.json`). Agents can fetch it from the deployed site; it's also the data source for a future playbook MCP server.
+- **Per-play agent recipes** — plays declare an `agent` block (needed MCP servers, a recipe, an optional skill). The play page renders it as "Run it with an agent".
+- **Workshop skills** — `skills/` contains skills that *run* plays, not just edit them: `run-design-smash` interviews you and scaffolds the full Miro board (gallery wall, voting dots, agenda) from the play's steps via the Miro MCP. `add-play` scaffolds new plays. (`.claude/skills` symlinks here so Claude Code auto-discovers them.)
+- **`.mcp.json`** registers the `plasma` and `mantine` MCP servers so agents working on the site get component docs.
+- **`AGENTS.md`** is the full contract: conventions, frontmatter schema, visual language, and the agent-operability rules.
 
 ## Run locally
 
@@ -9,10 +25,16 @@ pnpm install
 pnpm dev        # http://127.0.0.1:5173
 ```
 
-## Add a play
+## Add or improve a play
 
-Create `plays/<slug>.mdx` with frontmatter (see [AGENTS.md](./AGENTS.md) for the contract), or ask Claude Code to run the `add-play` skill. Plays are auto-discovered — no registry to edit.
+Create `plays/<slug>.mdx` following the contract in [AGENTS.md](./AGENTS.md) — or open the repo in Claude Code and ask for the `add-play` skill. Play bodies follow the playbook grammar: *When? / Why? / What do you need? / Step by step / Common mistakes / What next?*
+
+Content-only PRs need a rendering check (`pnpm dev`), `pnpm type-check`, and `pnpm build` — that's it.
 
 ## Deploy
 
-Merging to `main` builds and publishes to GitHub Pages via `.github/workflows/deploy.yml`. The Vite base path is driven by the `BASE_PATH` env var so the build can later target a CloudFront prefix for per-PR preview links (see `coveo-incubator/admin-ui-prototypes` for the pattern).
+Merging to `main` builds and publishes to GitHub Pages (`.github/workflows/deploy.yml`), including `plays.json`. The Vite base path is driven by `BASE_PATH`, so the build can later target CloudFront per-PR preview links (see `coveo-incubator/admin-ui-prototypes` for the pattern).
+
+## Source material
+
+The original Figma file remains the design reference; a full text scan of all 81 slides lives in `docs/figma-content-scan.md` for anyone migrating or refining content.

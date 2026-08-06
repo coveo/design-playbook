@@ -33,7 +33,7 @@ export interface PlayFrontmatter {
         mcp?: string[];
         /** One-paragraph instruction for pointing an agent at this play */
         recipe?: string;
-        /** Name of a skill in this repo's .claude/skills/ that runs the play */
+        /** Name of a skill in this repo's skills/ directory that runs the play */
         skill?: string;
     };
     order?: number;
