@@ -24,6 +24,9 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Border radii come from Mantine tokens only (`--radius-card` = radius-md, `--radius-panel` = radius-lg) — no hardcoded radii.
 - Icons: Tabler via `@coveord/plasma-react-icons` (it re-exports `@tabler/icons-react`). Never install other icon sets.
 - Play cross-links in MDX render as hovercard previews (image + summary) via `PlayAnchor`.
+- **Never hardcode another play's name or coming-soon status in MDX.** Reference plays with `<PlayRef slug="design-smash" />` — it renders the live title (with "(coming soon)" derived from frontmatter) and the hovercard. When a play goes live, every reference updates automatically.
+- MDX blockquotes (`> **Before you start** — ...`) render as Mantine Alert callouts.
+- Coming-soon plays render a placeholder page with contribution guidance; they are navigable everywhere (nav, cards, refs).
 - Tokens live in `src/styles/theme.css`; layout styles in `src/styles/app.css`.
 
 ## Structure
@@ -46,7 +49,6 @@ confidence: 2                  # 1–5 bars on the meter; OMIT for "anytime" pla
 comingSoon: true               # optional: renders a faded, non-clickable card
 duration: 1–2 hours            # optional
 participants: 3–8              # optional
-format: Workshop               # optional: Workshop | Study | Framework | Async
 cover: /covers/design-smash.png# optional, under public/
 miroTemplate: https://miro...  # optional
 skills:                        # optional links to agent skills (coveo/ai-tools)
@@ -66,7 +68,7 @@ MDX body grammar (mirrors the Figma slides — keep this order, skip sections th
 ## What next?
 ```
 
-Cross-link plays with hash URLs: `[Design Smash](/#/plays/design-smash)`.
+Cross-link plays with `<PlayRef slug="design-smash" />` (preferred — inherits live title/status) or hash URLs `[custom label](/#/plays/design-smash)` when you need custom link text.
 
 ## Adding a play
 

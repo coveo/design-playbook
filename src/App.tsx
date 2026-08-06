@@ -67,7 +67,6 @@ export const App = () => {
                                         component={Link}
                                         to={`/plays/${frontmatter.slug}`}
                                         active={location.pathname === `/plays/${frontmatter.slug}`}
-                                        disabled={frontmatter.comingSoon}
                                         label={
                                             frontmatter.comingSoon
                                                 ? `${frontmatter.title} (soon)`

@@ -10,7 +10,7 @@ description: Scaffold a new play (workshop, method, or study) in the Design Play
 1. **Title** and one-sentence **summary**.
 2. **Section** — `understanding` (Understanding the problem), `designing` (Designing a solution), or `beyond` (Beyond the solution).
 3. **Confidence level** — 1–5 on the playbook's confidence meter, or "anytime" (omit the field). Ask the user where this play sits.
-4. Optional: duration, participants, format (Workshop | Study | Framework | Async), Miro template URL, related agent skills from https://github.com/coveo/ai-tools/tree/main/skills.
+4. Optional: duration, participants, Miro template URL, related agent skills from https://github.com/coveo/ai-tools/tree/main/skills.
 5. **Source material** — if the play exists in the Figma Design Playbook file (key `WmXa6mH4tPZQ5hppqqJCgi`), check `docs/figma-content-scan.md` first (full text of all slides), and pull screenshots with the Figma MCP `get_screenshot` for cover images. Preserve the original wording where it's good; tighten where it's not.
 
 ## Write
@@ -26,7 +26,8 @@ Create `plays/<kebab-case-slug>.mdx` following the frontmatter contract in AGENT
 ## What next?
 ```
 
-- Cross-link other plays as `[Title](/#/plays/<slug>)`.
+- Cross-link other plays with `<PlayRef slug="<slug>" />` — never hardcode play titles or "(coming soon)" text; it derives from frontmatter.
+- Use blockquotes for "Before you start" callouts (they render as Alert components).
 - Reference images with relative paths (`covers/<slug>.png`) and put files in `public/covers/`.
 - No registry edit is needed — files under `plays/` are auto-discovered.
 

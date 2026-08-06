@@ -23,7 +23,6 @@ export interface PlayFrontmatter {
     comingSoon?: boolean;
     duration?: string;
     participants?: string;
-    format?: string;
     /** Path under public/, e.g. /covers/design-smash.png */
     cover?: string;
     miroTemplate?: string;

@@ -12,10 +12,12 @@ import '@fontsource-variable/inter';
 import './styles/theme.css';
 import './styles/app.css';
 
+// Plasma's own stack is 'canada-type-gibson' (Typekit); we extend it with the
+// locally-installed Gibson and bundled Inter so the same stack reaches every
+// Mantine component (tooltips, navlinks) and our CSS via --mantine-font-family.
 const theme = createTheme({
     primaryColor: 'violet',
-    fontFamily:
-        "Gibson, 'Inter Variable', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif",
+    fontFamily: "canada-type-gibson, Gibson, 'Inter Variable', Inter, sans-serif",
 });
 
 // Hash routing keeps deep links working on GitHub Pages without a 404 shim.

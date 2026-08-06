@@ -7,13 +7,13 @@ const PlayCard = ({play}: {play: Play}) => {
     const {frontmatter} = play;
     if (frontmatter.comingSoon) {
         return (
-            <div className="play-card coming-soon">
+            <Link to={`/plays/${frontmatter.slug}`} className="play-card coming-soon">
                 <div className="play-card-top">
                     <ConfidenceMeter level={frontmatter.confidence} small />
                     <span className="play-card-title">{frontmatter.title}</span>
                 </div>
                 <span className="eyebrow-soon">Coming soon</span>
-            </div>
+            </Link>
         );
     }
     return (
