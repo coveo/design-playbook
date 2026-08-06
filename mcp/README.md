@@ -17,12 +17,30 @@ The intended experience: a PM tells their agent "I want to run a Design Smash" �
 
 Every read tool takes an optional `version` (tag / branch / SHA). Omitted → `main`, i.e. the freshest merged content, always. Reads are ETag-cached, so repeat calls are cheap without going stale.
 
-## Try it locally (from a repo clone)
+## Install
+
+**Today (from a repo clone):**
 
 ```sh
-cd mcp && pnpm install
-claude mcp add design-playbook -- node /path/to/design-playbook/mcp/server.mjs
+git clone git@github.com:coveo-incubator/design-playbook.git
+cd design-playbook/mcp && pnpm install
+claude mcp add design-playbook -- node "$(pwd)/server.mjs"
 ```
+
+Or in any project's `.mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "design-playbook": {
+      "command": "node",
+      "args": ["/path/to/design-playbook/mcp/server.mjs"]
+    }
+  }
+}
+```
+
+**Planned (no clone needed):** once `mcp/` is extracted to its own repo, install becomes `npx -y github:coveo-incubator/design-playbook-mcp` — same auth (git SSO), zero setup. Content always reads from *this* repo either way, so the server package rarely changes.
 
 In dev mode (running from a clone, no `version` pinned) it reads `../public/plays.json` directly; with a `version`, or when running outside a clone, it reads through the GitHub API.
 

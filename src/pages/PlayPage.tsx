@@ -5,6 +5,7 @@ import {Link, useParams} from 'react-router-dom';
 import {Callout} from '../components/Callout';
 import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
+import {ResourceChip} from '../components/ResourceChip';
 import {asset, playBySlug, sections} from '../plays';
 import type {Play} from '../plays';
 
@@ -139,22 +140,18 @@ export const PlayPage = () => {
             {(frontmatter.skills?.length || frontmatter.miroTemplate) && (
                 <div className="prose">
                     <h2>Tools for this play</h2>
-                    <ul>
+                    <div className="resource-row">
                         {frontmatter.miroTemplate && (
-                            <li>
-                                <a href={frontmatter.miroTemplate} target="_blank" rel="noreferrer">
-                                    Miro template
-                                </a>
-                            </li>
+                            <ResourceChip href={frontmatter.miroTemplate} kind="miro">
+                                Miro template
+                            </ResourceChip>
                         )}
                         {frontmatter.skills?.map((skill) => (
-                            <li key={skill.url}>
-                                <a href={skill.url} target="_blank" rel="noreferrer">
-                                    {skill.name} (agent skill)
-                                </a>
-                            </li>
+                            <ResourceChip key={skill.url} href={skill.url} kind="skill">
+                                {skill.name}
+                            </ResourceChip>
                         ))}
-                    </ul>
+                    </div>
                 </div>
             )}
 

@@ -390,3 +390,36 @@
     gap: 14px;
     font-size: 14.5px;
 }
+
+/* ---------- Resource chips (Slack-style external links) ---------- */
+
+.resource-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-card);
+    background: var(--mantine-color-blue-0, #e7f1fd);
+    color: var(--pb-blue);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1.4;
+    vertical-align: baseline;
+    transition: background 0.12s ease;
+}
+
+.resource-chip:hover {
+    background: var(--mantine-color-blue-1, #d3e5fb);
+}
+
+.resource-chip svg {
+    flex-shrink: 0;
+}
+
+.resource-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}

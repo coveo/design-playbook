@@ -29,6 +29,21 @@ Requires Node 22+ and pnpm. If cloning fails with a 403, authorize the `coveo-in
 - **Code PRs**: `pnpm type-check` and `pnpm build` must pass; describe what changed and include a screenshot for anything visual.
 - Don't edit a PR that's already approved unless the author asks.
 
+## What belongs in the playbook (and what doesn't)
+
+The playbook holds **methods, not operations**. Before writing, run your idea through these gates:
+
+- **Is it a repeatable way of working?** "How to run customer calls" (a method any team can follow: framing, discussion guide, listening techniques) belongs. "How to organise customer calls" (scheduling, tooling access, who owns the Gong account) is operational — it goes to Confluence, not here.
+- **Does it have a real When? and Why?** Every play must be able to say when it earns its time and why it works. If you can't write those sections, it's a how-to article, not a play.
+- **Would another team run it the same way?** Team-specific process (your squad's ritual calendar, your PM's template) doesn't generalise. Extract the method; leave the local specifics out.
+- **Is it design/research practice?** Adjacent crafts (release process, support escalation) have their own homes.
+
+Boundaries between plays matter as much as content:
+
+- **One play, one job.** If your draft covers two distinct moments (e.g. running sessions *and* presenting results), it's two plays — link them in *What next?*.
+- **Don't duplicate a step that's another play.** Reference it with `<PlayRef />` instead of re-explaining it.
+- **Signal external tools in frontmatter, not buried prose.** Miro templates go in `miroTemplate`, agent skills in `skills`, agent instructions in `agent` — the site renders these as visible resource chips, and the MCP serves them to agents. A tool mentioned only mid-paragraph is invisible to both.
+
 ## Writing style for plays
 
 - Follow the play grammar (*When? / Why? / What do you need? / Step by step / Common mistakes / What next?*) — skip sections that don't apply rather than padding them.

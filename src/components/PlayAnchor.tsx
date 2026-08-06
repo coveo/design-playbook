@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom';
 import {asset, playBySlug} from '../plays';
 import type {Play} from '../plays';
 import {ConfidenceMeter} from './ConfidenceMeter';
+import {ResourceChip} from './ResourceChip';
 
 /** Display label for a play, derived from frontmatter — never hardcode this */
 export const playLabel = (play: Play): string =>
@@ -71,9 +72,11 @@ export const PlayAnchor = ({href = '', children, ...rest}: AnchorHTMLAttributes<
         );
     }
 
+    // External links render as Slack-style chips so leaving the playbook is
+    // visually signalled.
     return (
-        <a href={href} target="_blank" rel="noreferrer" {...rest}>
+        <ResourceChip href={href} kind={/miro\.com/.test(href) ? 'miro' : 'external'}>
             {children}
-        </a>
+        </ResourceChip>
     );
 };
