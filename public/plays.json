@@ -112,30 +112,12 @@
       "body": "## When?\n\n**Anytime!** You can test your solutions at any stage. There are some differences between testing provocations and a fully functioning prototype, but the key steps and guidelines are the same.\n\n## Why?\n\n**To make sure we build the right thing, in the right way.** While we may be experts in our product, we are not our users. We don't know their wants and needs, and we can't predict how they'll respond to new ideas. We test with users to make sure we build things that are functional, understandable and usable.\n\n## Step by step\n\n### 1. Identify your research questions\n\nBefore you do anything: what are you trying to find out? Keep a record of all your research questions — broad or specific depending on your confidence level. They'll shape your discussion guide so you get the answers you need without wasting time.\n\n### 2. Check your assumptions\n\nBe aware of your assumptions and biases; we all have them. Do you favour one idea, or believe users already know how to do something? Write them all down so you can mitigate them in your research design.\n\n### 3. Create a discussion guide\n\nOne of the most important steps to keep research fair, unbiased and consistent. Set the scene, write a script and tasks from your research questions, and think about how participants will navigate the prototype. Remind them we're not testing *them*, and have them speak their thoughts aloud as they complete the tasks.\n\n### 4. In the session: watch what they do, not what they say\n\nIt's common for participants to say things that contradict their actions. Ignore general comments like \"it feels intuitive\" and look at what they're really doing. Ask for examples to clarify.\n\n### 5. Don't fill the silence\n\nSilence is awkward — people naturally fill it with words. Staying quiet (or just saying \"mmhmm\") gives users time to get past the obvious comments and give you richer insights.\n\n### 6. Gather all your insights in one place\n\nIt's easier to find patterns when you can see everything. Gather your notes into a spreadsheet, Miro board or post-its. Group observations, compare them, find themes — and check back against your research questions.\n\n### 7. Share your insights\n\nSummarise everything in one shareable document: a research summary addressing your research questions, in-depth findings, and — most importantly — evidence in the form of customer quotes. Now tell your story.\n\n## What next?\n\nSynthesize what you heard with <PlayRef slug=\"synthesising-research\" />, then take it into <PlayRef slug=\"presenting-your-findings\" /> to turn it into a story the team acts on. Then feed what you learned back into the loop: refine the prototype, revisit your <PlayRef slug=\"storyboarding\" />, or go back to understanding the problem if the questions got bigger."
     },
     {
-      "title": "Creating a Research Plan",
-      "slug": "creating-research-plan",
-      "section": "beyond",
-      "summary": "Frame a research round before any call happens — goals, participants, methods, and what \"done\" looks like.",
-      "comingSoon": true,
-      "order": 8,
-      "body": "Coming soon."
-    },
-    {
       "title": "User Story Mapping",
       "slug": "user-story-mapping",
       "section": "understanding",
       "summary": "Design the ideal user journey or scope what the first version of a feature should be.",
       "comingSoon": true,
       "order": 8,
-      "body": "Coming soon."
-    },
-    {
-      "title": "Writing Discussion Guides",
-      "slug": "writing-discussion-guides",
-      "section": "beyond",
-      "summary": "Turn research questions into a script and tasks that keep sessions fair, unbiased, and consistent.",
-      "comingSoon": true,
-      "order": 9,
       "body": "Coming soon."
     },
     {
@@ -148,15 +130,6 @@
       "body": "Coming soon."
     },
     {
-      "title": "Running Calls",
-      "slug": "running-calls",
-      "section": "beyond",
-      "summary": "Facilitating any customer call — setting expectations, listening technique, and the habits that keep feedback honest.",
-      "comingSoon": true,
-      "order": 10,
-      "body": "Coming soon — will absorb the shared call-facilitation tactics that <PlayRef slug=\"speaking-to-customers\" /> and <PlayRef slug=\"testing-your-solutions\" /> both rely on."
-    },
-    {
       "title": "Lo-Fi Prototyping",
       "slug": "lofi-prototyping",
       "section": "designing",
@@ -164,21 +137,6 @@
       "comingSoon": true,
       "order": 11,
       "body": "Coming soon."
-    },
-    {
-      "title": "Synthesising Research",
-      "slug": "synthesising-research",
-      "section": "beyond",
-      "summary": "From raw notes to evidence-backed findings with confidence labels — the human version of the research synthesis skill.",
-      "comingSoon": true,
-      "skills": [
-        {
-          "name": "Research synthesis",
-          "url": "https://github.com/coveo/ai-tools/tree/main/skills"
-        }
-      ],
-      "order": 11,
-      "body": "Coming soon — the research synthesis skill's process, written for humans: gather everything in one place, find patterns, label confidence with evidence, and turn findings into bets. If you'd rather have an agent do the heavy lifting today, use the skill below."
     },
     {
       "title": "Hi-Fi Prototyping",
@@ -190,9 +148,51 @@
       "body": "Coming soon."
     },
     {
+      "title": "Creating a Research Plan",
+      "slug": "creating-research-plan",
+      "section": "craft",
+      "summary": "Frame a research round before any call happens — goals, participants, methods, and what \"done\" looks like.",
+      "comingSoon": true,
+      "order": 21,
+      "body": "Coming soon."
+    },
+    {
+      "title": "Writing Discussion Guides",
+      "slug": "writing-discussion-guides",
+      "section": "craft",
+      "summary": "Turn research questions into a script and tasks that keep sessions fair, unbiased, and consistent.",
+      "comingSoon": true,
+      "order": 22,
+      "body": "Coming soon."
+    },
+    {
+      "title": "Running Calls",
+      "slug": "running-calls",
+      "section": "craft",
+      "summary": "Facilitating any customer call — setting expectations, listening technique, and the habits that keep feedback honest.",
+      "comingSoon": true,
+      "order": 23,
+      "body": "Coming soon — will absorb the shared call-facilitation tactics that <PlayRef slug=\"speaking-to-customers\" /> and <PlayRef slug=\"testing-your-solutions\" /> both rely on."
+    },
+    {
+      "title": "Synthesising Research",
+      "slug": "synthesising-research",
+      "section": "craft",
+      "summary": "From raw notes to evidence-backed findings with confidence labels — the human version of the research synthesis skill.",
+      "comingSoon": true,
+      "skills": [
+        {
+          "name": "Research synthesis",
+          "url": "https://github.com/coveo/ai-tools/tree/main/skills"
+        }
+      ],
+      "order": 24,
+      "body": "Coming soon — the research synthesis skill's process, written for humans: gather everything in one place, find patterns, label confidence with evidence, and turn findings into bets. If you'd rather have an agent do the heavy lifting today, use the skill below."
+    },
+    {
       "title": "Presenting your Findings",
       "slug": "presenting-your-findings",
-      "section": "beyond",
+      "section": "craft",
       "summary": "Turn a research synthesis into a story your team acts on — not a document they archive.",
       "confidence": 3,
       "skills": [
@@ -204,7 +204,7 @@
       "agent": {
         "recipe": "Point your agent at your synthesis output and run the research narrative skill: it identifies the narrative gaps, picks the best bits, and produces the format you need — slide deck, executive summary, or Confluence page — in the Coveo theme."
       },
-      "order": 12,
+      "order": 25,
       "body": "## When?\n\n**After a synthesis, before the decisions.** You've run <PlayRef slug=\"testing-your-solutions\" /> and synthesized the findings with <PlayRef slug=\"synthesising-research\" />. This play is the last mile: getting what you learned into the heads of the people who will act on it — the team, PMs, engineering leads, stakeholders.\n\n## Why?\n\n**Findings don't change roadmaps; stories do.** A synthesis document is evidence, but evidence alone gets archived. The teams that act on research are the ones who *felt* the user's problem in the readout. Presenting is a design task like any other: know your audience, structure the narrative, and make the evidence do the talking.\n\n## Step by step\n\n### 1. Know the audience and their decision\n\nWho is in the room, and what decision should they be able to make when you're done? A dev team needs different bits than a VP. Write that decision down first — it's your narrative's job description.\n\n### 2. Pick the best bits\n\nYou can't present everything, and trying kills the story. Choose the findings that bear on the decision: the surprises, the contradictions, and the strongest evidence. Park the rest in the appendix.\n\n### 3. Build the arc\n\nContext (what we asked and why) → tension (what we expected vs what we saw) → findings with evidence → so-what (the bets or recommendations). Lead every finding with the customer's own words — quotes connect where summaries don't.\n\n### 4. Choose the format\n\nA live readout with slides for decisions that need discussion; an executive summary for leadership; a Confluence page as the durable record. Often you need two of the three — generate them from the same synthesis rather than writing twice.\n\n### 5. Present outcome-first\n\nOpen with the one-sentence takeaway, not the methodology. If people remember one thing, make sure you chose which thing.\n\n## What next?\n\nThe findings feed the loop: strong evidence for a direction goes into a <PlayRef slug=\"shaping-workshop\" /> or straight into prototyping; open questions become the research questions for your next round of <PlayRef slug=\"testing-your-solutions\" />."
     }
   ]

@@ -8,7 +8,7 @@ description: Scaffold a new play (workshop, method, or study) in the Design Play
 ## Gather (ask only for what's missing)
 
 1. **Title** and one-sentence **summary**.
-2. **Section** — `understanding` (Understanding the problem), `designing` (Designing a solution), or `beyond` (Beyond the solution).
+2. **Section** — `understanding` (Understanding the problem), `designing` (Designing a solution), `beyond` (Beyond the solution), or `craft` (Research craft — cross-cutting research skills used at any stage; research plans, guides, calls, synthesis, readouts go here, not in a stage).
 3. **Confidence level** — 1–5 on the playbook's confidence meter, or "anytime" (omit the field). Ask the user where this play sits.
 4. Optional: duration, participants, Miro template URL, related agent skills from https://github.com/coveo/ai-tools/tree/main/skills.
 5. **Source material** — if the play exists in the Figma Design Playbook file (key `WmXa6mH4tPZQ5hppqqJCgi`), check `docs/figma-content-scan.md` first (full text of all slides), and pull screenshots with the Figma MCP `get_screenshot` for cover images. Preserve the original wording where it's good; tighten where it's not.

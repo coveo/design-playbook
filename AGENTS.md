@@ -46,7 +46,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 ```yaml
 title: Design Smash            # display name
 slug: design-smash             # URL segment, kebab-case, unique
-section: understanding         # understanding | designing | beyond
+section: understanding         # understanding | designing | beyond | craft
 summary: One sentence shown on the card and play hero.
 confidence: 2                  # 1–5 bars on the meter; OMIT for "anytime" plays
 comingSoon: true               # optional: renders a faded, non-clickable card

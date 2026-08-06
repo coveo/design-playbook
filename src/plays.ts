@@ -1,6 +1,6 @@
 import type {ComponentType} from 'react';
 
-export type SectionId = 'understanding' | 'designing' | 'beyond';
+export type SectionId = 'understanding' | 'designing' | 'beyond' | 'craft';
 
 export interface Section {
     id: SectionId;
@@ -11,6 +11,8 @@ export const sections: Section[] = [
     {id: 'understanding', label: 'Understanding the problem'},
     {id: 'designing', label: 'Designing a solution'},
     {id: 'beyond', label: 'Beyond the solution'},
+    // Cross-cutting skills invoked by stage plays — not a stage themselves
+    {id: 'craft', label: 'Research craft'},
 ];
 
 export interface PlayFrontmatter {
