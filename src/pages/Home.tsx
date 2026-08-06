@@ -28,43 +28,47 @@ const PlayCard = ({play}: {play: Play}) => {
 };
 
 export const Home = () => (
-    <div className="page">
-        <div className="home-intro">
-            <h1>
-                <span className="gradient-heading">Coveo Design Playbook</span>
-            </h1>
-            <p>
-                A guide on product design and research, created to democratise our design and
-                research processes. Its sole purpose is to make sure teams are always focusing
-                on the right problems and the right solutions.
-            </p>
-            <p>
-                It won&rsquo;t give you the perfect solution for every problem — each of these
-                plays can (and probably should) be adapted to your team&rsquo;s needs and
-                context. A good playbook is never finished.
-            </p>
-        </div>
+    <>
+        <section className="home-hero">
+            <div className="home-hero-inner">
+                <div className="hero-kicker">A guide on product design and research</div>
+                <h1>
+                    The Coveo <span className="accent">Design Playbook</span>
+                </h1>
+                <p>
+                    Created to democratise our design and research processes — so teams are always
+                    focusing on the right problems and the right solutions.
+                </p>
+                <p className="hero-secondary">
+                    It won&rsquo;t give you the perfect solution for every problem. Each play can
+                    (and probably should) be adapted to your team&rsquo;s needs and context. A good
+                    playbook is never finished.
+                </p>
+            </div>
+        </section>
 
-        {sections.map((section) => {
-            const sectionPlays = playsInSection(section.id);
-            if (sectionPlays.length === 0) {
-                return null;
-            }
-            return (
-                <section key={section.id} className="home-section">
-                    <div className="home-section-heading">
-                        <span className="arrow">&rarr;</span>
-                        <h2>
-                            <span className="gradient-heading">{section.label}</span>
-                        </h2>
-                    </div>
-                    <div className="play-grid">
-                        {sectionPlays.map((play) => (
-                            <PlayCard key={play.frontmatter.slug} play={play} />
-                        ))}
-                    </div>
-                </section>
-            );
-        })}
-    </div>
+        <div className="page">
+            {sections.map((section) => {
+                const sectionPlays = playsInSection(section.id);
+                if (sectionPlays.length === 0) {
+                    return null;
+                }
+                return (
+                    <section key={section.id} className="home-section">
+                        <div className="home-section-heading">
+                            <span className="arrow">&rarr;</span>
+                            <h2>
+                                <span className="gradient-heading">{section.label}</span>
+                            </h2>
+                        </div>
+                        <div className="play-grid">
+                            {sectionPlays.map((play) => (
+                                <PlayCard key={play.frontmatter.slug} play={play} />
+                            ))}
+                        </div>
+                    </section>
+                );
+            })}
+        </div>
+    </>
 );

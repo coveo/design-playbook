@@ -1,12 +1,4 @@
-import {
-    ActionIcon,
-    AppShell,
-    Burger,
-    Group,
-    NavLink as MantineNavLink,
-    ScrollArea,
-    Tooltip,
-} from '@mantine/core';
+import {ActionIcon, AppShell, Group, NavLink as MantineNavLink, ScrollArea, Tooltip} from '@mantine/core';
 import {
     IconHelpCircle,
     IconLayoutSidebarLeftCollapse,
@@ -19,44 +11,37 @@ import {ConfidenceMeter} from './components/ConfidenceMeter';
 import {playsInSection, sections} from './plays';
 
 export const App = () => {
-    const [mobileOpened, {toggle: toggleMobile}] = useDisclosure();
-    const [desktopOpened, {toggle: toggleDesktop}] = useDisclosure(true);
+    const [opened, {toggle}] = useDisclosure(true);
     const location = useLocation();
 
     return (
         <AppShell
-            header={{height: 56}}
             navbar={{
                 width: 300,
                 breakpoint: 'sm',
-                collapsed: {mobile: !mobileOpened, desktop: !desktopOpened},
+                collapsed: {mobile: !opened, desktop: !opened},
             }}
-            padding="xl"
+            padding={0}
         >
-            <AppShell.Header withBorder={false} style={{borderBottom: '1px solid var(--pb-border)'}}>
-                <Group h="100%" px="md" gap="sm">
-                    <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
-                    {!desktopOpened && (
-                        <Tooltip label="Show navigation" withArrow>
+            <AppShell.Navbar p="sm">
+                <AppShell.Section>
+                    <Group justify="space-between" wrap="nowrap" pb="sm">
+                        <Link to="/" className="sidebar-logo">
+                            <img src={coveoLogo} alt="Coveo" />
+                            <span>Design Playbook</span>
+                        </Link>
+                        <Tooltip label="Hide navigation" withArrow>
                             <ActionIcon
                                 variant="subtle"
                                 color="gray"
-                                visibleFrom="sm"
-                                onClick={toggleDesktop}
-                                aria-label="Show navigation"
+                                onClick={toggle}
+                                aria-label="Hide navigation"
                             >
-                                <IconLayoutSidebarLeftExpand size={20} />
+                                <IconLayoutSidebarLeftCollapse size={20} />
                             </ActionIcon>
                         </Tooltip>
-                    )}
-                    <Link to="/" className="sidebar-logo">
-                        <img src={coveoLogo} alt="Coveo" />
-                        <span>Design Playbook</span>
-                    </Link>
-                </Group>
-            </AppShell.Header>
-
-            <AppShell.Navbar p="sm">
+                    </Group>
+                </AppShell.Section>
                 <AppShell.Section grow component={ScrollArea}>
                     <MantineNavLink
                         component={Link}
@@ -103,31 +88,29 @@ export const App = () => {
                     })}
                 </AppShell.Section>
                 <AppShell.Section>
-                    <Group gap={4} wrap="nowrap">
-                        <MantineNavLink
-                            component={Link}
-                            to="/how-to-use"
-                            label="How to use"
-                            active={location.pathname === '/how-to-use'}
-                            leftSection={<IconHelpCircle size={18} />}
-                            style={{flex: 1}}
-                        />
-                        <Tooltip label="Hide navigation" withArrow>
-                            <ActionIcon
-                                variant="subtle"
-                                color="gray"
-                                visibleFrom="sm"
-                                onClick={toggleDesktop}
-                                aria-label="Hide navigation"
-                            >
-                                <IconLayoutSidebarLeftCollapse size={20} />
-                            </ActionIcon>
-                        </Tooltip>
-                    </Group>
+                    <MantineNavLink
+                        component={Link}
+                        to="/how-to-use"
+                        label="How to use"
+                        active={location.pathname === '/how-to-use'}
+                        leftSection={<IconHelpCircle size={18} />}
+                    />
                 </AppShell.Section>
             </AppShell.Navbar>
 
             <AppShell.Main>
+                {!opened && (
+                    <Tooltip label="Show navigation" withArrow>
+                        <ActionIcon
+                            variant="default"
+                            className="nav-expand"
+                            onClick={toggle}
+                            aria-label="Show navigation"
+                        >
+                            <IconLayoutSidebarLeftExpand size={20} />
+                        </ActionIcon>
+                    </Tooltip>
+                )}
                 <Outlet />
             </AppShell.Main>
         </AppShell>

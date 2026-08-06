@@ -1,5 +1,12 @@
 /* ---------- Shell ---------- */
 
+.nav-expand {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+}
+
 .sidebar-logo {
     display: flex;
     align-items: center;
@@ -20,28 +27,55 @@
 }
 
 .page {
-    max-width: 1120px;
-    padding: 8px 8px 96px;
+    max-width: 1160px;
+    padding: 40px 48px 96px;
 }
 
 /* ---------- Home ---------- */
 
-.home-intro {
-    max-width: 620px;
-    margin-bottom: 48px;
+/* Dark statement hero (theme-coveo.md statement-slide rules: dark violet
+   full bleed, flat accent emphasis, no gradient text on dark) */
+.home-hero {
+    background: var(--pb-violet-dark);
+    color: #ffffff;
+    padding: 72px 48px 64px;
 }
 
-.home-intro h1 {
-    font-size: 42px;
+.home-hero-inner {
+    max-width: 720px;
+}
+
+.home-hero .hero-kicker {
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 20px;
+}
+
+.home-hero h1 {
+    font-size: 46px;
     line-height: 1.08;
-    margin: 0 0 16px;
+    letter-spacing: -0.5px;
+    margin: 0 0 20px;
+    font-weight: 700;
 }
 
-.home-intro p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--pb-text-muted);
+.home-hero h1 .accent {
+    color: var(--pb-cyan);
+}
+
+.home-hero p {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.88);
     margin: 0 0 12px;
+    max-width: 620px;
+}
+
+.home-hero .hero-secondary {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .home-section {
@@ -335,59 +369,25 @@
 
 .howto h1 {
     font-size: 36px;
-    margin: 0 0 8px;
+    margin: 0 0 12px;
 }
 
 .howto .lead {
     font-size: 17px;
     color: var(--pb-text-muted);
-    max-width: 620px;
-    margin: 0 0 40px;
-}
-
-.howto-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    max-width: 960px;
-}
-
-.howto-card {
-    border: 1px solid var(--pb-border);
-    border-radius: var(--radius-card);
-    padding: 24px;
-}
-
-.howto-card h2 {
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--pb-blue);
-    margin: 0 0 12px;
-}
-
-.howto-card p,
-.howto-card li {
-    font-size: 14.5px;
-    line-height: 1.55;
-    color: var(--pb-text);
-}
-
-.howto-card p {
-    margin: 0 0 10px;
+    margin: 0 0 8px;
 }
 
 .meter-scale {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    margin-top: 16px;
+    margin: 16px 0 8px;
 }
 
 .meter-scale .row {
     display: flex;
     align-items: center;
     gap: 14px;
-    font-size: 14px;
+    font-size: 14.5px;
 }
