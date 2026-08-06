@@ -1,5 +1,5 @@
 import {MDXProvider} from '@mdx-js/react';
-import {Anchor, Badge, Button, Text} from '@mantine/core';
+import {Anchor, Badge, Button, HoverCard, Text} from '@mantine/core';
 import {IconExternalLink, IconSparkles} from '@coveord/plasma-react-icons';
 import {Link, useParams} from 'react-router-dom';
 import {Callout} from '../components/Callout';
@@ -140,10 +140,23 @@ export const PlayPage = () => {
                                     <span className="meta-chip">People: {frontmatter.participants}</span>
                                 )}
                                 {frontmatter.agent?.skill && (
-                                    <span className="meta-chip skill">
-                                        <IconSparkles size={12} />
-                                        Agent skill available
-                                    </span>
+                                    <HoverCard width={280} shadow="md" withArrow openDelay={150}>
+                                        <HoverCard.Target>
+                                            <span className="meta-chip skill">
+                                                <IconSparkles size={12} />
+                                                Agent skill available
+                                            </span>
+                                        </HoverCard.Target>
+                                        <HoverCard.Dropdown>
+                                            <Text size="sm">
+                                                This play comes with a skill any AI tool can run —
+                                                your agent interviews you and sets the session up.{' '}
+                                                <Anchor component={Link} to="/how-to-use" size="sm">
+                                                    See How to use
+                                                </Anchor>
+                                            </Text>
+                                        </HoverCard.Dropdown>
+                                    </HoverCard>
                                 )}
                                 {frontmatter.agent?.mcp?.length && (
                                     <span className="meta-chip">
