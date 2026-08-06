@@ -1,5 +1,5 @@
 import {Tooltip} from '@mantine/core';
-import {IconInfoCircle} from '@coveord/plasma-react-icons';
+import {InfoToken} from '@coveord/plasma-mantine/components/InfoToken/InfoToken.js';
 
 interface ConfidenceMeterProps {
     /** 1–5 bars filled from the left; undefined renders all bars empty ("anytime") */
@@ -28,11 +28,9 @@ export const ConfidenceLevel = ({level}: {level?: number}) => (
                     ? 'Do this play when your confidence in the problem and solution is around this level.'
                     : 'This play works at any confidence level.'
             }
-            multiline
-            w={260}
-            withArrow
+            fz="xs"
         >
-            <IconInfoCircle size={15} style={{color: 'var(--pb-text-faint)', display: 'block'}} />
+            <InfoToken.Question variant="outline" size="xs" style={{display: 'inline-flex'}} />
         </Tooltip>
         <ConfidenceMeter level={level} />
     </span>
