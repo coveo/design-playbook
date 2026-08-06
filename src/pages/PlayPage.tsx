@@ -139,7 +139,7 @@ export const PlayPage = () => {
                                 {frontmatter.participants && (
                                     <span className="meta-chip">People: {frontmatter.participants}</span>
                                 )}
-                                {frontmatter.agent?.skill && (
+                                {(frontmatter.agent?.skill || frontmatter.skills?.length) && (
                                     <HoverCard width={280} shadow="md" withArrow openDelay={150}>
                                         <HoverCard.Target>
                                             <span className="meta-chip skill">

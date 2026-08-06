@@ -2,6 +2,7 @@ import {ActionIcon, CopyButton, Tooltip} from '@mantine/core';
 import {IconCheck, IconCopy} from '@coveord/plasma-react-icons';
 
 export const REPO_SSH = 'git@github.com:coveo-incubator/design-playbook.git';
+export const AI_TOOLS_SSH = 'git@github.com:coveo/ai-tools.git';
 
 /** Where to set up each MCP server — Confluence is the source of truth */
 export const MCP_DOCS: Record<string, string> = {

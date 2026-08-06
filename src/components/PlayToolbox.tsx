@@ -1,5 +1,5 @@
 import type {PlayFrontmatter} from '../plays';
-import {Copyable, MCP_DOCS, REPO_SSH} from './Copyable';
+import {AI_TOOLS_SSH, Copyable, MCP_DOCS, REPO_SSH} from './Copyable';
 import {ResourceChip} from './ResourceChip';
 
 /** The reusable end-of-play panel: agent instructions (copyable, agent-agnostic)
@@ -26,6 +26,17 @@ export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
                             <Copyable
                                 label="2. Then tell your agent"
                                 command={`Use the ${agent.skill} skill to set up this workshop`}
+                            />
+                        </>
+                    ) : skills?.length ? (
+                        <>
+                            <Copyable
+                                label="1. Get the skills repo (coveo/ai-tools)"
+                                command={`git clone ${AI_TOOLS_SSH}`}
+                            />
+                            <Copyable
+                                label="2. Then tell your agent"
+                                command={`Use the ${skills[0].name} skill for this play`}
                             />
                         </>
                     ) : (
