@@ -8,13 +8,13 @@ import s3smash from '../assets/illustrations/style3/design-smash.svg';
 const styles = [
     {
         name: 'Style 1 — Transit',
-        note: 'Thick rounded subway lines on violet-black; junctions and terminal dots; the inspiration’s language in the brand palette.',
+        note: 'Groovy concentric stripe ribbons on warm paper — 70s poster language: loop-de-loops, arch families, retro suns.',
         shaping: s1shaping,
         smash: s1smash,
     },
     {
         name: 'Style 2 — Blueprint',
-        note: 'Thin schematic line-work on navy: dashed construction guides, dimension ticks, corner crosshairs, an engineering title block.',
+        note: 'Technical drawing on warm paper — bold navy frames, retro accent inks, dashed guides, dimension ticks, title block.',
         shaping: s2shaping,
         smash: s2smash,
     },

@@ -1,30 +1,26 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SF Mono', Menlo, monospace">
-  <rect width="840" height="560" rx="0" fill="#16121f"/>
+  <rect width="840" height="560" fill="#f1ece1"/>
 
-  <!-- four input lines, subway style, converging on the shape ring -->
-  <path d="M-10 120 H210 Q250 120 250 160 V232 Q250 262 280 262 H332" stroke="#00adff" stroke-width="14" stroke-linecap="round"/>
-  <path d="M-10 220 H190 Q230 220 230 250 V254 Q230 280 260 280 H332" stroke="#1cebcf" stroke-width="14" stroke-linecap="round"/>
-  <path d="M-10 330 H190 Q230 330 230 308 V306 Q230 298 260 298 H332" stroke="#732dfb" stroke-width="14" stroke-linecap="round"/>
-  <path d="M-10 440 H210 Q250 440 250 400 V328 Q250 316 280 316 H332" stroke="#1371ec" stroke-width="14" stroke-linecap="round"/>
-
-  <!-- the shape: a ring where inputs become one -->
-  <circle cx="420" cy="289" r="74" stroke="#f2efe6" stroke-width="14"/>
-  <circle cx="420" cy="289" r="30" stroke="#f2efe6" stroke-width="4" stroke-dasharray="2 10" stroke-linecap="round"/>
-
-  <!-- single output line -->
-  <path d="M508 289 H700 Q740 289 740 249 V180" stroke="#1371ec" stroke-width="14" stroke-linecap="round"/>
-  <path d="M508 289 H850" stroke="#1371ec" stroke-width="14" stroke-linecap="round"/>
-  <!-- output junction dot -->
-  <circle cx="700" cy="289" r="11" fill="#16121f" stroke="#f2efe6" stroke-width="5"/>
+  <!-- one groovy ribbon: enters tangled (the raw problem), loops, leaves straight (the shape).
+       Concentric strokes over the same path make the 70s stripe bundle. -->
+  <g stroke-linecap="round" fill="none">
+    <path id="r" d="M-30 150 H210 Q330 150 330 270 Q330 380 240 380 Q150 380 150 290 Q150 200 260 200 Q420 200 460 310 Q480 366 560 366 H870"
+          stroke="#29456e" stroke-width="64"/>
+    <path d="M-30 150 H210 Q330 150 330 270 Q330 380 240 380 Q150 380 150 290 Q150 200 260 200 Q420 200 460 310 Q480 366 560 366 H870"
+          stroke="#4e86c6" stroke-width="50"/>
+    <path d="M-30 150 H210 Q330 150 330 270 Q330 380 240 380 Q150 380 150 290 Q150 200 260 200 Q420 200 460 310 Q480 366 560 366 H870"
+          stroke="#74bfae" stroke-width="36"/>
+    <path d="M-30 150 H210 Q330 150 330 270 Q330 380 240 380 Q150 380 150 290 Q150 200 260 200 Q420 200 460 310 Q480 366 560 366 H870"
+          stroke="#e9b345" stroke-width="22"/>
+    <path d="M-30 150 H210 Q330 150 330 270 Q330 380 240 380 Q150 380 150 290 Q150 200 260 200 Q420 200 460 310 Q480 366 560 366 H870"
+          stroke="#e0684b" stroke-width="8"/>
+  </g>
 
   <!-- labels -->
-  <text x="36" y="82" fill="#8b8b93" font-size="13" letter-spacing="3">INPUTS</text>
-  <text x="376" y="404" fill="#f2efe6" font-size="13" letter-spacing="3">THE SHAPE</text>
-  <text x="676" y="336" fill="#8b8b93" font-size="13" letter-spacing="3">PITCH</text>
+  <text x="48" y="96" fill="#29456e" font-size="13" letter-spacing="3">THE TANGLE</text>
+  <text x="642" y="320" fill="#29456e" font-size="13" letter-spacing="3">THE SHAPE</text>
 
-  <!-- tiny leg ticks -->
-  <circle cx="60" cy="120" r="6" fill="#16121f" stroke="#00adff" stroke-width="4"/>
-  <circle cx="60" cy="220" r="6" fill="#16121f" stroke="#1cebcf" stroke-width="4"/>
-  <circle cx="60" cy="330" r="6" fill="#16121f" stroke="#732dfb" stroke-width="4"/>
-  <circle cx="60" cy="440" r="6" fill="#16121f" stroke="#1371ec" stroke-width="4"/>
+  <!-- retro sun-dot punctuation -->
+  <circle cx="700" cy="140" r="26" fill="#e9b345"/>
+  <circle cx="700" cy="140" r="12" fill="#f1ece1"/>
 </svg>

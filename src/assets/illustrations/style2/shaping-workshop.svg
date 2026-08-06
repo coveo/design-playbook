@@ -1,62 +1,62 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg" font-family="ui-monospace, 'SF Mono', Menlo, monospace">
-  <rect width="840" height="560" fill="#111726"/>
+  <rect width="840" height="560" fill="#f1ece1"/>
 
-  <!-- faint dot grid -->
-  <g fill="#273044">
-    <circle cx="60" cy="60" r="1.5"/><circle cx="180" cy="60" r="1.5"/><circle cx="300" cy="60" r="1.5"/><circle cx="420" cy="60" r="1.5"/><circle cx="540" cy="60" r="1.5"/><circle cx="660" cy="60" r="1.5"/><circle cx="780" cy="60" r="1.5"/>
-    <circle cx="60" cy="170" r="1.5"/><circle cx="180" cy="170" r="1.5"/><circle cx="300" cy="170" r="1.5"/><circle cx="420" cy="170" r="1.5"/><circle cx="540" cy="170" r="1.5"/><circle cx="660" cy="170" r="1.5"/><circle cx="780" cy="170" r="1.5"/>
-    <circle cx="60" cy="280" r="1.5"/><circle cx="180" cy="280" r="1.5"/><circle cx="300" cy="280" r="1.5"/><circle cx="420" cy="280" r="1.5"/><circle cx="540" cy="280" r="1.5"/><circle cx="660" cy="280" r="1.5"/><circle cx="780" cy="280" r="1.5"/>
-    <circle cx="60" cy="390" r="1.5"/><circle cx="180" cy="390" r="1.5"/><circle cx="300" cy="390" r="1.5"/><circle cx="420" cy="390" r="1.5"/><circle cx="540" cy="390" r="1.5"/><circle cx="660" cy="390" r="1.5"/><circle cx="780" cy="390" r="1.5"/>
-    <circle cx="60" cy="500" r="1.5"/><circle cx="180" cy="500" r="1.5"/><circle cx="300" cy="500" r="1.5"/><circle cx="420" cy="500" r="1.5"/><circle cx="540" cy="500" r="1.5"/><circle cx="660" cy="500" r="1.5"/><circle cx="780" cy="500" r="1.5"/>
+  <!-- faint dot grid, paper style -->
+  <g fill="#d9d1bf">
+    <circle cx="60" cy="60" r="2"/><circle cx="180" cy="60" r="2"/><circle cx="300" cy="60" r="2"/><circle cx="420" cy="60" r="2"/><circle cx="540" cy="60" r="2"/><circle cx="660" cy="60" r="2"/><circle cx="780" cy="60" r="2"/>
+    <circle cx="60" cy="170" r="2"/><circle cx="180" cy="170" r="2"/><circle cx="300" cy="170" r="2"/><circle cx="420" cy="170" r="2"/><circle cx="540" cy="170" r="2"/><circle cx="660" cy="170" r="2"/><circle cx="780" cy="170" r="2"/>
+    <circle cx="60" cy="280" r="2"/><circle cx="180" cy="280" r="2"/><circle cx="300" cy="280" r="2"/><circle cx="420" cy="280" r="2"/><circle cx="540" cy="280" r="2"/><circle cx="660" cy="280" r="2"/><circle cx="780" cy="280" r="2"/>
+    <circle cx="60" cy="390" r="2"/><circle cx="180" cy="390" r="2"/><circle cx="300" cy="390" r="2"/><circle cx="420" cy="390" r="2"/><circle cx="540" cy="390" r="2"/><circle cx="660" cy="390" r="2"/><circle cx="780" cy="390" r="2"/>
+    <circle cx="60" cy="500" r="2"/><circle cx="180" cy="500" r="2"/><circle cx="300" cy="500" r="2"/><circle cx="420" cy="500" r="2"/><circle cx="540" cy="500" r="2"/><circle cx="660" cy="500" r="2"/><circle cx="780" cy="500" r="2"/>
   </g>
 
-  <!-- the raw problem: an irregular dashed blob -->
+  <!-- the raw problem: irregular dashed blob, retro coral -->
   <path d="M120 210 C150 150 240 140 280 180 C330 160 360 210 340 260 C370 300 320 360 260 350 C220 390 140 370 130 320 C90 300 95 240 120 210 Z"
-        stroke="#f2efe6" stroke-width="1.8" stroke-dasharray="7 6"/>
-  <text x="150" y="272" fill="#8b8b93" font-size="12" letter-spacing="2">PROBLEM (RAW)</text>
+        stroke="#e0684b" stroke-width="3" stroke-dasharray="10 8" stroke-linecap="round"/>
+  <text x="150" y="272" fill="#8a7f6d" font-size="12" letter-spacing="2">PROBLEM (RAW)</text>
 
   <!-- measurement bracket over the blob -->
-  <g stroke="#00adff" stroke-width="1.5">
+  <g stroke="#4e86c6" stroke-width="2.5">
     <path d="M100 128 V116 H364 V128"/>
-    <path d="M232 116 V106"/>
+    <path d="M232 116 V104"/>
   </g>
-  <text x="196" y="98" fill="#00adff" font-size="12" letter-spacing="2">SCOPE?</text>
+  <text x="196" y="94" fill="#4e86c6" font-size="12" letter-spacing="2">SCOPE?</text>
 
   <!-- transformation arrow -->
-  <g stroke="#f2efe6" stroke-width="1.8">
+  <g stroke="#29456e" stroke-width="3" stroke-linecap="round">
     <path d="M408 280 H492"/>
-    <path d="M482 272 L494 280 L482 288"/>
+    <path d="M480 270 L494 280 L480 290"/>
   </g>
 
-  <!-- the shaped outcome: clean rectangle with corner crosshairs -->
-  <rect x="540" y="196" width="204" height="168" rx="4" stroke="#1cebcf" stroke-width="2"/>
-  <g stroke="#f2efe6" stroke-width="1.5">
-    <path d="M528 196 H552 M540 184 V208"/>
-    <path d="M732 196 H756 M744 184 V208"/>
-    <path d="M528 364 H552 M540 352 V376"/>
-    <path d="M732 364 H756 M744 352 V376"/>
+  <!-- the shaped outcome: bold clean rectangle with corner crosshairs -->
+  <rect x="540" y="196" width="204" height="168" rx="6" stroke="#29456e" stroke-width="5"/>
+  <g stroke="#29456e" stroke-width="2.5">
+    <path d="M526 196 H554 M540 182 V210"/>
+    <path d="M730 196 H758 M744 182 V210"/>
+    <path d="M526 364 H554 M540 350 V378"/>
+    <path d="M730 364 H758 M744 350 V378"/>
   </g>
   <!-- in-scope hatch chip inside -->
-  <rect x="568" y="224" width="64" height="34" rx="3" stroke="#732dfb" stroke-width="1.5"/>
-  <path d="M574 252 L596 230 M588 256 L610 234 M602 258 L624 236" stroke="#732dfb" stroke-width="1.2"/>
-  <text x="568" y="300" fill="#f2efe6" font-size="12" letter-spacing="2">IN SCOPE</text>
-  <text x="568" y="336" fill="#8b8b93" font-size="12" letter-spacing="2">OUT: THE REST</text>
+  <rect x="568" y="224" width="64" height="34" rx="4" stroke="#74bfae" stroke-width="2.5"/>
+  <path d="M574 252 L596 230 M588 256 L610 234 M602 258 L624 236" stroke="#74bfae" stroke-width="2"/>
+  <text x="568" y="300" fill="#29456e" font-size="12" letter-spacing="2">IN SCOPE</text>
+  <text x="568" y="336" fill="#8a7f6d" font-size="12" letter-spacing="2">OUT: THE REST</text>
 
   <!-- dimension line under the rectangle -->
-  <g stroke="#8b8b93" stroke-width="1.2">
+  <g stroke="#8a7f6d" stroke-width="2">
     <path d="M540 404 H744"/>
-    <path d="M540 398 V410 M744 398 V410"/>
+    <path d="M540 396 V412 M744 396 V412"/>
   </g>
-  <text x="580" y="428" fill="#8b8b93" font-size="12" letter-spacing="2">APPETITE: FIXED</text>
+  <text x="580" y="430" fill="#8a7f6d" font-size="12" letter-spacing="2">APPETITE: FIXED</text>
 
-  <!-- title block, engineering drawing style -->
-  <g stroke="#39445c" stroke-width="1.2">
-    <rect x="588" y="472" width="216" height="52"/>
-    <path d="M588 498 H804"/>
-    <path d="M700 472 V524"/>
+  <!-- title block, bold border -->
+  <g stroke="#29456e">
+    <rect x="588" y="470" width="216" height="54" stroke-width="3.5"/>
+    <path d="M588 497 H804" stroke-width="2"/>
+    <path d="M700 470 V524" stroke-width="2"/>
   </g>
-  <text x="598" y="490" fill="#8b8b93" font-size="11" letter-spacing="1">FIG. 4.1</text>
-  <text x="710" y="490" fill="#8b8b93" font-size="11" letter-spacing="1">SHAPING</text>
-  <text x="598" y="516" fill="#8b8b93" font-size="11" letter-spacing="1">SCALE 1:1</text>
-  <text x="710" y="516" fill="#8b8b93" font-size="11" letter-spacing="1">REV. A</text>
+  <text x="598" y="489" fill="#29456e" font-size="11" letter-spacing="1">FIG. 4.1</text>
+  <text x="710" y="489" fill="#29456e" font-size="11" letter-spacing="1">SHAPING</text>
+  <text x="598" y="515" fill="#8a7f6d" font-size="11" letter-spacing="1">SCALE 1:1</text>
+  <text x="710" y="515" fill="#8a7f6d" font-size="11" letter-spacing="1">REV. A</text>
 </svg>
