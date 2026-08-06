@@ -1,4 +1,4 @@
-/* ---------- Sidebar ---------- */
+/* ---------- Shell ---------- */
 
 .sidebar-logo {
     display: flex;
@@ -19,26 +19,27 @@
     letter-spacing: -0.01em;
 }
 
-/* ---------- Home ---------- */
-
-.home {
-    padding: 16px 8px 96px;
+.page {
+    max-width: 1120px;
+    padding: 8px 8px 96px;
 }
 
+/* ---------- Home ---------- */
+
 .home-intro {
-    max-width: 640px;
-    margin-bottom: 56px;
+    max-width: 620px;
+    margin-bottom: 48px;
 }
 
 .home-intro h1 {
-    font-size: 44px;
+    font-size: 42px;
     line-height: 1.08;
     margin: 0 0 16px;
 }
 
 .home-intro p {
-    font-size: 17px;
-    line-height: 1.55;
+    font-size: 16px;
+    line-height: 1.6;
     color: var(--pb-text-muted);
     margin: 0 0 12px;
 }
@@ -50,19 +51,19 @@
 .home-section-heading {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
     margin-bottom: 20px;
 }
 
 .home-section-heading .arrow {
-    font-size: 30px;
+    font-size: 28px;
     line-height: 1;
-    color: var(--pb-coral);
+    color: var(--pb-blue);
     flex-shrink: 0;
 }
 
 .home-section-heading h2 {
-    font-size: 34px;
+    font-size: 32px;
     line-height: 1.1;
     margin: 0;
 }
@@ -73,7 +74,7 @@
     gap: 20px;
 }
 
-/* ---------- Play cards (Figma home style) ---------- */
+/* ---------- Play cards ---------- */
 
 .play-card {
     display: flex;
@@ -81,19 +82,18 @@
     gap: 10px;
     background: #ffffff;
     border: 1px solid var(--pb-border);
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(31, 31, 38, 0.06);
+    border-radius: var(--radius-card);
     padding: 20px;
     text-decoration: none;
     color: var(--pb-text);
     transition:
-        transform 0.12s ease,
+        border-color 0.12s ease,
         box-shadow 0.12s ease;
 }
 
 .play-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(31, 31, 38, 0.1);
+    border-color: var(--pb-blue);
+    box-shadow: 0 4px 12px rgba(19, 113, 236, 0.12);
 }
 
 .play-card-top {
@@ -103,30 +103,25 @@
 }
 
 .play-card-title {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 600;
-    background: var(--gradient-heading);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--pb-blue);
 }
 
 .play-card p {
     margin: 0;
-    font-size: 14.5px;
+    font-size: 14px;
     line-height: 1.5;
-    color: var(--pb-text);
     flex: 1;
 }
 
 .play-card.coming-soon {
-    opacity: 0.45;
+    opacity: 0.5;
     pointer-events: none;
 }
 
 .play-card.coming-soon .eyebrow-soon {
-    font-size: 12px;
+    font-size: 11px;
     font-weight: 600;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -157,13 +152,10 @@
     height: 12px;
 }
 
-.confidence-key {
+.confidence-label {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    border: 1px solid var(--pb-border);
-    border-radius: 8px;
-    padding: 10px 14px;
+    gap: 8px;
     font-size: 13px;
     color: var(--pb-text-muted);
 }
@@ -173,11 +165,11 @@
 .play-hero {
     display: grid;
     grid-template-columns: minmax(320px, 5fr) 7fr;
-    border-radius: 12px;
+    border-radius: var(--radius-panel);
     overflow: hidden;
     border: 1px solid var(--pb-border);
-    margin-bottom: 40px;
-    min-height: 380px;
+    margin-bottom: 36px;
+    min-height: 360px;
 }
 
 @media (max-width: 900px) {
@@ -194,6 +186,10 @@
     gap: 18px;
 }
 
+.play-hero-text .kicker {
+    margin-bottom: -6px;
+}
+
 .play-hero-text h1 {
     font-size: 34px;
     line-height: 1.08;
@@ -201,25 +197,13 @@
 }
 
 .play-hero-text .summary {
-    font-size: 20px;
+    font-size: 19px;
     line-height: 1.45;
     margin: 0;
 }
 
-.play-hero-text .before-you-start {
-    font-size: 14px;
-    line-height: 1.5;
-    color: var(--pb-text-muted);
-}
-
-.play-hero-confidence {
+.play-hero-footer {
     margin-top: auto;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 13px;
-    color: var(--pb-text-muted);
-    max-width: 260px;
 }
 
 .play-hero-panel {
@@ -232,7 +216,7 @@
 
 .play-hero-panel img {
     max-width: 100%;
-    max-height: 420px;
+    max-height: 400px;
     object-fit: contain;
 }
 
@@ -240,7 +224,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 28px;
-    margin-bottom: 40px;
+    margin-bottom: 36px;
 }
 
 .play-facts .fact .kicker {
@@ -248,32 +232,28 @@
 }
 
 .play-facts .fact div:last-child {
-    font-size: 16px;
+    font-size: 15px;
 }
 
 /* ---------- MDX prose ---------- */
 
 .prose {
-    font-size: 16px;
+    font-size: 15.5px;
     line-height: 1.6;
     max-width: 720px;
 }
 
 .prose h2 {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     margin: 44px 0 12px;
-    background: var(--gradient-heading);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
+    color: var(--pb-blue);
 }
 
 .prose h3 {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 600;
     margin: 28px 0 8px;
 }
@@ -287,11 +267,11 @@
 }
 
 .prose a {
-    color: var(--pb-purple);
+    color: var(--pb-blue);
 }
 
 .prose blockquote {
-    border-left: 3px solid var(--pb-purple);
+    border-left: 3px solid var(--pb-blue);
     margin: 0 0 14px;
     padding: 2px 0 2px 18px;
     color: var(--pb-text-muted);
@@ -299,15 +279,115 @@
 
 .prose img {
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: var(--radius-card);
     border: 1px solid var(--pb-border);
 }
 
-/* ---------- What next / tools ---------- */
+.prose table {
+    border-collapse: collapse;
+    margin: 0 0 14px;
+}
 
-.what-next-grid {
+.prose th,
+.prose td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--pb-border);
+    font-size: 14px;
+}
+
+/* ---------- Play link hovercard ---------- */
+
+.play-preview {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    max-width: 360px;
+}
+
+.play-preview img {
+    width: 120px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--pb-border);
+    flex-shrink: 0;
+}
+
+.play-preview .title {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--pb-text);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.play-preview .summary {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--pb-text-muted);
+    margin: 0;
+}
+
+/* ---------- How to use ---------- */
+
+.howto h1 {
+    font-size: 36px;
+    margin: 0 0 8px;
+}
+
+.howto .lead {
+    font-size: 17px;
+    color: var(--pb-text-muted);
+    max-width: 620px;
+    margin: 0 0 40px;
+}
+
+.howto-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 16px;
-    max-width: 720px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+}
+
+.howto-card {
+    border: 1px solid var(--pb-border);
+    border-radius: var(--radius-card);
+    padding: 24px;
+}
+
+.howto-card h2 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--pb-blue);
+    margin: 0 0 12px;
+}
+
+.howto-card p,
+.howto-card li {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--pb-text);
+}
+
+.howto-card p {
+    margin: 0 0 10px;
+}
+
+.meter-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 16px;
+}
+
+.meter-scale .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
 }

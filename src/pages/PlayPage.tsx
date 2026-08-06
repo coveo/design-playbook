@@ -1,8 +1,11 @@
 import {MDXProvider} from '@mdx-js/react';
-import {Anchor, Breadcrumbs} from '@mantine/core';
+import {Anchor} from '@mantine/core';
 import {Link, useParams} from 'react-router-dom';
-import {ConfidenceMeter} from '../components/ConfidenceMeter';
+import {ConfidenceLevel} from '../components/ConfidenceMeter';
+import {PlayAnchor} from '../components/PlayAnchor';
 import {asset, playBySlug, sections} from '../plays';
+
+const mdxComponents = {a: PlayAnchor};
 
 export const PlayPage = () => {
     const {slug} = useParams();
@@ -10,7 +13,7 @@ export const PlayPage = () => {
 
     if (!play) {
         return (
-            <div>
+            <div className="page">
                 <h2>Play not found</h2>
                 <Anchor component={Link} to="/">
                     Back to the playbook
@@ -23,23 +26,16 @@ export const PlayPage = () => {
     const section = sections.find((s) => s.id === frontmatter.section);
 
     return (
-        <div>
-            <Breadcrumbs mb="lg">
-                <Anchor component={Link} to="/" size="sm">
-                    Home
-                </Anchor>
-                <span className="kicker">{section?.label}</span>
-            </Breadcrumbs>
-
+        <div className="page">
             <div className="play-hero">
                 <div className="play-hero-text">
+                    <span className="kicker">{section?.label}</span>
                     <h1>
                         <span className="gradient-heading">{frontmatter.title}</span>
                     </h1>
                     <p className="summary">{frontmatter.summary}</p>
-                    <div className="play-hero-confidence">
-                        <span>Do this when you are at this confidence level</span>
-                        <ConfidenceMeter level={frontmatter.confidence} />
+                    <div className="play-hero-footer">
+                        <ConfidenceLevel level={frontmatter.confidence} />
                     </div>
                 </div>
                 {frontmatter.cover && (
@@ -73,7 +69,7 @@ export const PlayPage = () => {
             )}
 
             <article className="prose">
-                <MDXProvider>
+                <MDXProvider components={mdxComponents}>
                     <Component />
                 </MDXProvider>
             </article>

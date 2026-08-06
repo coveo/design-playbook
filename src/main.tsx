@@ -5,6 +5,7 @@ import {createRoot} from 'react-dom/client';
 import {createHashRouter, RouterProvider} from 'react-router-dom';
 import {App} from './App';
 import {Home} from './pages/Home';
+import {HowToUse} from './pages/HowToUse';
 import {PlayPage} from './pages/PlayPage';
 import '@mantine/core/styles.css';
 import '@fontsource-variable/inter';
@@ -25,6 +26,7 @@ const router = createHashRouter([
         children: [
             {index: true, element: <Home />},
             {path: 'plays/:slug', element: <PlayPage />},
+            {path: 'how-to-use', element: <HowToUse />},
         ],
     },
 ]);

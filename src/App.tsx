@@ -1,4 +1,17 @@
-import {AppShell, Burger, Group, NavLink as MantineNavLink, ScrollArea} from '@mantine/core';
+import {
+    ActionIcon,
+    AppShell,
+    Burger,
+    Group,
+    NavLink as MantineNavLink,
+    ScrollArea,
+    Tooltip,
+} from '@mantine/core';
+import {
+    IconHelpCircle,
+    IconLayoutSidebarLeftCollapse,
+    IconLayoutSidebarLeftExpand,
+} from '@coveord/plasma-react-icons';
 import {useDisclosure} from '@mantine/hooks';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import coveoLogo from './assets/coveo-logo.svg';
@@ -20,10 +33,22 @@ export const App = () => {
             }}
             padding="xl"
         >
-            <AppShell.Header>
+            <AppShell.Header withBorder={false} style={{borderBottom: '1px solid var(--pb-border)'}}>
                 <Group h="100%" px="md" gap="sm">
                     <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
-                    <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
+                    {!desktopOpened && (
+                        <Tooltip label="Show navigation" withArrow>
+                            <ActionIcon
+                                variant="subtle"
+                                color="gray"
+                                visibleFrom="sm"
+                                onClick={toggleDesktop}
+                                aria-label="Show navigation"
+                            >
+                                <IconLayoutSidebarLeftExpand size={20} />
+                            </ActionIcon>
+                        </Tooltip>
+                    )}
                     <Link to="/" className="sidebar-logo">
                         <img src={coveoLogo} alt="Coveo" />
                         <span>Design Playbook</span>
@@ -76,6 +101,29 @@ export const App = () => {
                             </MantineNavLink>
                         );
                     })}
+                </AppShell.Section>
+                <AppShell.Section>
+                    <Group gap={4} wrap="nowrap">
+                        <MantineNavLink
+                            component={Link}
+                            to="/how-to-use"
+                            label="How to use"
+                            active={location.pathname === '/how-to-use'}
+                            leftSection={<IconHelpCircle size={18} />}
+                            style={{flex: 1}}
+                        />
+                        <Tooltip label="Hide navigation" withArrow>
+                            <ActionIcon
+                                variant="subtle"
+                                color="gray"
+                                visibleFrom="sm"
+                                onClick={toggleDesktop}
+                                aria-label="Hide navigation"
+                            >
+                                <IconLayoutSidebarLeftCollapse size={20} />
+                            </ActionIcon>
+                        </Tooltip>
+                    </Group>
                 </AppShell.Section>
             </AppShell.Navbar>
 

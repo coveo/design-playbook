@@ -28,7 +28,7 @@ const PlayCard = ({play}: {play: Play}) => {
 };
 
 export const Home = () => (
-    <div className="home">
+    <div className="page">
         <div className="home-intro">
             <h1>
                 <span className="gradient-heading">Coveo Design Playbook</span>
@@ -43,13 +43,6 @@ export const Home = () => (
                 plays can (and probably should) be adapted to your team&rsquo;s needs and
                 context. A good playbook is never finished.
             </p>
-            <div className="confidence-key">
-                <ConfidenceMeter level={2} />
-                <span>
-                    Each play shows the confidence level it works best at — check it to see if
-                    you are at the right stage.
-                </span>
-            </div>
         </div>
 
         {sections.map((section) => {
