@@ -132,7 +132,7 @@
 .home-hero {
     background: var(--pb-violet-dark);
     color: #ffffff;
-    padding: 72px 48px 64px;
+    padding: 44px 48px 40px;
 }
 
 .home-hero-inner {
@@ -140,11 +140,11 @@
 }
 
 .home-hero .hero-kicker {
-    font-size: 14px;
+    font-size: 13px;
     letter-spacing: 2px;
     text-transform: uppercase;
     color: rgba(255, 255, 255, 0.65);
-    margin-bottom: 20px;
+    margin-bottom: 12px;
 }
 
 .home-hero h1 {

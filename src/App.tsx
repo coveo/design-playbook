@@ -50,6 +50,9 @@ export const App = () => {
 
     return (
         <AppShell
+            // Plasma's theme defaults AppShell to header={height: 60}; this shell
+            // has no header, so zero it out or main gets 60px phantom padding.
+            header={{height: 0}}
             navbar={{
                 width: 280,
                 breakpoint: 'sm',
