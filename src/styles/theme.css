@@ -15,6 +15,12 @@
     --pb-meter-empty: #d8d8d8;
 
     --pb-panel: #efefef; /* cover right-panel gray */
+
+    /* Shell surfaces (sampled from reference) */
+    --pb-sidebar-bg: #f4f1ea;
+    --pb-content-bg: #fafafa;
+    --pb-nav-selected: #dae1f1;
+    --pb-sidebar-border: #e6e1d7;
     --pb-text: #1f1f22;
     --pb-text-muted: #66666d;
     --pb-text-faint: #8b8b93;
@@ -36,7 +42,7 @@
 
 html,
 body {
-    background: #ffffff;
+    background: var(--pb-content-bg);
 }
 
 body {

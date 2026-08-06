@@ -1,5 +1,89 @@
 /* ---------- Shell ---------- */
 
+.mantine-AppShell-main {
+    background: var(--pb-content-bg);
+    min-height: 100dvh;
+}
+
+.sidebar {
+    background: var(--pb-sidebar-bg);
+    border-right: 1px solid var(--pb-sidebar-border);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px 10px;
+}
+
+/* Cogito-style nav rows: compact, left chevrons, indented children */
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.5;
+    color: #3e3c38;
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.nav-row:hover {
+    background: rgba(0, 0, 0, 0.045);
+}
+
+.nav-row.active {
+    background: var(--pb-nav-selected);
+}
+
+.nav-row.indent {
+    padding-left: 28px;
+}
+
+.nav-row.muted {
+    color: var(--pb-text-faint);
+}
+
+.nav-row-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nav-row-right {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nav-group-header {
+    color: #5c5a55;
+    font-weight: 500;
+}
+
+.nav-chevron {
+    flex-shrink: 0;
+    color: #8f8c85;
+    transition: transform 0.12s ease;
+}
+
+.nav-chevron.open {
+    transform: rotate(90deg);
+}
+
+.nav-help-icon {
+    color: #8f8c85;
+}
+
 .nav-expand {
     position: fixed;
     top: 16px;
