@@ -334,17 +334,14 @@
 }
 
 .play-hero-panel {
-    background: var(--pb-panel);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px;
+    background: #f1ece1;
 }
 
 .play-hero-panel img {
-    max-width: 100%;
-    max-height: 400px;
-    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .hero-meta-row {

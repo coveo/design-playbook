@@ -1,0 +1,14 @@
+<svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="840" height="560" fill="#f1ece1"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#29456e" stroke-width="112" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#f1ece1" stroke-width="96" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#4e86c6" stroke-width="88" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#f1ece1" stroke-width="72" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#74bfae" stroke-width="64" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#f1ece1" stroke-width="48" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#e9b345" stroke-width="40" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#f1ece1" stroke-width="24" stroke-linecap="round" fill="none"/>
+  <path d="M-80 120 H210 Q260 120 260 170 V210 Q260 260 310 260 H430 Q480 260 480 310 V350 Q480 400 530 400 H920" stroke="#e0684b" stroke-width="16" stroke-linecap="round" fill="none"/>
+  <circle cx="700" cy="160" r="30" fill="#74bfae"/>
+  <circle cx="700" cy="160" r="14" fill="#f1ece1"/>
+</svg>

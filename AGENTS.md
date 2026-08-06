@@ -39,7 +39,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - `src/App.tsx` — Plasma AppShell with collapsible sidebar (sections → plays, with mini confidence meters).
 - `src/pages/Home.tsx` — gradient section headings + play-card grid, mirroring the Figma Home slide.
 - `src/pages/PlayPage.tsx` — split hero (text left, cover image on gray right panel) + MDX prose.
-- `public/covers/` — play cover images cropped from the Figma slides.
+- `public/illustrations/` — hero illustrations, one SVG per play, in the playbook's illustration language: **retro groovy stripe ribbons** — warm paper `#f1ece1`, bands in navy `#29456e` / blue `#4e86c6` / aqua `#74bfae` / marigold `#e9b345` / coral `#e0684b`, every stripe separated by a paper gap (lines never touch or cross), macro-zoomed compositions bleeding off the canvas, ring "suns" as the recurring motif. Each play gets a distinct composition metaphor. Alternative style experiments and the generator live in the gitignored `style-lab/` directory.
 
 ## Play frontmatter contract
 

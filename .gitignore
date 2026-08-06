@@ -4,3 +4,6 @@ dist
 .DS_Store
 .playwright-mcp
 tmp
+
+# Style-switching lab for play headers — local experiments, revisit later
+/style-lab/
