@@ -149,12 +149,12 @@ export const PlayPage = () => {
                                         </HoverCard.Target>
                                         <HoverCard.Dropdown>
                                             <Text size="sm">
-                                                This play comes with a skill any AI tool can run —
-                                                your agent interviews you and sets the session up.{' '}
-                                                <Anchor component={Link} to="/how-to-use" size="sm">
-                                                    See How to use
-                                                </Anchor>
+                                                Any AI tool can run this play for you — the skill
+                                                interviews you and sets up the session.
                                             </Text>
+                                            <Anchor component={Link} to="/how-to-use" size="sm" mt={8} display="block">
+                                                How to use &rarr;
+                                            </Anchor>
                                         </HoverCard.Dropdown>
                                     </HoverCard>
                                 )}
