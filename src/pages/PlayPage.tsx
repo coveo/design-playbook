@@ -1,6 +1,6 @@
 import {MDXProvider} from '@mdx-js/react';
 import {Anchor, Badge, Button, Text} from '@mantine/core';
-import {IconExternalLink} from '@coveord/plasma-react-icons';
+import {IconExternalLink, IconSparkles} from '@coveord/plasma-react-icons';
 import {Link, useParams} from 'react-router-dom';
 import {Callout} from '../components/Callout';
 import {ConfidenceLevel} from '../components/ConfidenceMeter';
@@ -105,6 +105,16 @@ export const PlayPage = () => {
                     <p className="summary">{frontmatter.summary}</p>
                     <div className="play-hero-footer">
                         <ConfidenceLevel level={frontmatter.confidence} />
+                        {frontmatter.agent?.skill && (
+                            <Badge
+                                variant="light"
+                                leftSection={<IconSparkles size={12} />}
+                                mt="sm"
+                                style={{display: 'flex', width: 'fit-content'}}
+                            >
+                                Agent skill available
+                            </Badge>
+                        )}
                     </div>
                 </div>
                 {frontmatter.cover && (

@@ -1,98 +1,222 @@
+import {Tabs} from '@mantine/core';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
+import {Copyable, MCP_DOCS, REPO_SSH} from '../components/Copyable';
+import {ResourceChip} from '../components/ResourceChip';
+
+const GeneralTab = () => (
+    <article className="prose howto">
+        <h2>The confidence meter</h2>
+        <p>
+            Every play carries a meter showing the confidence level it works best at. Low
+            confidence means you are still working out what the problem is; high confidence means
+            you know what you are building and why.
+        </p>
+        <div className="meter-scale">
+            <div className="row">
+                <ConfidenceMeter level={1} />
+                <span>Little is known — start framing the problem (e.g. Shaping Workshop)</span>
+            </div>
+            <div className="row">
+                <ConfidenceMeter level={2} />
+                <span>
+                    The problem is framed — explore and converge on ideas (e.g. Design Smash,
+                    Storyboarding)
+                </span>
+            </div>
+            <div className="row">
+                <ConfidenceMeter level={4} />
+                <span>The solution is taking shape — validate and refine it</span>
+            </div>
+            <div className="row">
+                <ConfidenceMeter />
+                <span>All bars empty: the play works at any confidence level</span>
+            </div>
+        </div>
+
+        <h2>The three stages</h2>
+        <p>Plays are grouped into the stages of a design effort:</p>
+        <ul>
+            <li>
+                <strong>Understanding the problem</strong> — align on what we are solving and why,
+                before jumping to solutions.
+            </li>
+            <li>
+                <strong>Designing a solution</strong> — turn the chosen direction into something
+                testable.
+            </li>
+            <li>
+                <strong>Beyond the solution</strong> — test with users and feed what you learn back
+                into the loop.
+            </li>
+        </ul>
+        <p>
+            Stages are a compass, not a pipeline — plays tell you in their <em>What next?</em>{' '}
+            section where to go from there.
+        </p>
+
+        <h2>Reading a play</h2>
+        <p>Each play follows the same grammar, so you always know where to look:</p>
+        <ul>
+            <li>
+                <strong>When?</strong> — the moment this play earns its time
+            </li>
+            <li>
+                <strong>Why?</strong> — the reasoning behind the method
+            </li>
+            <li>
+                <strong>What do you need?</strong> — people and materials
+            </li>
+            <li>
+                <strong>Step by step</strong> — how to actually run it
+            </li>
+            <li>
+                <strong>What next?</strong> — where the output goes
+            </li>
+        </ul>
+        <p>Hover any play link inside a page to preview it without leaving where you are.</p>
+
+        <h2>Make it yours</h2>
+        <p>
+            None of this is prescriptive. Each play can — and probably should — be adapted to your
+            team&rsquo;s needs and context. A good playbook is never finished. Want to add or
+            improve a play? The playbook lives in a repo — open a PR or ask the design team.
+        </p>
+    </article>
+);
+
+const McpTab = () => (
+    <article className="prose howto">
+        <h2>The playbook MCP server</h2>
+        <p>
+            Connect your agent to the playbook and it can read plays, get recommendations for your
+            situation, facilitate workshops, and even propose new plays — no app, no repo browsing.
+            Content is always live: reads come straight from the repo, and you can pin any
+            published version.
+        </p>
+
+        <h2>Connect</h2>
+        <Copyable label="1. Get the repo" command={`git clone ${REPO_SSH}`} />
+        <Copyable label="2. Install the server" command="cd design-playbook/mcp && pnpm install" />
+        <Copyable
+            label="3. Register it with your agent (Claude Code shown; any MCP client works — point it at mcp/server.mjs)"
+            command="claude mcp add design-playbook -- node ./design-playbook/mcp/server.mjs"
+        />
+        <p>
+            Auth rides your existing GitHub SSO (<code>gh auth login</code>) — nothing extra to set
+            up.
+        </p>
+
+        <h2>What your agent can do with it</h2>
+        <ul>
+            <li>
+                <strong>list_plays / get_play</strong> — browse and read any play, at any version
+            </li>
+            <li>
+                <strong>recommend_play</strong> — describe your situation, get the right play with
+                the playbook&rsquo;s own selection logic
+            </li>
+            <li>
+                <strong>run_play</strong> — everything needed to facilitate a session: the play
+                plus its skill, so your agent can interview you and scaffold the workshop
+            </li>
+            <li>
+                <strong>propose_play</strong> — contribute a play; the server opens the PR
+            </li>
+        </ul>
+
+        <h2>Workshop MCP servers</h2>
+        <p>
+            Plays that scaffold sessions use Miro or Figma through your agent&rsquo;s own MCP
+            connections — set them up once:
+        </p>
+        <div className="resource-row">
+            {Object.entries(MCP_DOCS).map(([name, href]) => (
+                <ResourceChip key={name} href={href}>
+                    {name} MCP setup
+                </ResourceChip>
+            ))}
+        </div>
+    </article>
+);
+
+const SkillsTab = () => (
+    <article className="prose howto">
+        <h2>What a skill is</h2>
+        <p>
+            A skill is a set of instructions your agent follows — the facilitation knowledge behind
+            a play, written down. Where the MCP server gives your agent <em>access</em> to the
+            playbook, skills give it <em>judgment</em>: what to ask you, how to set up the board,
+            which mistakes to prevent.
+        </p>
+
+        <h2>Playbook skills</h2>
+        <ul>
+            <li>
+                <strong>run-design-smash</strong> — interviews you about the opportunity and
+                participants, then scaffolds the full Miro board (gallery wall, voting dots,
+                agenda) from the play&rsquo;s steps
+            </li>
+            <li>
+                <strong>add-play</strong> — scaffolds a new play file following the playbook&rsquo;s
+                contract
+            </li>
+        </ul>
+        <p>
+            Plays that have a skill are labelled <em>Agent skill</em> on their page, with copyable
+            setup in their Toolbox. Two ways to use them:
+        </p>
+        <ul>
+            <li>
+                <strong>With the repo</strong> — clone it and open it with your agent; skills are
+                auto-discovered.
+            </li>
+            <li>
+                <strong>Through the MCP</strong> — the <code>run_play</code> tool serves the skill
+                to your agent from anywhere, no clone needed.
+            </li>
+        </ul>
+        <Copyable label="Get the repo (includes all skills)" command={`git clone ${REPO_SSH}`} />
+
+        <h2>Research skills (coveo/ai-tools)</h2>
+        <p>
+            The research plays plug into the shared AI-tools skills — synthesis with evidence and
+            confidence labels, and narrative readouts in the Coveo theme:
+        </p>
+        <div className="resource-row">
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills">
+                Research synthesis
+            </ResourceChip>
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills">
+                Research narrative
+            </ResourceChip>
+        </div>
+    </article>
+);
 
 export const HowToUse = () => (
-    <div className="page">
-        <article className="prose howto">
-            <h1>
-                <span className="gradient-heading">How to use the playbook</span>
-            </h1>
-            <p className="lead">
-                The playbook is a collection of plays — workshops, sessions and frameworks —
-                organised around how confident you are in the problem and the solution. Two
-                minutes here and you&rsquo;ll know exactly how to read it.
-            </p>
-
-            <h2>The confidence meter</h2>
-            <p>
-                Every play carries a meter showing the confidence level it works best at. Low
-                confidence means you are still working out what the problem is; high confidence
-                means you know what you are building and why.
-            </p>
-            <div className="meter-scale">
-                <div className="row">
-                    <ConfidenceMeter level={1} />
-                    <span>Little is known — start framing the problem (e.g. Shaping Workshop)</span>
-                </div>
-                <div className="row">
-                    <ConfidenceMeter level={2} />
-                    <span>
-                        The problem is framed — explore and converge on ideas (e.g. Design Smash,
-                        Storyboarding)
-                    </span>
-                </div>
-                <div className="row">
-                    <ConfidenceMeter level={4} />
-                    <span>The solution is taking shape — validate and refine it</span>
-                </div>
-                <div className="row">
-                    <ConfidenceMeter />
-                    <span>All bars empty: the play works at any confidence level</span>
-                </div>
-            </div>
-
-            <h2>The three stages</h2>
-            <p>Plays are grouped into the stages of a design effort:</p>
-            <ul>
-                <li>
-                    <strong>Understanding the problem</strong> — align on what we are solving and
-                    why, before jumping to solutions.
-                </li>
-                <li>
-                    <strong>Designing a solution</strong> — turn the chosen direction into
-                    something testable.
-                </li>
-                <li>
-                    <strong>Beyond the solution</strong> — test with users and feed what you learn
-                    back into the loop.
-                </li>
-            </ul>
-            <p>
-                Stages are a compass, not a pipeline — plays tell you in their <em>What next?</em>{' '}
-                section where to go from there.
-            </p>
-
-            <h2>Reading a play</h2>
-            <p>Each play follows the same grammar, so you always know where to look:</p>
-            <ul>
-                <li>
-                    <strong>When?</strong> — the moment this play earns its time
-                </li>
-                <li>
-                    <strong>Why?</strong> — the reasoning behind the method
-                </li>
-                <li>
-                    <strong>What do you need?</strong> — people and materials
-                </li>
-                <li>
-                    <strong>Step by step</strong> — how to actually run it
-                </li>
-                <li>
-                    <strong>What next?</strong> — where the output goes
-                </li>
-            </ul>
-            <p>Hover any play link inside a page to preview it without leaving where you are.</p>
-
-            <h2>Make it yours</h2>
-            <p>
-                None of this is prescriptive. Each play can — and probably should — be adapted to
-                your team&rsquo;s needs and context. A good playbook is never finished.
-            </p>
-            <p>
-                Plays link to their tools where they exist: Miro templates for workshops and agent
-                skills (research synthesis, research narrative) that speed up the heavy lifting.
-                Want to add or improve a play? The playbook lives in a repo — open a PR or ask the
-                design team.
-            </p>
-        </article>
+    <div className="page howto">
+        <h1>
+            <span className="gradient-heading">How to use the playbook</span>
+        </h1>
+        <p className="lead">
+            The playbook is a collection of plays — workshops, sessions and frameworks — organised
+            around how confident you are in the problem and the solution.
+        </p>
+        <Tabs defaultValue="general" keepMounted={false}>
+            <Tabs.List>
+                <Tabs.Tab value="general">General usage</Tabs.Tab>
+                <Tabs.Tab value="mcp">MCP</Tabs.Tab>
+                <Tabs.Tab value="skills">Skills</Tabs.Tab>
+            </Tabs.List>
+            <Tabs.Panel value="general" pt="lg">
+                <GeneralTab />
+            </Tabs.Panel>
+            <Tabs.Panel value="mcp" pt="lg">
+                <McpTab />
+            </Tabs.Panel>
+            <Tabs.Panel value="skills" pt="lg">
+                <SkillsTab />
+            </Tabs.Panel>
+        </Tabs>
     </div>
 );
