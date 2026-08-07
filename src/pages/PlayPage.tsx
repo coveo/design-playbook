@@ -160,7 +160,7 @@ export const PlayPage = () => {
                                                 Any AI tool can run this play for you — the skill
                                                 interviews you and sets up the session.
                                             </Text>
-                                            <Anchor component={Link} to="/how-to-use" size="sm" mt={8} display="block">
+                                            <Anchor component={Link} to="/how-to-use?tab=skills" size="sm" mt={8} display="block">
                                                 How to use &rarr;
                                             </Anchor>
                                         </HoverCard.Dropdown>

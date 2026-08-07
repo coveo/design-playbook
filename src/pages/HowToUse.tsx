@@ -1,4 +1,5 @@
 import {Tabs} from '@mantine/core';
+import {useSearchParams} from 'react-router-dom';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
 import {Copyable, MCP_DOCS, REPO_SSH} from '../components/Copyable';
 import {ResourceChip} from '../components/ResourceChip';
@@ -156,9 +157,9 @@ const SkillsTab = () => (
         <h2>Playbook skills</h2>
         <ul>
             <li>
-                <strong>run-design-smash</strong> — interviews you about the opportunity and
-                participants, then scaffolds the full Miro board (gallery wall, voting dots,
-                agenda) from the play&rsquo;s steps
+                <strong>run-design-smash, run-shaping-workshop, run-design-dash,
+                run-journey-mapping</strong> — each interviews you about the session, then
+                scaffolds the full Miro board from its play&rsquo;s steps
             </li>
             <li>
                 <strong>add-play</strong> — scaffolds a new play file following the playbook&rsquo;s
@@ -197,7 +198,10 @@ const SkillsTab = () => (
     </article>
 );
 
-export const HowToUse = () => (
+export const HowToUse = () => {
+    const [searchParams, setSearchParams] = useSearchParams();
+    const tab = searchParams.get('tab') ?? 'general';
+    return (
     <div className="page howto">
         <h1>
             <span className="gradient-heading">How to Use the Playbook</span>
@@ -206,7 +210,11 @@ export const HowToUse = () => (
             The playbook is a collection of plays — workshops, sessions and frameworks — organised
             around how confident you are in the problem and the solution.
         </p>
-        <Tabs defaultValue="general" keepMounted={false}>
+        <Tabs
+            value={tab}
+            onChange={(value) => setSearchParams(value && value !== 'general' ? {tab: value} : {})}
+            keepMounted={false}
+        >
             <Tabs.List>
                 <Tabs.Tab value="general">General Usage</Tabs.Tab>
                 <Tabs.Tab value="mcp">MCP</Tabs.Tab>
@@ -223,4 +231,5 @@ export const HowToUse = () => (
             </Tabs.Panel>
         </Tabs>
     </div>
-);
+    );
+};
