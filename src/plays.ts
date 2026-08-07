@@ -35,8 +35,10 @@ export interface PlayFrontmatter {
         mcp?: string[];
         /** One-paragraph instruction for pointing an agent at this play */
         recipe?: string;
-        /** Name of a skill in this repo's skills/ directory that runs the play */
+        /** Name of a skill that runs the play (in this repo's skills/ unless skillRepo is set) */
         skill?: string;
+        /** GitHub owner/repo hosting the skill when it lives outside this repo (e.g. coveo/ai-tools) */
+        skillRepo?: string;
     };
     order?: number;
 }

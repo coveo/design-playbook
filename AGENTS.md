@@ -59,7 +59,7 @@ cover: /illustrations/design-smash.svg # optional; hero art, see illustration la
 miroTemplate: https://miro...  # optional
 skills:                        # optional links to agent skills (coveo/ai-tools)
   - name: Research synthesis
-    url: https://github.com/coveo/ai-tools/tree/main/skills
+    url: https://github.com/coveo/ai-tools/tree/main/skills/user-research-synthesis
 order: 2                       # sort within section/nav
 ```
 
@@ -83,8 +83,9 @@ Cross-link plays with `<PlayRef slug="design-smash" />` (preferred — inherits 
 The playbook is agent-operable, not just readable:
 
 - **Machine-readable playbook**: `pnpm build` emits `public/plays.json` (all frontmatter + MDX bodies). Agents pointed at the deployed site can fetch `<site>/plays.json`; agents in this repo read `plays/*.mdx` directly. It must stay committed in sync with plays/*.mdx (CI enforces this) because the MCP server in `mcp/` reads it from the GitHub API at any ref — git tags are published playbook versions.
-- **Per-play agent recipes**: a play's frontmatter may carry an `agent` block — `mcp` (servers needed, e.g. Miro), `recipe` (how to point an agent at the play), and `skill` (a skill in `skills/` that runs it). The play page renders this as "Run it with an agent". Keep recipes in frontmatter so they inherit like everything else.
+- **Per-play agent recipes**: a play's frontmatter may carry an `agent` block — `mcp` (servers needed, e.g. Miro), `recipe` (how to point an agent at the play), `skill` (the skill that runs it), and `skillRepo` (GitHub `owner/repo` when the skill lives outside this repo, e.g. `coveo/ai-tools`). The play page renders this as "Run it with an agent", and the MCP's `run_play` serves the skill from wherever it lives. Keep recipes in frontmatter so they inherit like everything else.
 - **Workshop skills**: `skills/run-<slug>/` skills interview the user (what's known, participants, format) and scaffold the session — e.g. `run-design-smash` builds the Miro board from the play's steps via the Miro MCP. Skills must treat the play MDX as the source of truth: if the play changes, the skill's output changes.
+- **Research-craft skills live in coveo/ai-tools** (`discussion-guide-writer`, `user-research-synthesis`, `research-narrative`) — shared artifact-producing skills belong there, behind that repo's skill-builder gate; facilitation skills that scaffold a session from a play's steps stay here. Point plays at ai-tools skills with `agent.skillRepo`.
 - When adding a new "workshopy" play, consider adding a matching `run-<slug>` skill and an `agent` block.
 
 ## Adding a play

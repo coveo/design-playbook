@@ -232,15 +232,27 @@ server.registerTool(
             return text({error: `No play with slug "${slug}"`, available: plays.map((p) => p.slug)});
         }
         let facilitationGuide = null;
+        let skillSource = null;
         const skillName = play.agent?.skill ?? `run-${slug}`;
+        const skillRepo = play.agent?.skillRepo; // e.g. coveo/ai-tools — skill lives outside this repo
         try {
-            facilitationGuide = await loadRepoFile(`skills/${skillName}/SKILL.md`, version);
+            if (skillRepo) {
+                // External skills always read at the host repo's default branch;
+                // playbook version pinning doesn't apply to them.
+                const res = await githubApi(`/repos/${skillRepo}/contents/skills/${skillName}/SKILL.md`);
+                facilitationGuide = await res.text();
+                skillSource = `github.com/${skillRepo} — skills/${skillName}`;
+            } else {
+                facilitationGuide = await loadRepoFile(`skills/${skillName}/SKILL.md`, version);
+                skillSource = `playbook repo — skills/${skillName}`;
+            }
         } catch {
             // No dedicated skill for this play yet — fall back to generic guidance.
         }
         return text({
             source,
             play,
+            skillSource,
             facilitationGuide:
                 facilitationGuide ??
                 'No dedicated facilitation skill exists for this play yet. Facilitate from the play ' +

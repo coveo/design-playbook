@@ -22,10 +22,17 @@ export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
                     <p>{agent.recipe}</p>
                     {agent.skill ? (
                         <>
-                            <Copyable label="1. Get the repo (includes the skill)" command={`git clone ${REPO_SSH}`} />
+                            <Copyable
+                                label={
+                                    agent.skillRepo
+                                        ? `1. Get the skills repo (${agent.skillRepo})`
+                                        : '1. Get the repo (includes the skill)'
+                                }
+                                command={`git clone ${agent.skillRepo ? `git@github.com:${agent.skillRepo}.git` : REPO_SSH}`}
+                            />
                             <Copyable
                                 label="2. Then tell your agent"
-                                command={`Use the ${agent.skill} skill to set up this workshop`}
+                                command={`Use the ${agent.skill} skill for this play`}
                             />
                         </>
                     ) : skills?.length ? (

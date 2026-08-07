@@ -159,7 +159,7 @@ const SkillsTab = () => (
             <li>
                 <strong>run-design-smash, run-shaping-workshop, run-design-dash,
                 run-journey-mapping, run-storyboarding</strong> — each interviews you about the session, then
-                scaffolds the full Miro board from its play&rsquo;s steps; <strong>run-discussion-guide</strong> drafts and publishes a bias-linted guide to Confluence from your research plan
+                scaffolds the full Miro board from its play&rsquo;s steps
             </li>
             <li>
                 <strong>add-play</strong> — scaffolds a new play file following the playbook&rsquo;s
@@ -184,14 +184,19 @@ const SkillsTab = () => (
 
         <h2>Research skills (coveo/ai-tools)</h2>
         <p>
-            The research plays plug into the shared AI-tools skills — synthesis with evidence and
-            confidence labels, and narrative readouts in the Coveo theme:
+            The research plays plug into the shared AI-tools skills — a bias-linted discussion
+            guide from your research plan, synthesis with evidence and confidence labels, and
+            narrative readouts in the Coveo theme. Their plays point there, and the MCP&rsquo;s{' '}
+            <code>run_play</code> fetches them from that repo:
         </p>
         <div className="resource-row">
-            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills">
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills/discussion-guide-writer">
+                Discussion guide writer
+            </ResourceChip>
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills/user-research-synthesis">
                 Research synthesis
             </ResourceChip>
-            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills">
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills/research-narrative">
                 Research narrative
             </ResourceChip>
         </div>
