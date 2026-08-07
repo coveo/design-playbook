@@ -51,6 +51,29 @@ Boundaries between plays matter as much as content:
 - Keep the original playbook's personality — it says "write drunk; edit sober" and means it. Tighten wording, don't sand it down.
 - Reference other plays with `<PlayRef slug="…" />`, never by typing their name — names and coming-soon status must stay inherited.
 
+### Length: shorter, then shorter again
+
+Most drafts will be written with agents, and **agents love writing** — the default failure mode of a contribution is now length, not thinness. Budget hard:
+
+- **Summary**: one sentence.
+- **When? / Why?**: one or two short paragraphs each, opening with a bold anchor phrase.
+- **Steps**: a heading plus 1–3 sentences. If a step needs a sub-list, it's probably two steps — or another play.
+- **Common mistakes**: one line each.
+- **The whole play**: readable in one scroll (~400–600 words). Match the density of Design Smash or Creating a Visiontype; if your draft is longer than the longest existing play, cut before opening the PR.
+
+The test: delete every sentence and see which ones you're forced to put back.
+
+### Tone of voice
+
+The playbook sounds like a sharp colleague explaining something over coffee — not a consultancy deck, not documentation:
+
+- **Short declaratives, concrete nouns.** "Grab 6–7 post-its" beats "gather the appropriate materials".
+- **Bold anchor, then the point.** Sections open with a punchy bold phrase ("Anytime!", "Write drunk; edit sober.") followed by the explanation.
+- **Dry humour is welcome, one per section max.** "A flag nobody looks at is just a stick in the ground."
+- **No jargon.** Banned on sight: *leverage, utilize, alignment* (as a noun of virtue), *synergy, best-in-class, double-click, socialize, learnings*. If a PM or engineer would need a design glossary, rewrite it.
+- **Accessible by default.** Plays are read by engineers and PMs at least as often as designers — explain the *why* in plain terms, never assume craft vocabulary.
+- **Honest about failure.** The mistakes sections name real, slightly embarrassing behaviours ("pitching disguised as research"), not abstract risks.
+
 ## Keeping the key documents honest
 
 Three documents describe this repo, each with one job. When your change touches what they describe, update them in the same PR — a stale README is a bug.

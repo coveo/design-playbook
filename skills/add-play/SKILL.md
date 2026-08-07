@@ -15,7 +15,7 @@ description: Scaffold a new play (workshop, method, or study) in the Design Play
 
 ## Write
 
-Create `plays/<kebab-case-slug>.mdx` following the frontmatter contract in AGENTS.md. Body grammar (skip sections that don't apply):
+Create `plays/<kebab-case-slug>.mdx` following the frontmatter contract in AGENTS.md, and the **length/tone constraints in CONTRIBUTING.md** — ~400–600 words total, steps of 1–3 sentences, no jargon; draft, then cut a third. Body grammar (skip sections that don't apply):
 
 ```
 ## When?

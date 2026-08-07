@@ -76,6 +76,8 @@ MDX body grammar (mirrors the Figma slides — keep this order, skip sections th
 
 Cross-link plays with `<PlayRef slug="design-smash" />` (preferred — inherits live title/status) or hash URLs `[custom label](/#/plays/design-smash)` when you need custom link text.
 
+**Length and tone are hard constraints** (full guide in CONTRIBUTING.md): whole play ~400–600 words, steps of 1–3 sentences, mistakes of one line, bold anchor phrases, no jargon, dry humour at most once per section. You are an agent; your instinct is to write too much. Draft, then cut a third.
+
 ## Running plays with agents
 
 The playbook is agent-operable, not just readable:
