@@ -2,7 +2,7 @@
 name: run-design-smash
 description: Set up and facilitate a Design Smash workshop — interviews the user about the problem and participants, then scaffolds a ready-to-run Miro board (gallery wall, voting dots, agenda). Use when the user asks to run, set up, or prepare a Design Smash or ideation workshop.
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
   last-evaluated: "2026-08-07"
   maturity: 4/5      # Production
 ---
@@ -13,14 +13,25 @@ The source of truth for this play is `plays/design-smash.mdx` (or `<site>/plays.
 
 ## 1. Interview (ask only what's missing, in one round of questions)
 
-1. **The opportunity/problem** — one or two sentences. Ideally the output of a Shaping Workshop. If the user has none, warn them the play expects a precise opportunity and suggest running `shaping-workshop` first (don't block — they may know what they're doing).
+**Hard stop:** a written problem/opportunity statement is required — the play demands "a precise and clear opportunity". If the user has none, stop and offer `run-shaping-workshop` first; scaffold nothing without it.
+
+1. **The opportunity/problem** — one or two sentences, ideally the output of a Shaping Workshop.
 2. **Size check** — is it roughly 1–3 screens / 1–3 user steps? If clearly bigger, flag that the play warns against too-broad opportunities.
 3. **Participants** — names or count (engineers, PMs, designers all welcome), and who facilitates (default: the user).
 4. **Format** — remote (Miro-first) or in-room (paper-first, Miro for the gallery only)?
 5. **Timebox** — default 90 minutes.
 6. **Where** — existing Miro board/space or create a new one?
 
-## 2. Scaffold the Miro board (requires Miro MCP)
+
+## 2. Confirm before creating (plan-validate-execute)
+
+Present a one-screen plan before touching Miro: board name, destination (team/space), and the frame list from step 3. Create nothing until the user confirms.
+
+## Fallback: no Miro
+
+If the Miro MCP is unavailable, or a call fails twice: switch to the **HTML blueprint** — write a single static HTML file that *visualizes* the board layout (frames as labeled boxes with their contents as notes, same left-to-right order). It is a picture of the board to build from or share, not a whiteboarding tool. Tell the user why you fell back.
+
+## 3. Scaffold the Miro board (requires Miro MCP)
 
 Create one board named `Design Smash — <short problem name>` with these areas, left to right (use frames/sections; keep it uncluttered):
 
@@ -33,7 +44,12 @@ Create one board named `Design Smash — <short problem name>` with these areas,
 
 Then share the board link back, with a one-paragraph facilitator brief: the four common mistakes from the play, compressed.
 
-## 3. Offer follow-ups (don't do them unprompted)
+
+## 4. Verify, then hand over
+
+Completion criterion: every frame from the layout list exists on the board — check with a board read (e.g. `board_list_items`) and fix gaps before sharing. Missing frames: re-run the create for just those. Then share the link with the facilitator brief. If the user rejects the board, offer to trash it (`board_trash`) rather than leaving orphans.
+
+## 5. Offer follow-ups (don't do them unprompted)
 
 - Schedule the session / draft the invite text.
 - After the workshop: photograph → upload sketches; and when it ends in provocations or a winning sketch, point to the `storyboarding` play as the next step.
