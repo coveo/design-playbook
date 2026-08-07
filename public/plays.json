@@ -231,6 +231,7 @@
       "section": "beyond",
       "summary": "Go back to the bet — check the pivot switches, read the metrics, and decide whether the solution did what we shaped it to do.",
       "comingSoon": true,
+      "cover": "/illustrations/measuring-impact.svg",
       "order": 30,
       "body": "Coming soon — the follow-through on every <PlayRef slug=\"shaping-workshop\" />: the success metrics and pivot switches defined there get a scheduled reckoning here. What shipped, what moved, what signals say we're on the wrong path, and what that means for the next loop."
     },
