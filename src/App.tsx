@@ -1,11 +1,13 @@
 import {ActionIcon, AppShell, Collapse, ScrollArea, Tooltip} from '@mantine/core';
 import {
     IconChevronRight,
+    IconEye,
+    IconEyeOff,
     IconHelpCircle,
     IconLayoutSidebarLeftCollapse,
     IconLayoutSidebarLeftExpand,
 } from '@coveord/plasma-react-icons';
-import {useDisclosure} from '@mantine/hooks';
+import {useDisclosure, useLocalStorage} from '@mantine/hooks';
 import type {ReactNode} from 'react';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import coveoLogo from './assets/coveo-logo.svg';
@@ -46,6 +48,7 @@ const NavGroup = ({label, children}: {label: string; children: ReactNode}) => {
 
 export const App = () => {
     const [opened, {toggle}] = useDisclosure(true);
+    const [hideSoon, setHideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: false});
     const location = useLocation();
 
     return (
@@ -67,21 +70,39 @@ export const App = () => {
                             <img src={coveoLogo} alt="Coveo" />
                             <span>Design Playbook</span>
                         </Link>
-                        <Tooltip label="Hide navigation" withArrow fz="xs">
-                            <ActionIcon
-                                variant="subtle"
-                                color="gray"
-                                onClick={toggle}
-                                aria-label="Hide navigation"
+                        <div>
+                            <Tooltip
+                                label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
+                                withArrow
+                                fz="xs"
                             >
-                                <IconLayoutSidebarLeftCollapse size={18} />
-                            </ActionIcon>
-                        </Tooltip>
+                                <ActionIcon
+                                    variant="subtle"
+                                    color="gray"
+                                    onClick={() => setHideSoon((v) => !v)}
+                                    aria-label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
+                                >
+                                    {hideSoon ? <IconEye size={18} /> : <IconEyeOff size={18} />}
+                                </ActionIcon>
+                            </Tooltip>
+                            <Tooltip label="Hide navigation" withArrow fz="xs">
+                                <ActionIcon
+                                    variant="subtle"
+                                    color="gray"
+                                    onClick={toggle}
+                                    aria-label="Hide navigation"
+                                >
+                                    <IconLayoutSidebarLeftCollapse size={18} />
+                                </ActionIcon>
+                            </Tooltip>
+                        </div>
                     </div>
                 </AppShell.Section>
                 <AppShell.Section grow component={ScrollArea}>
                     {sections.map((section) => {
-                        const sectionPlays = playsInSection(section.id);
+                        const sectionPlays = playsInSection(section.id).filter(
+                            (p) => !hideSoon || !p.frontmatter.comingSoon,
+                        );
                         if (sectionPlays.length === 0) {
                             return null;
                         }
