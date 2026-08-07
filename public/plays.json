@@ -131,6 +131,24 @@
       "body": "Coming soon."
     },
     {
+      "title": "Prototyping with Agents",
+      "slug": "prototyping-with-agents",
+      "section": "designing",
+      "summary": "Build working prototypes with AI agents on real components — the medium that makes fidelity a choice, not a cost.",
+      "comingSoon": true,
+      "order": 13,
+      "body": "Coming soon — how we build prototypes in the agent era: point an agent at the prototypes repo, describe the concept, and get a working prototype on real Plasma components with a shareable preview link. <PlayRef slug=\"lofi-prototyping\" /> and <PlayRef slug=\"hifi-prototyping\" /> decide *what fidelity to test at*; this play is *how the thing gets built* — and why the old \"hi-fi is expensive\" rule no longer holds."
+    },
+    {
+      "title": "Creating a Visiontype",
+      "slug": "creating-a-visiontype",
+      "section": "designing",
+      "summary": "A prototype that plants a flag in the future — built to align everyone on where we're heading, not to ship.",
+      "comingSoon": true,
+      "order": 14,
+      "body": "Coming soon — the north-star artifact: a deliberately ambitious prototype of a future moment, used to define direction and rally product, design, and engineering around it. Unlike <PlayRef slug=\"provocations\" /> (which test assumptions) or a test prototype (which validates a solution), a visiontype's job is alignment — it should provoke \"that's where we're going\" rather than \"does this work?\"."
+    },
+    {
       "title": "Creating a Research Plan",
       "slug": "creating-research-plan",
       "section": "craft",
