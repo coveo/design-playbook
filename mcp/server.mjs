@@ -132,9 +132,11 @@ server.registerTool(
             'List all plays in the Coveo Design Playbook (workshops, sessions, frameworks for product design and research), with title, section, confidence level, and summary.',
         inputSchema: {
             section: z
-                .enum(['understanding', 'designing', 'beyond'])
+                .enum(['understanding', 'designing', 'beyond', 'craft'])
                 .optional()
-                .describe('Filter by stage: understanding the problem, designing a solution, beyond the solution'),
+                .describe(
+                    'Filter by stage: understanding the problem, designing a solution, beyond the solution — or craft (cross-cutting research craft)',
+                ),
             includeComingSoon: z.boolean().optional().describe('Include plays not yet written (default true)'),
             version: versionParam,
         },
@@ -191,9 +193,9 @@ server.registerTool(
             context,
             guidance:
                 'Pick by confidence level: 1 bar = little is known, start framing (Shaping Workshop). ' +
-                '2 bars = problem framed, explore and converge (Design Smash, Storyboarding, User Journey Mapping). ' +
-                '"anytime" plays (Design Dash, P.O.I.N.T. Analysis) fit whenever their When? section matches. ' +
-                'Testing your Solutions applies whenever there is something to put in front of users. ' +
+                '2 bars = problem framed, explore and converge (Design Smash, Storyboarding, Journey Mapping). ' +
+                '"anytime" plays (Design Dash) fit whenever their When? section matches. ' +
+                'Research Craft plays (section "craft") are cross-cutting skills — plan, guide, run, synthesise, present — invoked by stage plays whenever users are involved. ' +
                 'Match the situation against each candidate\'s summary and confidence below, and check its When? section via get_play before committing.',
             candidates: plays.filter((p) => !p.comingSoon).map(summarize),
         });
@@ -292,7 +294,9 @@ server.registerTool(
         inputSchema: {
             slug: z.string().regex(/^[a-z0-9-]+$/).describe('kebab-case slug; reuse an existing slug to update that play'),
             title: z.string().describe('Display name, e.g. "Vibe Coding"'),
-            section: z.enum(['understanding', 'designing', 'beyond']).describe('Which stage the play belongs to'),
+            section: z
+                .enum(['understanding', 'designing', 'beyond', 'craft'])
+                .describe('Which stage the play belongs to (craft = cross-cutting research craft)'),
             summary: z.string().describe('One sentence shown on the card and play hero'),
             body: z.string().describe('The MDX body following the play grammar (## When? / ## Why? / ## Step by step / ## What next?)'),
             confidence: z.number().int().min(1).max(5).optional().describe('1–5 on the confidence meter; omit for "anytime" plays'),

@@ -221,6 +221,9 @@
         }
       ],
       "agent": {
+        "mcp": [
+          "Atlassian"
+        ],
         "skill": "user-research-synthesis",
         "skillRepo": "coveo/ai-tools",
         "recipe": "Point your agent at your session notes or transcripts and run the research synthesis skill: it produces evidence-backed findings with confidence labels and risk levels, ready for a readout."
@@ -242,6 +245,9 @@
         }
       ],
       "agent": {
+        "mcp": [
+          "Atlassian"
+        ],
         "skill": "research-narrative",
         "skillRepo": "coveo/ai-tools",
         "recipe": "Point your agent at your synthesis output and run the research narrative skill: it identifies the narrative gaps, picks the best bits, and produces the format you need — slide deck, executive summary, or Confluence page — in the Coveo theme."
