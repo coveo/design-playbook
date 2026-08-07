@@ -1,4 +1,5 @@
 import {MDXProvider} from '@mdx-js/react';
+import {useMemo} from 'react';
 import {Anchor, Badge, Button, HoverCard, Text} from '@mantine/core';
 import {IconExternalLink, IconSparkles} from '@coveord/plasma-react-icons';
 import {Link, useParams} from 'react-router-dom';
@@ -8,6 +9,11 @@ import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
 import {asset, playBySlug, sections} from '../plays';
+
+/** Fresh URL per mount so one-shot SVG animations replay on every visit
+ * (browsers cache the decoded SVG document per URL). */
+const useCoverSrc = (cover?: string) =>
+    useMemo(() => (cover ? `${asset(cover)}?v=${Date.now()}` : undefined), [cover]);
 import type {Play} from '../plays';
 import figmaLogo from '../assets/figma.svg';
 import miroLogo from '../assets/miro.svg';
@@ -21,6 +27,7 @@ const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 const ComingSoon = ({play}: {play: Play}) => {
     const {frontmatter} = play;
     const section = sections.find((s) => s.id === frontmatter.section);
+    const coverSrc = useCoverSrc(frontmatter.cover);
     return (
         <div className="page">
             <div className="play-hero">
@@ -36,9 +43,9 @@ const ComingSoon = ({play}: {play: Play}) => {
                         </Badge>
                     </div>
                 </div>
-                {frontmatter.cover && (
+                {coverSrc && (
                     <div className="play-hero-panel">
-                        <img src={asset(frontmatter.cover)} alt="" />
+                        <img src={coverSrc} alt="" />
                     </div>
                 )}
             </div>
@@ -116,6 +123,7 @@ export const PlayPage = () => {
 
     const {frontmatter, Component} = play;
     const section = sections.find((s) => s.id === frontmatter.section);
+    const coverSrc = useCoverSrc(frontmatter.cover);
 
     return (
         <div className="page">
@@ -180,9 +188,9 @@ export const PlayPage = () => {
                         )}
                     </div>
                 </div>
-                {frontmatter.cover && (
+                {coverSrc && (
                     <div className="play-hero-panel">
-                        <img src={asset(frontmatter.cover)} alt="" />
+                        <img src={coverSrc} alt="" />
                     </div>
                 )}
             </div>
