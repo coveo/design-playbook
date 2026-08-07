@@ -1,9 +1,24 @@
 <svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .fr { stroke-dasharray: 1400; animation: draw 9s ease-out infinite; }
+    .hd { animation: fromLeft 9s ease-out infinite; }
+    .ar { animation: rise 9s ease-out infinite; }
+    .r1 { animation: fromTop 9s ease-out infinite; }
+    .r2 { animation: fromRight 9s ease-out infinite; }
+    .dt { animation: pop 9s ease-out infinite; }
+    @keyframes draw { 0% {stroke-dashoffset: 1400;} 20%, 100% {stroke-dashoffset: 0;} }
+    @keyframes fromLeft { 0%, 22% {transform: translateX(-700px);} 30%, 100% {transform: none;} }
+    @keyframes rise { 0%, 32% {transform: translateY(420px);} 40%, 100% {transform: none;} }
+    @keyframes fromTop { 0%, 42% {transform: translateY(-620px);} 50%, 100% {transform: none;} }
+    @keyframes fromRight { 0%, 52% {transform: translateX(640px);} 60%, 100% {transform: none;} }
+    @keyframes pop { 0%, 63% {opacity: 0;} 68%, 100% {opacity: 1;} }
+    @media (prefers-reduced-motion: reduce) { .fr, .hd, .ar, .r1, .r2, .dt { animation: none; } }
+  </style>
   <rect width="840" height="560" fill="#f1ece1"/>
-  <path d="M460 470 H570 Q610 470 610 430 V130 Q610 90 570 90 H270 Q230 90 230 130 V430 Q230 470 270 470 H330" stroke="#29456e" stroke-width="14" stroke-linecap="round" fill="none"/>
-  <path d="M290 170 H550" stroke="#e9b345" stroke-width="14" stroke-linecap="round" fill="none"/>
-  <path d="M310 300 A70 70 0 0 1 450 300" stroke="#74bfae" stroke-width="14" stroke-linecap="round" fill="none"/>
-  <path d="M356 540 L440 496" stroke="#e0684b" stroke-width="14" stroke-linecap="round" fill="none"/>
-  <path d="M498 548 L560 514" stroke="#4e86c6" stroke-width="12" stroke-linecap="round" fill="none"/>
-  <circle cx="646" cy="512" r="11" fill="#e9b345"/>
+  <path class="fr" d="M270 90 H570 Q610 90 610 130 V430 Q610 470 570 470 H270 Q230 470 230 430 V130 Q230 90 270 90 Z" stroke="#29456e" stroke-width="14" stroke-linecap="round"/>
+  <path class="hd" d="M290 170 H550" stroke="#e9b345" stroke-width="14" stroke-linecap="round"/>
+  <path class="ar" d="M310 300 A70 70 0 0 1 450 300" stroke="#74bfae" stroke-width="14" stroke-linecap="round"/>
+  <path class="r1" d="M290 380 H520" stroke="#e0684b" stroke-width="14" stroke-linecap="round"/>
+  <path class="r2" d="M290 428 H430" stroke="#4e86c6" stroke-width="12" stroke-linecap="round"/>
+  <circle class="dt" cx="556" cy="424" r="11" fill="#e9b345"/>
 </svg>
