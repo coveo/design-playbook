@@ -1,6 +1,10 @@
 ---
 name: add-play
 description: Scaffold a new play (workshop, method, or study) in the Design Playbook. Use when the user asks to add, create, or migrate a play into the playbook.
+metadata:
+  version: "1.0.0"
+  last-evaluated: "2026-08-07"
+  maturity: 4/5      # Production
 ---
 
 # Add a play to the Design Playbook

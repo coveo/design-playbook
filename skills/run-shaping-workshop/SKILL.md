@@ -1,6 +1,10 @@
 ---
 name: run-shaping-workshop
 description: Set up and facilitate a Shaping Workshop — interviews the user about the opportunity and groups, then scaffolds a Miro board with breakout zones and pitch templates. Use when the user asks to run, set up, or prepare a shaping workshop or shaping session.
+metadata:
+  version: "1.0.0"
+  last-evaluated: "2026-08-07"
+  maturity: 3/5      # Robust
 ---
 
 # Run a Shaping Workshop

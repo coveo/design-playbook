@@ -1,6 +1,10 @@
 ---
 name: run-design-smash
 description: Set up and facilitate a Design Smash workshop — interviews the user about the problem and participants, then scaffolds a ready-to-run Miro board (gallery wall, voting dots, agenda). Use when the user asks to run, set up, or prepare a Design Smash or ideation workshop.
+metadata:
+  version: "1.0.0"
+  last-evaluated: "2026-08-07"
+  maturity: 4/5      # Production
 ---
 
 # Run a Design Smash

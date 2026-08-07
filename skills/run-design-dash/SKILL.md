@@ -1,6 +1,10 @@
 ---
 name: run-design-dash
 description: Set up and facilitate a Design Dash — interviews the user about the problem and participants, then scaffolds a two-session Miro board (context, crazy 8s, 4-step sketches, voting, storyboard). Use when the user asks to run, set up, or prepare a design dash or design sprint.
+metadata:
+  version: "1.0.0"
+  last-evaluated: "2026-08-07"
+  maturity: 3/5      # Robust
 ---
 
 # Run a Design Dash

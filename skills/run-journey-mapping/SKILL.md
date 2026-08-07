@@ -1,6 +1,10 @@
 ---
 name: run-journey-mapping
 description: Set up and facilitate a Journey Mapping session — interviews the user about the journey and the people in it, then scaffolds a Miro board with phase columns, user rows, and emotion/opportunity lanes. Use when the user asks to run, set up, or prepare a journey mapping session.
+metadata:
+  version: "1.0.0"
+  last-evaluated: "2026-08-07"
+  maturity: 3/5      # Robust
 ---
 
 # Run a Journey Mapping session
