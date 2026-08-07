@@ -44,6 +44,13 @@
       "summary": "A one hour collaborative session to turn any sketch into a prototype.",
       "confidence": 2,
       "duration": "1 hour",
+      "agent": {
+        "mcp": [
+          "Miro"
+        ],
+        "skill": "run-storyboarding",
+        "recipe": "With the Miro MCP connected, ask your agent to set up a storyboarding session: the run-storyboarding skill interviews you about the winning sketch and prototype goal, then scaffolds the story rail on a Miro board."
+      },
       "cover": "/illustrations/storyboarding.svg",
       "order": 3,
       "body": "## When?\n\n**After a [Design Smash](/#/plays/design-smash) or [provocations](/#/plays/provocations) research.** The goal of the session is to align on what the user journey should look like and what we need to show in each step of the prototype.\n\n## Why?\n\n**Agree on the story before anyone builds.** A sketch is one moment; a prototype is a journey. An hour spent agreeing what happens before and after — and what each screen must show — saves days of prototype rework and gives the whole team the same picture of what's being tested and what's out of scope.\n\n## Step by step\n\n### 1. Collate sketches/provocations\n\nBring the top-voted sketch from <PlayRef slug=\"design-smash\" /> or all provocation concepts that were tested into a new file for the group. Agree on the direction or what's needed for this idea to be put in front of users. *Tip: it's usually just a few extra screens added before and after for it to work.*\n\n### 2. Decide on the primary goal of the prototype\n\nTalk about what you want to learn most by validating this idea. What is the primary goal? Are there secondary goals — are you testing multiple approaches, does the prototype have multiple user flows?\n\n### 3. Write down the names of each step\n\nGrab 6–7 post-its and treat them as the names of the screens. Your most-voted idea may go somewhere in the middle, but you may also want to deconstruct or expand it. *Tip: feeling stuck? Start with the first and last steps of the user journey.*\n\n### 4. Flesh out what's going into the prototype\n\nStarting with the first step, list everything you might want to show, then do this for all screens. Once you've listed all ideas, talk through them and decide which ones go into the prototype and which aren't important enough.\n\n## What next?\n\n**Prototyping.** Happy with the result? Time to turn the storyboard into an interactive prototype. Too many things to test, or too different from what users experience now? Start with <PlayRef slug=\"lofi-prototyping\" />. Confident enough that some of this will work? Skip straight into the gradient world of <PlayRef slug=\"hifi-prototyping\" />."

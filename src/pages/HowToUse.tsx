@@ -158,7 +158,7 @@ const SkillsTab = () => (
         <ul>
             <li>
                 <strong>run-design-smash, run-shaping-workshop, run-design-dash,
-                run-journey-mapping</strong> — each interviews you about the session, then
+                run-journey-mapping, run-storyboarding</strong> — each interviews you about the session, then
                 scaffolds the full Miro board from its play&rsquo;s steps
             </li>
             <li>
