@@ -28,7 +28,7 @@ Create `plays/<kebab-case-slug>.mdx` following the frontmatter contract in AGENT
 
 - Cross-link other plays with `<PlayRef slug="<slug>" />` — never hardcode play titles or "(coming soon)" text; it derives from frontmatter.
 - Use blockquotes for "Before you start" callouts (they render as Alert components).
-- Hero art: every play gets an SVG in `public/illustrations/<slug>.svg` following the illustration language in AGENTS.md (retro stripe bands on warm paper). The generator lives in the gitignored `style-lab/` — if it isn't available locally, open the PR without art and note it; a maintainer adds the illustration.
+- Hero art: every play gets an SVG in `public/illustrations/<slug>.svg` following the illustration language **and calibration rule** in AGENTS.md: a geometric metaphor for the play — abstract, never a literal pictogram, but never metaphor-free line decoration either. The generator lives in the gitignored `style-lab/` — if it isn't available locally, open the PR without art and note it; a maintainer adds the illustration.
 - Inline content images use relative paths (`covers/<name>.png`) with files in `public/covers/`.
 - No registry edit is needed — files under `plays/` are auto-discovered.
 
