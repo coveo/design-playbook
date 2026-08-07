@@ -15,10 +15,11 @@ import {asset, playBySlug, sections} from '../plays';
 const useCoverSrc = (cover?: string) =>
     useMemo(() => (cover ? `${asset(cover)}?v=${Date.now()}` : undefined), [cover]);
 import type {Play} from '../plays';
+import confluenceLogo from '../assets/confluence.svg';
 import figmaLogo from '../assets/figma.svg';
 import miroLogo from '../assets/miro.svg';
 
-const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo};
+const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo, Atlassian: confluenceLogo};
 
 const REPO_URL = 'https://github.com/coveo-incubator/design-playbook';
 

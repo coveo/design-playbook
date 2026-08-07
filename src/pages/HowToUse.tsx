@@ -159,7 +159,7 @@ const SkillsTab = () => (
             <li>
                 <strong>run-design-smash, run-shaping-workshop, run-design-dash,
                 run-journey-mapping, run-storyboarding</strong> — each interviews you about the session, then
-                scaffolds the full Miro board from its play&rsquo;s steps
+                scaffolds the full Miro board from its play&rsquo;s steps; <strong>run-discussion-guide</strong> drafts and publishes a bias-linted guide to Confluence from your research plan
             </li>
             <li>
                 <strong>add-play</strong> — scaffolds a new play file following the playbook&rsquo;s

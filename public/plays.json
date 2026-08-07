@@ -180,6 +180,13 @@
       "section": "craft",
       "summary": "Turn research questions into a script and tasks that keep sessions fair, unbiased, and consistent.",
       "confidence": 2,
+      "agent": {
+        "mcp": [
+          "Atlassian"
+        ],
+        "skill": "run-discussion-guide",
+        "recipe": "Point your agent at your research plan and ask for a discussion guide: the run-discussion-guide skill drafts it in the house Confluence format, bias-lints every question, and publishes it under the plan — offering to mine prototype code for dead-ends and themes when there is one."
+      },
       "cover": "/illustrations/writing-discussion-guides.svg",
       "order": 22,
       "body": "## When?\n\n**After the [research plan](/#/plays/creating-research-plan), before the first call.** The guide is what makes session five comparable to session one — and what stops a nervous facilitator from improvising leading questions.\n\n## Why?\n\n**A discussion guide is one of the most important steps to keep your research fair, unbiased and consistent.** It converts research questions into things you can actually say and do in a session, and it frees you to listen instead of thinking about what to ask next.\n\n## Step by step\n\n### 1. Set the scene\n\nWrite the opening: what the session is about, that you're testing the idea and not them, that honest reactions — including thinking out loud — are the most helpful thing they can do.\n\n### 2. Turn research questions into a script and tasks\n\nFor each research question, write the prompts or tasks that will answer it. For prototypes, think about how participants will navigate and where each answer should come from. For discovery, anchor prompts to the recent past — \"walk me through the last time you…\".\n\n### 3. Order it from broad to specific\n\nStart open, narrow down. Early specificity contaminates everything after it: once you've shown your interest in a feature, every later answer bends toward it.\n\n### 4. Strip the bias out\n\nRead every question hunting for leads: anything answerable with yes/no, anything hypothetical (\"would you…\"), anything comparative-subjective (\"is this easier?\"). Rewrite them open and behavioural.\n\n### 5. Pilot it\n\nRun the guide once on a colleague. You'll find the confusing task, the missing question, and the section that takes three times longer than planned — before it costs you a real participant.\n\n## What next?\n\nTake the guide into <PlayRef slug=\"running-calls\" />. Expect to tweak it after the first session — that's the guide working, not failing."
