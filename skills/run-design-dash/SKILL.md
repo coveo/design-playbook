@@ -9,7 +9,7 @@ metadata:
 
 # Run a Design Dash
 
-The source of truth is `plays/design-dash.mdx` (or the MCP's `get_play`, slug `design-dash`). The play's frontmatter carries the official Miro template link — offer to start from it; scaffold fresh only if the user prefers.
+The source of truth is `plays/design-dash.mdx` (or the MCP's `get_play`, slug `design-dash`). Follow the play, not this file, if they diverge.
 
 ## 1. Interview (one round of questions)
 
@@ -18,7 +18,7 @@ The source of truth is `plays/design-dash.mdx` (or the MCP's `get_play`, slug `d
 1. **The problem** — what are we aligning on? What context exists?
 2. **Participants** — who's in, who facilitates, who is the master voter (usually the PM)?
 3. **Sessions** — two sessions (~3h total); are they same-day or split?
-4. **Where** — clone the play's Miro template, or scaffold on an existing board?
+4. **Where** — existing Miro board/space or create new?
 
 
 ## 2. Confirm before creating (plan-validate-execute)
