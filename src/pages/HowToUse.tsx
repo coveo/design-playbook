@@ -1,7 +1,7 @@
 import {Tabs} from '@mantine/core';
 import {useSearchParams} from 'react-router-dom';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
-import {Copyable, MCP_DOCS, REPO_SSH} from '../components/Copyable';
+import {Copyable, MCP_DOCS, MCP_URLS, REPO_SSH} from '../components/Copyable';
 import {ResourceChip} from '../components/ResourceChip';
 
 const GeneralTab = () => (
@@ -131,13 +131,18 @@ const McpTab = () => (
 
         <h2>Workshop MCP servers</h2>
         <p>
-            Plays that scaffold sessions use Miro or Figma through your agent&rsquo;s own MCP
-            connections — set them up once:
+            Plays that scaffold sessions or publish artifacts use Miro, Figma, or Confluence
+            through your agent&rsquo;s own MCP connections. All three are the vendors&rsquo; own
+            remote servers (OAuth, no keys) — add them once by URL, and <code>run_play</code>{' '}
+            hands your agent these same URLs when a play needs them:
         </p>
+        {Object.entries(MCP_URLS).map(([name, url]) => (
+            <Copyable key={name} label={`${name} MCP`} command={url} />
+        ))}
         <div className="resource-row">
             {Object.entries(MCP_DOCS).map(([name, href]) => (
                 <ResourceChip key={name} href={href}>
-                    {name} MCP setup
+                    {name} MCP docs
                 </ResourceChip>
             ))}
         </div>

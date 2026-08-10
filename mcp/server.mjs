@@ -103,6 +103,18 @@ async function loadPlays(version) {
     return {plays: data, source: `github:${ref}`};
 }
 
+// Workshop MCP servers plays may need (play frontmatter agent.mcp). All are
+// public vendor endpoints with OAuth — mirrored in src/components/Copyable.tsx.
+const MCP_SERVERS = {
+    Miro: {url: 'https://mcp.miro.com/', docs: 'https://miro.com/ai/mcp/'},
+    Figma: {
+        url: 'https://mcp.figma.com/mcp',
+        desktopUrl: 'http://127.0.0.1:3845/mcp (requires the Figma desktop app running)',
+        docs: 'https://developers.figma.com/docs/figma-mcp-server/',
+    },
+    Atlassian: {url: 'https://mcp.atlassian.com/v1/mcp', docs: 'https://www.atlassian.com/platform/remote-mcp-server'},
+};
+
 const summarize = (play) => ({
     slug: play.slug,
     title: play.title,
@@ -251,10 +263,14 @@ server.registerTool(
         } catch {
             // No dedicated skill for this play yet — fall back to generic guidance.
         }
+        const mcpSetup = Object.fromEntries(
+            (play.agent?.mcp ?? []).filter((name) => MCP_SERVERS[name]).map((name) => [name, MCP_SERVERS[name]]),
+        );
         return text({
             source,
             play,
             skillSource,
+            ...(Object.keys(mcpSetup).length && {mcpSetup}),
             facilitationGuide:
                 facilitationGuide ??
                 'No dedicated facilitation skill exists for this play yet. Facilitate from the play ' +
@@ -264,7 +280,7 @@ server.registerTool(
                     'space following the "Step by step" section (use the miroTemplate link if present); ' +
                     '(3) share the setup back with a short facilitator brief including the "Common ' +
                     'mistakes" section if the play has one.',
-            note: 'Follow facilitationGuide now. It may direct you to use Miro/Figma MCP tools — use the ones you have; if missing, tell the user which MCP server to connect.',
+            note: 'Follow facilitationGuide now. It may direct you to use Miro/Figma/Atlassian MCP tools — use the ones you have; if missing, give the user the connection URL from mcpSetup so they can add the server.',
         });
     },
 );

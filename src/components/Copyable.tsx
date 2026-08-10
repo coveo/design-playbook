@@ -4,10 +4,18 @@ import {IconCheck, IconCopy} from '@coveord/plasma-react-icons';
 export const REPO_SSH = 'git@github.com:coveo-incubator/design-playbook.git';
 export const AI_TOOLS_SSH = 'git@github.com:coveo/ai-tools.git';
 
-/** Where to set up each MCP server — Confluence is the source of truth */
+/** Public vendor docs for each workshop MCP server (no internal links) */
 export const MCP_DOCS: Record<string, string> = {
-    Miro: 'https://coveord.atlassian.net/wiki/spaces/RD/pages/6135447581/Miro+MCP+Server',
-    Figma: 'https://coveord.atlassian.net/wiki/spaces/RD/pages/6144655446/Figma+MCP+Server',
+    Miro: 'https://miro.com/ai/mcp/',
+    Figma: 'https://developers.figma.com/docs/figma-mcp-server/',
+    Atlassian: 'https://www.atlassian.com/platform/remote-mcp-server',
+};
+
+/** Remote MCP endpoints, mirrored in mcp/server.mjs MCP_SERVERS — agents get these from run_play */
+export const MCP_URLS: Record<string, string> = {
+    Miro: 'https://mcp.miro.com/',
+    Figma: 'https://mcp.figma.com/mcp',
+    Atlassian: 'https://mcp.atlassian.com/v1/mcp',
 };
 
 /** Docs-CLI style copyable line: code + copy button */
