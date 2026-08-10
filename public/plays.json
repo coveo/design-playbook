@@ -169,6 +169,20 @@
       "section": "craft",
       "summary": "Frame a research round before any call happens — one goal, real questions, and criteria for who you'll speak to.",
       "confidence": 2,
+      "skills": [
+        {
+          "name": "Research planner",
+          "url": "https://github.com/coveo/ai-tools/tree/main/skills/research-planner"
+        }
+      ],
+      "agent": {
+        "mcp": [
+          "Atlassian"
+        ],
+        "skill": "research-planner",
+        "skillRepo": "coveo/ai-tools",
+        "recipe": "Tell your agent what decision the research should inform: the research-planner skill interviews you, holds the round to one primary goal, drafts the plan in the house Confluence format, and publishes it next to the previous round — ready to hand to the discussion guide."
+      },
       "cover": "/illustrations/creating-research-plan.svg",
       "order": 21,
       "body": "## When?\n\n**Before any round of calls** — discovery conversations or testing a prototype. If you can't say what you're trying to learn and from whom, you're not ready to schedule anything.\n\n## Why?\n\n**To make sure we build the right thing, in the right way — without wasting anyone's time.** While we may be experts in our product, we are not our users. A plan keeps the round honest: it forces the questions into the open, exposes your assumptions, and tells you when you're done.\n\n## Step by step\n\n### 1. One primary goal\n\nTrying to hit two birds with one stone almost never works. Write the single thing this round must answer, and park the rest.\n\n### 2. Identify your research questions\n\nWhat are you trying to find out? Keep a record of all your research questions — broad or specific depending on your confidence level. They will shape your [discussion guide](/#/plays/writing-discussion-guides) so you get the answers you need without wasting time.\n\n### 3. Check your assumptions\n\nBe aware of your assumptions and biases; we all have them. Do you favour one idea, or believe users already know how to do something? Write them down so you can mitigate them in your research design — and aim to invalidate, not validate.\n\n### 4. Decide who qualifies\n\nSet criteria for whom you'd like to speak to and how many. Beware of only recruiting fans — seek the churned, the silent, and the workaround-builders too.\n\n### 5. Define \"done\"\n\nA round is done when you can answer the research questions with evidence, not when the calendar runs out. Five to eight sessions usually surfaces the patterns; plan to iterate rather than extend.\n\n## What next?\n\nTurn the research questions into a script with <PlayRef slug=\"writing-discussion-guides\" />, then get sessions booked and run them with <PlayRef slug=\"running-calls\" />."

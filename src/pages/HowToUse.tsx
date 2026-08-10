@@ -189,12 +189,15 @@ const SkillsTab = () => (
 
         <h2>Research skills (coveo/ai-tools)</h2>
         <p>
-            The research plays plug into the shared AI-tools skills — a bias-linted discussion
-            guide from your research plan, synthesis with evidence and confidence labels, and
-            narrative readouts in the Coveo theme. Their plays point there, and the MCP&rsquo;s{' '}
-            <code>run_play</code> fetches them from that repo:
+            The research plays plug into the shared AI-tools skills — the full chain from plan to
+            readout: a one-goal research plan, a bias-linted discussion guide, synthesis with
+            evidence and confidence labels, and narrative readouts in the Coveo theme. Their plays
+            point there, and the MCP&rsquo;s <code>run_play</code> fetches them from that repo:
         </p>
         <div className="resource-row">
+            <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills/research-planner">
+                Research planner
+            </ResourceChip>
             <ResourceChip href="https://github.com/coveo/ai-tools/tree/main/skills/discussion-guide-writer">
                 Discussion guide writer
             </ResourceChip>
