@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=https://json.schemastore.org/catalog-info.json
+# $schema=https://json.schemastore.org/catalog-info.json
+
+# Changes to this file are automatically picked up by Dev Portal once they are
+# merged into the default branch (main, master, etc.). Dev Portal refreshes its
+# software catalog periodically so there may be some small delay for updates.
+
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: design-playbook
+  description: >
+     The Coveo Design Playbook — workshops, methods, and research craft for how we design at Coveo, published as an interactive site and an MCP server that agents can read, run, and extend.
+  annotations:
+    snyk.io/org-id: f931e59e-41ad-49e2-8972-b79d33c6b89e
+spec:
+  type: website
+  lifecycle: experimental
+  owner: design-commerce
