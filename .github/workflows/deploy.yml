@@ -1,17 +1,19 @@
-name: Deploy to GitHub Pages
+name: CI
 
+# Build + content-sync check. Site deployment (S3 + CloudFront via the
+# coveo-platform infra repo) is wired separately once the infra exists —
+# this workflow will then gain an S3 sync step on push to main.
 on:
   push:
     branches: [main]
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -36,21 +38,15 @@ jobs:
             exit 1
           }
 
+      - name: Type check
+        run: pnpm type-check
+
       - name: Build
         env:
           BASE_PATH: /design-playbook/
         run: pnpm build
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-artifact@v4
         with:
+          name: site
           path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4

@@ -34,7 +34,7 @@ Content-only PRs need a rendering check (`pnpm dev`), `pnpm type-check`, and `pn
 
 ## Deploy
 
-Merging to `main` builds and publishes to GitHub Pages (`.github/workflows/deploy.yml`), including `plays.json`. The Vite base path is driven by `BASE_PATH`, so the build can later target CloudFront per-PR preview links (see `coveo-incubator/admin-ui-prototypes` for the pattern).
+CI (`.github/workflows/deploy.yml`) builds the site and enforces `plays.json` sync on every push. Hosting is S3 + CloudFront via a coveo-platform infra repo (pending); the build lands in a `site` artifact until then. The Vite base path is driven by `BASE_PATH`, so the build can later target CloudFront per-PR preview links (see `coveo-incubator/admin-ui-prototypes` for the pattern).
 
 ## Source material
 
