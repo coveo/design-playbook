@@ -1,6 +1,7 @@
 {
   "name": "design-playbook",
   "private": true,
+  "packageManager": "pnpm@10.28.2",
   "version": "0.1.0",
   "type": "module",
   "scripts": {
