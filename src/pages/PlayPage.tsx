@@ -21,7 +21,7 @@ import miroLogo from '../assets/miro.svg';
 
 const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo, Atlassian: confluenceLogo};
 
-const REPO_URL = 'https://github.com/coveo-incubator/design-playbook';
+const REPO_URL = 'https://github.com/coveo/design-playbook';
 
 const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 

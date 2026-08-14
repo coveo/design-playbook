@@ -1,7 +1,7 @@
 import {ActionIcon, CopyButton, Tooltip} from '@mantine/core';
 import {IconCheck, IconCopy} from '@coveord/plasma-react-icons';
 
-export const REPO_SSH = 'git@github.com:coveo-incubator/design-playbook.git';
+export const REPO_SSH = 'git@github.com:coveo/design-playbook.git';
 export const AI_TOOLS_SSH = 'git@github.com:coveo/ai-tools.git';
 
 /** Public vendor docs for each workshop MCP server (no internal links) */

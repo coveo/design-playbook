@@ -13,13 +13,13 @@ The playbook belongs to everyone who runs these plays — designers, PMs, and en
 ## Getting started
 
 ```sh
-git clone git@github.com:coveo-incubator/design-playbook.git
+git clone git@github.com:coveo/design-playbook.git
 cd design-playbook
 pnpm install
 pnpm dev        # http://127.0.0.1:5173
 ```
 
-Requires Node 22+ and pnpm. If cloning fails with a 403, authorize the `coveo-incubator` org on your SSH key / GitHub CLI (Settings → SSH keys → Configure SSO).
+Requires Node 22+ and pnpm. If cloning fails with a 403, authorize the `coveo` org on your SSH key / GitHub CLI (Settings → SSH keys → Configure SSO).
 
 ## Branch and PR flow
 

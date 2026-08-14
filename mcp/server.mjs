@@ -17,7 +17,7 @@ import {StdioServerTransport} from '@modelcontextprotocol/sdk/server/stdio.js';
 import {dump as dumpYaml} from 'js-yaml';
 import {z} from 'zod';
 
-const REPO = process.env.PLAYBOOK_REPO ?? 'coveo-incubator/design-playbook';
+const REPO = process.env.PLAYBOOK_REPO ?? 'coveo/design-playbook';
 const DEFAULT_REF = 'main';
 const LOCAL_PLAYS = new URL('../public/plays.json', import.meta.url);
 
@@ -50,7 +50,7 @@ async function githubApi(path) {
         throw new Error(
             `GitHub API ${res.status} for ${path}. ` +
                 (res.status === 401 || res.status === 404
-                    ? 'Check that you are authenticated (gh auth login) and authorized for the coveo-incubator org.'
+                    ? 'Check that you are authenticated (gh auth login) and authorized for the coveo org.'
                     : await res.text()),
         );
     }
@@ -92,7 +92,7 @@ async function loadPlays(version) {
     if (!res.ok) {
         throw new Error(
             `GitHub API ${res.status} reading plays.json at ref "${ref}". ` +
-                'Check the ref exists and you are authorized for the coveo-incubator org (gh auth login).',
+                'Check the ref exists and you are authorized for the coveo org (gh auth login).',
         );
     }
     const data = JSON.parse(await res.text()).plays;
@@ -325,7 +325,7 @@ server.registerTool(
     async ({slug, title, section, summary, body, confidence, comingSoon, duration, miroTemplate, prDescription}) => {
         const token = await githubToken();
         if (!token) {
-            return text({error: 'No GitHub credentials. Run `gh auth login` (and authorize the coveo-incubator org) or set GITHUB_TOKEN.'});
+            return text({error: 'No GitHub credentials. Run `gh auth login` (and authorize the coveo org) or set GITHUB_TOKEN.'});
         }
 
         const api = async (path, method = 'GET', payload) => {

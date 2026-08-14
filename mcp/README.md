@@ -19,12 +19,10 @@ Every read tool takes an optional `version` (tag / branch / SHA). Omitted → `m
 
 ## Install
 
-**Today (from a repo clone):**
+**Once published to npm** (one-liner, same model as `@coveord/plasma-mcp-server`):
 
 ```sh
-git clone git@github.com:coveo-incubator/design-playbook.git
-cd design-playbook/mcp && pnpm install
-claude mcp add design-playbook -- node "$(pwd)/server.mjs"
+claude mcp add design-playbook -- npx -y @coveord/design-playbook-mcp
 ```
 
 Or in any project's `.mcp.json`:
@@ -33,26 +31,30 @@ Or in any project's `.mcp.json`:
 {
   "mcpServers": {
     "design-playbook": {
-      "command": "node",
-      "args": ["/path/to/design-playbook/mcp/server.mjs"]
+      "command": "npx",
+      "args": ["-y", "@coveord/design-playbook-mcp"]
     }
   }
 }
 ```
 
-**Planned (no clone needed):** once `mcp/` is extracted to its own repo, install becomes `npx -y github:coveo-incubator/design-playbook-mcp` — same auth (git SSO), zero setup. Content always reads from *this* repo either way, so the server package rarely changes.
+**From a repo clone** (works today, and for development):
+
+```sh
+git clone git@github.com:coveo/design-playbook.git
+cd design-playbook/mcp && pnpm install
+claude mcp add design-playbook -- node "$(pwd)/server.mjs"
+```
 
 In dev mode (running from a clone, no `version` pinned) it reads `../public/plays.json` directly; with a `version`, or when running outside a clone, it reads through the GitHub API.
 
 ## Auth
 
-Uses `GITHUB_TOKEN` if set, else `gh auth token` — the same Coveo GitHub SSO that gates the repo. No separate credentials, no hosted infrastructure.
+Reads work anonymously while the repo is public (rate-limited by GitHub for unauthenticated calls). With `GITHUB_TOKEN` set, or `gh auth token` available, reads are unthrottled — and `propose_play` (the write path) always requires auth. No separate credentials, no hosted infrastructure.
 
-## Distribution (decision pending with engineering)
+## Publishing
 
-1. **`npx github:` from a dedicated repo** — zero infrastructure, auth rides git SSO. Requires extracting `mcp/` to its own repo (npx can't install a subdirectory).
-2. **Coveo CodeArtifact** — the internal-registry pattern admin-ui already uses (`codeartifact:login`).
-3. **Remote/hosted MCP** — only needed for claude.ai web users; requires real compute (see `bifrost-mcp-gateway` in coveo-incubator for prior art).
+The package publishes from this subfolder on git tags via GitHub Actions with npm provenance (trusted publishing — no long-lived token). The server itself rarely changes: content updates ship by merging to `main`, not by releasing the package. A remote/hosted variant would only ever be needed for claude.ai web users (browsers can't spawn local MCP servers); that is deliberately out of scope.
 
 ## Content freshness contract
 
