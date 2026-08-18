@@ -19,7 +19,7 @@ pnpm install
 pnpm dev        # http://127.0.0.1:5173
 ```
 
-Requires Node 22+ and pnpm. If cloning fails with a 403, authorize the `coveo` org on your SSH key / GitHub CLI (Settings → SSH keys → Configure SSO).
+Requires Node 24+ and pnpm. If cloning fails with a 403, authorize the `coveo` org on your SSH key / GitHub CLI (Settings → SSH keys → Configure SSO).
 
 ## Branch and PR flow
 
