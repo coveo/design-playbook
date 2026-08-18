@@ -10,3 +10,5 @@ tmp
 mcp-next-steps.md
 public-content-audit.md
 infra-draft/
+tsconfig.tsbuildinfo
+*.tsbuildinfo
