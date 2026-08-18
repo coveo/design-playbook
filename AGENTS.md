@@ -6,7 +6,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 
 - Internal audience: Coveo designers, PMs, and engineers.
 - Content-first: the plays are the product; the site is a thin, fast shell around them.
-- Source of truth for play content is this repo. The Figma file "Design Playbook" (key `WmXa6mH4tPZQ5hppqqJCgi`) is the original source being migrated here; a full text scan of all 81 slides lives in `docs/figma-content-scan.md`.
+- Source of truth for play content is this repo. The original "Design Playbook" Figma file it was migrated from is no longer maintained; a full text scan of its 81 slides lives in `docs/figma-content-scan.md`.
 
 ## Stack
 

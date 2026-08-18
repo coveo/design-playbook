@@ -1,6 +1,6 @@
 # Coveo Design Playbook
 
-The interactive playbook for how we design at Coveo — plays (workshops, sessions, frameworks) for understanding problems, designing solutions, and testing them with users. Migrated from the original [Figma playbook](https://www.figma.com/design/WmXa6mH4tPZQ5hppqqJCgi/Design-Playbook) into a site that agents can read, run, and extend.
+The interactive playbook for how we design at Coveo — plays (workshops, sessions, frameworks) for understanding problems, designing solutions, and testing them with users. Migrated from the design team's original Figma playbook into a site that agents can read, run, and extend.
 
 ## What's inside
 
@@ -38,4 +38,4 @@ CI (`.github/workflows/deploy.yml`) builds the site and enforces `plays.json` sy
 
 ## Source material
 
-The original Figma file remains the design reference; a full text scan of all 81 slides lives in `docs/figma-content-scan.md` for anyone migrating or refining content.
+The original Figma file is no longer maintained — this repo is the source of truth. A full text scan of its 81 slides lives in `docs/figma-content-scan.md` for anyone refining content.
