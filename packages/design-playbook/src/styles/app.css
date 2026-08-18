@@ -1,0 +1,649 @@
+/* ---------- Shell ---------- */
+
+.mantine-AppShell-root {
+    background: var(--pb-content-bg);
+}
+
+.mantine-AppShell-main {
+    background: var(--pb-content-bg);
+    min-height: 100dvh;
+}
+
+/* No header in this shell — pin the navbar to the very top */
+.mantine-AppShell-navbar {
+    top: 0;
+    height: 100dvh;
+}
+
+.sidebar {
+    background: var(--pb-sidebar-bg);
+    border-right: 1px solid var(--pb-sidebar-border);
+}
+
+.sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2px 4px 10px;
+}
+
+/* Cogito-style nav rows: compact, left chevrons, indented children */
+.nav-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 4px 8px;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    font-size: 13px;
+    font-family: inherit;
+    line-height: 1.5;
+    color: var(--pb-text);
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+}
+
+.nav-row:hover {
+    background: rgba(0, 0, 0, 0.045);
+}
+
+.nav-row.active {
+    background: var(--pb-nav-selected);
+}
+
+.nav-row.indent {
+    padding-left: 28px;
+}
+
+.nav-row.muted {
+    color: var(--pb-text-faint);
+}
+
+.nav-row-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.nav-row-right {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.nav-group-header {
+    color: var(--pb-text-muted);
+    font-weight: 500;
+}
+
+.nav-chevron {
+    flex-shrink: 0;
+    color: var(--pb-text-faint);
+    transition: transform 0.12s ease;
+}
+
+.nav-chevron.open {
+    transform: rotate(90deg);
+}
+
+.nav-help-icon {
+    color: var(--pb-text-faint);
+}
+
+.nav-expand {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 200;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--pb-text);
+}
+
+.sidebar-logo img {
+    height: 26px;
+    width: 26px;
+}
+
+.sidebar-logo span {
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    line-height: 1;
+    margin-top: -2px; /* Gibson's glyphs sit low in the em box — optical centering */
+}
+
+.page {
+    max-width: 1160px;
+    padding: 40px 48px 96px;
+}
+
+/* ---------- Home ---------- */
+
+/* Dark statement hero (theme-coveo.md statement-slide rules: dark violet
+   full bleed, flat accent emphasis, no gradient text on dark) */
+.home-hero {
+    background: var(--pb-violet-dark);
+    color: #ffffff;
+    padding: 44px 48px 40px;
+}
+
+.home-hero-inner {
+    max-width: 720px;
+}
+
+.home-hero .hero-kicker {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.65);
+    margin-bottom: 12px;
+}
+
+.home-hero h1 {
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -0.5px;
+    margin: 0 0 20px;
+    font-weight: var(--coveo-fw-bold, 500);
+}
+
+.home-hero h1 .accent {
+    color: var(--pb-cyan);
+}
+
+.home-hero p {
+    font-size: 18px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.88);
+    margin: 0 0 12px;
+    max-width: 620px;
+}
+
+.home-hero .hero-secondary {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.home-section {
+    margin-bottom: 56px;
+}
+
+.home-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.home-section-heading .arrow {
+    font-size: 28px;
+    line-height: 1;
+    color: var(--pb-blue);
+    flex-shrink: 0;
+}
+
+.home-section-heading h2 {
+    font-size: 32px;
+    line-height: 1.1;
+    margin: 0;
+}
+
+.play-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+/* ---------- Play cards ---------- */
+
+.play-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #ffffff;
+    border: 1px solid var(--pb-border);
+    border-radius: var(--radius-card);
+    padding: 20px;
+    text-decoration: none;
+    color: var(--pb-text);
+    transition:
+        border-color 0.12s ease,
+        box-shadow 0.12s ease;
+}
+
+.play-card:hover {
+    border-color: var(--pb-blue);
+    box-shadow: 0 4px 12px rgba(19, 113, 236, 0.12);
+}
+
+.play-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.play-card-title {
+    font-size: 17px;
+    font-weight: var(--coveo-fw-bold, 500);
+    color: var(--pb-blue);
+}
+
+.play-card p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.play-card.coming-soon {
+    opacity: 0.6;
+}
+
+.play-card.coming-soon .eyebrow-soon {
+    font-size: 11px;
+    font-weight: var(--coveo-fw-bold, 500);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--pb-text-faint);
+}
+
+/* ---------- Confidence meter ---------- */
+
+.confidence-meter {
+    display: inline-flex;
+    gap: 3px;
+    flex-shrink: 0;
+}
+
+.confidence-meter .bar {
+    width: 5px;
+    height: 16px;
+    border-radius: 1.5px;
+    background: var(--pb-meter-empty);
+}
+
+.confidence-meter .bar.filled {
+    background: var(--pb-meter-filled);
+}
+
+.confidence-meter.small .bar {
+    width: 4px;
+    height: 12px;
+}
+
+.confidence-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--pb-text-muted);
+}
+
+/* ---------- Play page ---------- */
+
+.play-hero {
+    display: grid;
+    grid-template-columns: minmax(320px, 5fr) 7fr;
+    border-radius: var(--radius-panel);
+    overflow: hidden;
+    border: 1px solid var(--pb-border);
+    margin-bottom: 36px;
+    min-height: 360px;
+}
+
+@media (max-width: 900px) {
+    .play-hero {
+        grid-template-columns: 1fr;
+    }
+}
+
+.play-hero-text {
+    background: #ffffff;
+    padding: 36px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.play-hero-text .kicker {
+    margin-bottom: -6px;
+}
+
+.play-hero-text h1 {
+    font-size: 34px;
+    line-height: 1.08;
+    margin: 0;
+}
+
+.play-hero-text .summary {
+    font-size: 19px;
+    line-height: 1.45;
+    margin: 0;
+}
+
+.play-hero-footer {
+    margin-top: auto;
+}
+
+.play-hero-panel {
+    background: #f1ece1;
+}
+
+.play-hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 14px;
+}
+
+.meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 10px;
+    border-radius: var(--radius-card);
+    background: var(--mantine-color-gray-1, #f1f3f5);
+    color: var(--pb-text);
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+.meta-chip.skill {
+    background: var(--mantine-color-violet-0, #f3f0ff);
+    color: var(--mantine-color-violet-7, #6741d9);
+}
+
+/* ---------- MDX prose ---------- */
+
+/* Prose paragraph margins must not bleed into Alert callouts */
+.prose .mantine-Alert-message p {
+    margin: 0;
+}
+
+.prose .mantine-Alert-message p + p {
+    margin-top: 8px;
+}
+
+.prose {
+    font-size: 15.5px;
+    line-height: 1.6;
+    max-width: 720px;
+}
+
+.prose h2 {
+    font-size: 14px;
+    font-weight: var(--coveo-fw-bold, 500);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin: 44px 0 12px;
+    color: var(--pb-blue);
+}
+
+.prose h3 {
+    font-size: 20px;
+    font-weight: var(--coveo-fw-bold, 500);
+    margin: 28px 0 8px;
+}
+
+.prose p {
+    margin: 0 0 14px;
+}
+
+.prose li {
+    margin-bottom: 6px;
+}
+
+.prose a {
+    color: var(--pb-blue);
+}
+
+.prose blockquote {
+    border-left: 3px solid var(--pb-blue);
+    margin: 0 0 14px;
+    padding: 2px 0 2px 18px;
+    color: var(--pb-text-muted);
+}
+
+.prose img {
+    max-width: 100%;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--pb-border);
+}
+
+.prose table {
+    border-collapse: collapse;
+    margin: 0 0 14px;
+}
+
+.prose th,
+.prose td {
+    text-align: left;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--pb-border);
+    font-size: 14px;
+}
+
+/* ---------- Play link hovercard ---------- */
+
+.play-preview {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    max-width: 360px;
+}
+
+.play-preview img {
+    width: 120px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--pb-border);
+    flex-shrink: 0;
+}
+
+.play-preview .title {
+    font-weight: var(--coveo-fw-bold, 500);
+    font-size: 14px;
+    color: var(--pb-text);
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.play-preview .summary {
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--pb-text-muted);
+    margin: 0;
+}
+
+/* ---------- How to use ---------- */
+
+.howto h1 {
+    font-size: 36px;
+    margin: 0 0 12px;
+}
+
+.howto .lead {
+    font-size: 17px;
+    color: var(--pb-text-muted);
+    margin: 0 0 8px;
+}
+
+.meter-scale {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0 8px;
+}
+
+.meter-scale .row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14.5px;
+}
+
+/* ---------- Resource chips (Slack-style external links) ---------- */
+
+.resource-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    background: #e8eef9;
+    color: var(--pb-blue);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 1.4;
+    vertical-align: baseline;
+    transition: background 0.12s ease;
+}
+
+.resource-chip:hover {
+    background: #d9e4f6;
+}
+
+.resource-chip svg {
+    flex-shrink: 0;
+}
+
+.resource-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* ---------- Play toolbox ---------- */
+
+.play-toolbox {
+    max-width: 720px;
+    margin-top: 44px;
+    border: 1px solid var(--pb-border);
+    border-radius: var(--radius-panel);
+    background: var(--mantine-color-gray-0, #f8f9fa);
+    padding: 24px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.play-toolbox .toolbox-title {
+    font-size: 14px;
+    font-weight: var(--coveo-fw-bold, 500);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: var(--gradient-heading);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+}
+
+.play-toolbox .toolbox-section .kicker {
+    margin-bottom: 8px;
+}
+
+.play-toolbox .toolbox-section p {
+    margin: 0 0 8px;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.play-toolbox .toolbox-mcp {
+    font-size: 13.5px;
+    color: var(--pb-text-muted);
+}
+
+
+
+/* ---------- Copyable commands (docs-CLI style) ---------- */
+
+.copyable {
+    margin-bottom: 12px;
+}
+
+.copyable-label {
+    display: block;
+    font-size: 12.5px;
+    color: var(--pb-text-muted);
+    margin-bottom: 4px;
+}
+
+.copyable-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 1px solid var(--pb-border);
+    border-radius: var(--radius-card);
+    padding: 6px 8px 6px 12px;
+    max-width: 640px;
+}
+
+.copyable-row code {
+    flex: 1;
+    font-size: 13px;
+    font-family: var(--mantine-font-family-monospace, ui-monospace, monospace);
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.play-toolbox .toolbox-mcp {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13.5px;
+    color: var(--pb-text-muted);
+    margin-top: 4px;
+}
+
+/* ---------- Illustration lab ---------- */
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 24px;
+    max-width: 1040px;
+    margin-top: 16px;
+}
+
+.lab-grid figure {
+    margin: 0;
+}
+
+.lab-grid img {
+    width: 100%;
+    border-radius: var(--radius-panel);
+    border: 1px solid var(--pb-border);
+    display: block;
+}
+
+.lab-grid figcaption {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--pb-text-muted);
+}

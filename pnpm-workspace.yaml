@@ -1,0 +1,3 @@
+packages:
+  - 'packages/*'
+minimumReleaseAge: 10080 # 7 days in minutes, aligned with the StepSecurity NPM cooldown check

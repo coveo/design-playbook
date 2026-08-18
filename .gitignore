@@ -1,0 +1,14 @@
+node_modules
+dist
+*.local
+.DS_Store
+.playwright-mcp
+tmp
+
+# Style-switching lab for play headers — local experiments, revisit later
+/style-lab/
+mcp-next-steps.md
+public-content-audit.md
+infra-draft/
+tsconfig.tsbuildinfo
+*.tsbuildinfo

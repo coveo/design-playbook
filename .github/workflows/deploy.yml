@@ -1,0 +1,52 @@
+name: CI
+
+# Build + content-sync check. Site deployment (S3 + CloudFront via the
+# coveo-platform infra repo) is wired separately once the infra exists —
+# this workflow will then gain an S3 sync step on push to main.
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+
+      - run: corepack enable && corepack prepare --activate
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Check plays.json is committed in sync
+        run: |
+          pnpm build:plays
+          git diff --exit-code packages/design-playbook/public/plays.json || {
+            echo "::error::public/plays.json is out of sync with plays/*.mdx — run 'pnpm build:plays' and commit the result."
+            exit 1
+          }
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Build
+        env:
+          BASE_PATH: /design-playbook/
+        run: pnpm build
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: packages/design-playbook/dist

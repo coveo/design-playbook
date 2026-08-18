@@ -1,0 +1,13 @@
+<svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="840" height="560" fill="#f1ece1"/>
+  <g transform="rotate(-18 120 155)"><circle cx="120" cy="131" r="24" stroke="#29456e" stroke-width="30" fill="none"/><circle cx="120" cy="213" r="58" stroke="#29456e" stroke-width="30" fill="none"/></g>
+  <g transform="rotate(22 320 155)"><circle cx="320" cy="107" r="48" stroke="#4e86c6" stroke-width="8" fill="none"/><circle cx="320" cy="185" r="30" stroke="#4e86c6" stroke-width="8" fill="none"/></g>
+  <g transform="rotate(32 520 155)"><circle cx="520" cy="115" r="40" stroke="#74bfae" stroke-width="20" fill="none"/><circle cx="520" cy="195" r="40" stroke="#74bfae" stroke-width="20" fill="none"/></g>
+  <g transform="rotate(-10 720 155)"><circle cx="720" cy="135" r="20" stroke="#29456e" stroke-width="12" fill="none"/><circle cx="720" cy="199" r="44" stroke="#29456e" stroke-width="12" fill="none"/></g>
+  <g transform="rotate(14 120 415)"><circle cx="120" cy="363" r="52" stroke="#4e86c6" stroke-width="26" fill="none"/><circle cx="120" cy="449" r="34" stroke="#4e86c6" stroke-width="26" fill="none"/></g>
+  <g transform="rotate(-28 320 415)"><circle cx="320" cy="385" r="30" stroke="#74bfae" stroke-width="9" fill="none"/><circle cx="320" cy="467" r="52" stroke="#74bfae" stroke-width="9" fill="none"/></g>
+  <g transform="rotate(8 520 415)"><circle cx="520" cy="389" r="26" stroke="#29456e" stroke-width="34" fill="none"/><circle cx="520" cy="445" r="30" stroke="#29456e" stroke-width="34" fill="none"/></g>
+  <g transform="rotate(0 720 415)"><circle cx="720" cy="377" r="38" stroke="#e0684b" stroke-width="16" fill="none"/><circle cx="720" cy="453" r="38" stroke="#e0684b" stroke-width="16" fill="none"/></g>
+  <circle cx="720" cy="415" r="112" stroke="#e9b345" stroke-width="14" fill="none"/>
+  <g fill="#e0684b"><circle cx="764" cy="293" r="9"/><circle cx="803" cy="315" r="9"/><circle cx="828" cy="352" r="9"/></g>
+</svg>

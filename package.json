@@ -1,0 +1,13 @@
+{
+  "name": "design-playbook-root",
+  "private": true,
+  "packageManager": "pnpm@10.28.2",
+  "type": "module",
+  "scripts": {
+    "dev": "pnpm --filter design-playbook dev",
+    "build": "pnpm --filter design-playbook build",
+    "preview": "pnpm --filter design-playbook preview",
+    "type-check": "pnpm --filter design-playbook type-check",
+    "build:plays": "pnpm --filter design-playbook build:plays"
+  }
+}

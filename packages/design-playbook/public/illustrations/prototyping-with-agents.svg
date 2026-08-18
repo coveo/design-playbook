@@ -1,0 +1,23 @@
+<svg viewBox="0 0 840 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .hd, .ar, .r1 { animation: 1 both ease-out; }
+    .hd { stroke-dasharray: 280; animation-name: draw-hd; animation-duration: 0.7s; animation-delay: 0.3s; }
+    .ar { stroke-dasharray: 240; animation-name: draw-ar; animation-duration: 0.6s; animation-delay: 0.9s; }
+    .r1 { stroke-dasharray: 250; animation-name: draw-r1; animation-duration: 0.6s; animation-delay: 1.5s; }
+    .r2 { animation: slide-down 0.5s ease-out 2.2s 1 both; }
+    .dt { animation: slide-right 0.5s ease-out 2.8s 1 both; }
+    @keyframes draw-hd { from {stroke-dashoffset: 280;} to {stroke-dashoffset: 0;} }
+    @keyframes draw-ar { from {stroke-dashoffset: 240;} to {stroke-dashoffset: 0;} }
+    @keyframes draw-r1 { from {stroke-dashoffset: 250;} to {stroke-dashoffset: 0;} }
+    @keyframes slide-down { from {transform: translateY(-48px);} to {transform: none;} }
+    @keyframes slide-right { from {transform: translateX(-126px);} to {transform: none;} }
+    @media (prefers-reduced-motion: reduce) { .hd, .ar, .r1, .r2, .dt { animation: none; } }
+  </style>
+  <rect width="840" height="560" fill="#f1ece1"/>
+  <path d="M270 90 H570 Q610 90 610 130 V430 Q610 470 570 470 H270 Q230 470 230 430 V130 Q230 90 270 90 Z" stroke="#29456e" stroke-width="14" stroke-linecap="round"/>
+  <path class="hd" d="M290 170 H550" stroke="#e9b345" stroke-width="14" stroke-linecap="round"/>
+  <path class="ar" d="M310 300 A70 70 0 0 1 450 300" stroke="#74bfae" stroke-width="14" stroke-linecap="round"/>
+  <circle class="dt" cx="556" cy="424" r="11" fill="#e9b345"/>
+  <path class="r2" d="M290 428 H430" stroke="#4e86c6" stroke-width="12" stroke-linecap="round"/>
+  <path class="r1" d="M290 380 H520" stroke="#e0684b" stroke-width="14" stroke-linecap="round"/>
+</svg>
