@@ -6,7 +6,7 @@ The playbook belongs to everyone who runs these plays — designers, PMs, and en
 
 1. **Improve a play** — fix wording, add facilitation tips, attach a Miro template or agent skill. Edit its file in `plays/`.
 2. **Write a coming-soon play** — pick any play marked "(soon)", write its content following the play grammar, and remove `comingSoon: true` from the frontmatter. Every reference across the site updates automatically.
-3. **Add a new play** — create `plays/<slug>.mdx` per the frontmatter contract in AGENTS.md, or open the repo in Claude Code and ask for the `add-play` skill. Don't worry about the hero illustration — open the PR without one and a maintainer will add it in the house style.
+3. **Add a new play** — create `packages/design-playbook/plays/<slug>.mdx` per the frontmatter contract in AGENTS.md, or open the repo in Claude Code and ask for the `add-play` skill. Don't worry about the hero illustration — open the PR without one and a maintainer will add it in the house style.
 4. **Add a workshop skill** — teach agents to *run* a play (interview → scaffold the session in Miro). Model it on `skills/run-design-smash/`.
 5. **Improve the site** — code contributions follow the same PR flow; check AGENTS.md for the stack and visual-language rules first.
 
@@ -25,7 +25,7 @@ Requires Node 22+ and pnpm. If cloning fails with a 403, authorize the `coveo` o
 
 - Branch from `main`: `play/<slug>` for content, `feat/<topic>` or `fix/<topic>` for site changes.
 - Open a PR and squash-merge. Merging to `main` deploys the site.
-- **Content PRs** (only `plays/*.mdx` or images): a rendering check is the review — run `pnpm dev`, confirm the play looks right on the home grid, sidebar, and its own page. No code review needed.
+- **Content PRs** (only play MDX or images): a rendering check is the review — run `pnpm dev`, confirm the play looks right on the home grid, sidebar, and its own page. No code review needed.
 - **Code PRs**: `pnpm type-check` and `pnpm build` must pass; describe what changed and include a screenshot for anything visual.
 - Don't edit a PR that's already approved unless the author asks.
 

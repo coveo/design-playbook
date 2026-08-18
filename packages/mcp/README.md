@@ -42,8 +42,8 @@ Or in any project's `.mcp.json`:
 
 ```sh
 git clone git@github.com:coveo/design-playbook.git
-cd design-playbook/mcp && pnpm install
-claude mcp add design-playbook -- node "$(pwd)/server.mjs"
+cd design-playbook && pnpm install
+claude mcp add design-playbook -- node "$(pwd)/packages/mcp/server.mjs"
 ```
 
 In dev mode (running from a clone, no `version` pinned) it reads `../public/plays.json` directly; with a `version`, or when running outside a clone, it reads through the GitHub API.

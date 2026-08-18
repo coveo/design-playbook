@@ -22,7 +22,7 @@ jobs:
           node-version: 24
           registry-url: https://registry.npmjs.org
       - name: Check tag matches package version
-        working-directory: mcp
+        working-directory: packages/mcp
         run: |
           PKG_VERSION=$(node -p "require('./package.json').version")
           TAG_VERSION="${GITHUB_REF_NAME#mcp-v}"
@@ -31,5 +31,5 @@ jobs:
             exit 1
           fi
       - name: Publish
-        working-directory: mcp
+        working-directory: packages/mcp
         run: npm publish

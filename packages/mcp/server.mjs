@@ -19,7 +19,7 @@ import {z} from 'zod';
 
 const REPO = process.env.PLAYBOOK_REPO ?? 'coveo/design-playbook';
 const DEFAULT_REF = 'main';
-const LOCAL_PLAYS = new URL('../public/plays.json', import.meta.url);
+const LOCAL_PLAYS = new URL('../design-playbook/public/plays.json', import.meta.url);
 
 const execFileAsync = promisify(execFile);
 
@@ -83,7 +83,7 @@ async function loadPlays(version) {
         headers['If-None-Match'] = cached.etag;
     }
     const res = await fetch(
-        `https://api.github.com/repos/${REPO}/contents/public/plays.json?ref=${encodeURIComponent(ref)}`,
+        `https://api.github.com/repos/${REPO}/contents/packages/design-playbook/public/plays.json?ref=${encodeURIComponent(ref)}`,
         {headers},
     );
     if (res.status === 304) {
@@ -218,7 +218,7 @@ async function loadRepoFile(path, version) {
     // Dev mode first, unless a version is pinned.
     if (!version) {
         try {
-            return await readFile(new URL(`../${path}`, import.meta.url), 'utf8');
+            return await readFile(new URL(`../../${path}`, import.meta.url), 'utf8');
         } catch {
             // fall through
         }
@@ -394,8 +394,8 @@ server.registerTool(
                 ...(sha && {sha}),
             });
         };
-        await putFile(`plays/${slug}.mdx`, mdx);
-        await putFile('public/plays.json', playsJson);
+        await putFile(`packages/design-playbook/plays/${slug}.mdx`, mdx);
+        await putFile('packages/design-playbook/public/plays.json', playsJson);
 
         const pr = await api(`/repos/${REPO}/pulls`, 'POST', {
             title: `${existing ? 'Update' : 'Add'} play: ${title}`,

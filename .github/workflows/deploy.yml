@@ -33,7 +33,7 @@ jobs:
       - name: Check plays.json is committed in sync
         run: |
           pnpm build:plays
-          git diff --exit-code public/plays.json || {
+          git diff --exit-code packages/design-playbook/public/plays.json || {
             echo "::error::public/plays.json is out of sync with plays/*.mdx — run 'pnpm build:plays' and commit the result."
             exit 1
           }
@@ -49,4 +49,4 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: site
-          path: dist
+          path: packages/design-playbook/dist

@@ -101,10 +101,10 @@ const McpTab = () => (
             MCP. Until then, it runs from a clone:
         </p>
         <Copyable label="1. Get the repo" command={`git clone ${REPO_SSH}`} />
-        <Copyable label="2. Install the server" command="cd design-playbook/mcp && pnpm install" />
+        <Copyable label="2. Install the server" command="cd design-playbook && pnpm install" />
         <Copyable
-            label="3. Register it with your agent (Claude Code shown; any MCP client works — point it at mcp/server.mjs)"
-            command="claude mcp add design-playbook -- node ./design-playbook/mcp/server.mjs"
+            label="3. Register it with your agent (Claude Code shown; any MCP client works — point it at packages/mcp/server.mjs)"
+            command="claude mcp add design-playbook -- node ./design-playbook/packages/mcp/server.mjs"
         />
         <p>
             Auth rides your existing GitHub SSO (<code>gh auth login</code>) — nothing extra to set

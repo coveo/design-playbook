@@ -1,6 +1,6 @@
 # Agent Instructions
 
-This repository is the Coveo Design Playbook — an interactive site of design plays (workshops, methods, studies) for how the design team works. It deploys to GitHub Pages on merge to `main`.
+This repository is the Coveo Design Playbook — an interactive site of design plays (workshops, methods, studies) for how the design team works. It deploys to S3 + CloudFront (infra in `coveo-platform/design-playbook-infra`) on merge to `main`.
 
 ## Repository Intent
 
@@ -10,10 +10,10 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 
 ## Stack
 
-- Vite + React + TypeScript + MDX, pnpm, Node 22.
+- Vite + React + TypeScript + MDX, pnpm workspace, Node 24.
 - **Plasma design system**: `@coveord/plasma-mantine` (Mantine 9 under the hood). The app is wrapped in `Plasmantine` with `createTheme({primaryColor: 'violet'})` — violet resolves to Plasma's grape. Use Plasma/Mantine components for structure (AppShell, NavLink, Breadcrumbs, Group…) before writing custom UI. The `plasma` and `mantine` MCP servers in `.mcp.json` serve component docs.
-- Hash routing (`createHashRouter`) — required for GitHub Pages deep links. Do not switch to browser routing without adding a 404 shim.
-- `BASE_PATH` env var controls the Vite base (GitHub Pages uses `/design-playbook/`). Keep builds base-path-agnostic: resolve public/ assets via the `asset()` helper in `src/plays.ts` in components, and use *relative* paths (`covers/ujm-example.png`, no leading slash) for images inside MDX.
+- Hash routing (`createHashRouter`) — deliberate: it works unchanged under any host and any base path (including `preview/<branch>/` deploys on CloudFront) with zero CDN routing config. Do not switch to browser routing without updating the CloudFront function and the preview-prefix story.
+- `BASE_PATH` env var controls the Vite base (`/` for the main CloudFront deploy, `/preview/<branch>/` for PR previews). Keep builds base-path-agnostic: resolve public/ assets via the `asset()` helper in `src/plays.ts` in components, and use *relative* paths (`covers/ujm-example.png`, no leading slash) for images inside MDX.
 
 ## Visual language (do not invent new colors)
 
@@ -28,7 +28,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Play cross-links in MDX render as hovercard previews (image + summary) via `PlayAnchor`.
 - External links render as `ResourceChip` pills. **Icon = destination**, derived from the URL: `atlassian.net/wiki` → Confluence, `github.com` → invertocat, `miro.com` → Miro, `figma.com` → Figma, else external-link. Brand SVGs live in `src/assets/`. Confluence wins over product brands (a page about Miro hosted on Confluence gets the Confluence icon).
 - Hero meta chips (Time, People, Agent skill, "MCP support:" with brand SVG icons) are frontmatter-driven — never hardcode them.
-- Every play ends with the `PlayToolbox` component (frontmatter-driven, rendered automatically): agent recipe with copyable docs-CLI commands, MCP setup chips (public vendor docs, registry in `Copyable.tsx` `MCP_DOCS`/`MCP_URLS`, mirrored in `mcp/server.mjs` `MCP_SERVERS`), and templates & skills chips. Keep agent copy agent-agnostic — "your agent", never a specific product.
+- Every play ends with the `PlayToolbox` component (frontmatter-driven, rendered automatically): agent recipe with copyable docs-CLI commands, MCP setup chips (public vendor docs, registry in `Copyable.tsx` `MCP_DOCS`/`MCP_URLS`, mirrored in `packages/mcp/server.mjs` `MCP_SERVERS`), and templates & skills chips. Keep agent copy agent-agnostic — "your agent", never a specific product.
 - **Never hardcode another play's name or coming-soon status in MDX.** Reference plays with `<PlayRef slug="design-smash" />` — it renders the live title (with "(coming soon)" derived from frontmatter) and the hovercard. When a play goes live, every reference updates automatically.
 - MDX blockquotes (`> **Before you start** — ...`) render as Mantine Alert callouts.
 - Coming-soon plays render a placeholder page with contribution guidance; they are navigable everywhere (nav, cards, refs).
@@ -36,6 +36,7 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 
 ## Structure
 
+- Monorepo: `packages/design-playbook/` is the site, `packages/mcp/` is the MCP server (published as `@coveord/design-playbook-mcp`); root holds the workspace config and docs. Paths below are relative to `packages/design-playbook/`.
 - `plays/*.mdx` — one file per play. YAML frontmatter + MDX body. This is where almost all contributions happen. Auto-discovered via `import.meta.glob` in `src/plays.ts`; no registry to edit.
 - `src/plays.ts` — frontmatter contract, section list, and lookups.
 - `src/App.tsx` — Plasma AppShell with collapsible sidebar (sections → plays, with mini confidence meters).
@@ -82,7 +83,7 @@ Cross-link plays with `<PlayRef slug="design-smash" />` (preferred — inherits 
 
 The playbook is agent-operable, not just readable:
 
-- **Machine-readable playbook**: `pnpm build` emits `public/plays.json` (all frontmatter + MDX bodies). Agents pointed at the deployed site can fetch `<site>/plays.json`; agents in this repo read `plays/*.mdx` directly. It must stay committed in sync with plays/*.mdx (CI enforces this) because the MCP server in `mcp/` reads it from the GitHub API at any ref — git tags are published playbook versions.
+- **Machine-readable playbook**: `pnpm build` emits `packages/design-playbook/public/plays.json` (all frontmatter + MDX bodies). Agents pointed at the deployed site can fetch `<site>/plays.json`; agents in this repo read the plays MDX directly. It must stay committed in sync with the plays (CI enforces this) because the MCP server in `packages/mcp/` reads it from the GitHub API at any ref — git tags are published playbook versions.
 - **Per-play agent recipes**: a play's frontmatter may carry an `agent` block — `mcp` (servers needed, e.g. Miro), `recipe` (how to point an agent at the play), `skill` (the skill that runs it), and `skillRepo` (GitHub `owner/repo` when the skill lives outside this repo, e.g. `coveo/ai-tools`). The play page renders this as "Run it with an agent", and the MCP's `run_play` serves the skill from wherever it lives. Keep recipes in frontmatter so they inherit like everything else.
 - **Workshop skills**: `skills/run-<slug>/` skills interview the user (what's known, participants, format) and scaffold the session — e.g. `run-design-smash` builds the Miro board from the play's steps via the Miro MCP. Skills must treat the play MDX as the source of truth: if the play changes, the skill's output changes.
 - **Research-craft skills live in coveo/ai-tools** (`research-planner`, `discussion-guide-writer`, `user-research-synthesis`, `research-narrative`) — shared artifact-producing skills belong there, behind that repo's skill-builder gate; facilitation skills that scaffold a session from a play's steps stay here. Point plays at ai-tools skills with `agent.skillRepo`.

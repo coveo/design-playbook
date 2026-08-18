@@ -11,7 +11,7 @@ export const MCP_DOCS: Record<string, string> = {
     Atlassian: 'https://www.atlassian.com/platform/remote-mcp-server',
 };
 
-/** Remote MCP endpoints, mirrored in mcp/server.mjs MCP_SERVERS — agents get these from run_play */
+/** Remote MCP endpoints, mirrored in packages/mcp/server.mjs MCP_SERVERS — agents get these from run_play */
 export const MCP_URLS: Record<string, string> = {
     Miro: 'https://mcp.miro.com/',
     Figma: 'https://mcp.figma.com/mcp',
