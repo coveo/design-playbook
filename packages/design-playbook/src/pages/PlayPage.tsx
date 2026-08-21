@@ -8,6 +8,7 @@ import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
+import {useTeamMode} from '../teamMode';
 import {asset, playBySlug, sections} from '../plays';
 
 /** Fresh URL per mount so one-shot SVG animations replay on every visit
@@ -26,6 +27,7 @@ const REPO_URL = 'https://github.com/coveo/design-playbook';
 const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 
 const ComingSoon = ({play}: {play: Play}) => {
+    const [teamMode] = useTeamMode();
     const {frontmatter} = play;
     const section = sections.find((s) => s.id === frontmatter.section);
     const coverSrc = useCoverSrc(frontmatter.cover);
@@ -85,7 +87,7 @@ const ComingSoon = ({play}: {play: Play}) => {
                         Contribute this play
                     </Button>
                 </Text>
-                {frontmatter.skills?.length && (
+                {teamMode && frontmatter.skills?.length && (
                     <>
                         <h2>Meanwhile</h2>
                         <p>An agent skill already covers this ground:</p>
