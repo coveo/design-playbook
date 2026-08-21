@@ -664,3 +664,21 @@
     color: inherit;
     text-decoration: underline;
 }
+
+/* Team panel (Cmd/Ctrl-K) */
+.team-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.team-panel-intro {
+    font-size: 14px;
+    color: var(--mantine-color-gray-7);
+    margin: 0;
+}
+.team-panel-links {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 14px;
+}

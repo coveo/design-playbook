@@ -1,8 +1,7 @@
-import {ActionIcon, AppShell, Collapse, ScrollArea, Tooltip} from '@mantine/core';
+import {useEffect, useState} from 'react';
+import {ActionIcon, Anchor, AppShell, Collapse, Drawer, ScrollArea, Switch, Tooltip} from '@mantine/core';
 import {
     IconChevronRight,
-    IconEye,
-    IconEyeOff,
     IconHelpCircle,
     IconLayoutSidebarLeftCollapse,
     IconLayoutSidebarLeftExpand,
@@ -48,8 +47,21 @@ const NavGroup = ({label, children}: {label: string; children: ReactNode}) => {
 
 export const App = () => {
     const [opened, {toggle}] = useDisclosure(true);
-    const [hideSoon, setHideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: false});
+    const [hideSoon, setHideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: true});
     const location = useLocation();
+    const [panelOpen, setPanelOpen] = useState(false);
+
+    // Cmd/Ctrl-K opens the team panel — the Coveo-internal cockpit.
+    useEffect(() => {
+        const onKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key === 'k') {
+                e.preventDefault();
+                setPanelOpen((v) => !v);
+            }
+        };
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, []);
 
     return (
         <AppShell
@@ -71,20 +83,6 @@ export const App = () => {
                             <span>Design Playbook</span>
                         </Link>
                         <div>
-                            <Tooltip
-                                label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
-                                withArrow
-                                fz="xs"
-                            >
-                                <ActionIcon
-                                    variant="subtle"
-                                    color="gray"
-                                    onClick={() => setHideSoon((v) => !v)}
-                                    aria-label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
-                                >
-                                    {hideSoon ? <IconEye size={18} /> : <IconEyeOff size={18} />}
-                                </ActionIcon>
-                            </Tooltip>
                             <Tooltip label="Hide navigation" withArrow fz="xs">
                                 <ActionIcon
                                     variant="subtle"
@@ -165,6 +163,41 @@ export const App = () => {
                     </span>
                 </footer>
             </AppShell.Main>
+            <Drawer
+                opened={panelOpen}
+                onClose={() => setPanelOpen(false)}
+                position="right"
+                title="Team Panel"
+                size="sm"
+            >
+                <div className="team-panel">
+                    <p className="team-panel-intro">
+                        For Coveo folks — the playbook&rsquo;s workshop view. Toggle upcoming plays
+                        and grab the contribution paths.
+                    </p>
+                    <Switch
+                        label="Show upcoming plays"
+                        description="Reveals coming-soon plays in the navigation and home grid"
+                        checked={!hideSoon}
+                        onChange={(e) => setHideSoon(!e.currentTarget.checked)}
+                    />
+                    <div className="team-panel-links">
+                        <Anchor href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
+                            The repo
+                        </Anchor>
+                        <Anchor
+                            href="https://github.com/coveo/design-playbook/blob/main/CONTRIBUTING.md"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            How to contribute a play
+                        </Anchor>
+                        <Anchor component={Link} to="/how-to-use?tab=skills" onClick={() => setPanelOpen(false)}>
+                            Agent skills &amp; MCP setup
+                        </Anchor>
+                    </div>
+                </div>
+            </Drawer>
         </AppShell>
     );
 };

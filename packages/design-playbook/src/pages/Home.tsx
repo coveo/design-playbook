@@ -1,3 +1,4 @@
+import {useLocalStorage} from '@mantine/hooks';
 import {Link} from 'react-router-dom';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
 import {playsInSection, sections} from '../plays';
@@ -27,7 +28,9 @@ const PlayCard = ({play}: {play: Play}) => {
     );
 };
 
-export const Home = () => (
+export const Home = () => {
+    const [hideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: true});
+    return (
     <>
         <section className="home-hero">
             <div className="home-hero-inner">
@@ -49,7 +52,9 @@ export const Home = () => (
 
         <div className="page">
             {sections.map((section) => {
-                const sectionPlays = playsInSection(section.id);
+                const sectionPlays = playsInSection(section.id).filter(
+                    (p) => !hideSoon || !p.frontmatter.comingSoon,
+                );
                 if (sectionPlays.length === 0) {
                     return null;
                 }
@@ -72,3 +77,4 @@ export const Home = () => (
         </div>
     </>
 );
+};
