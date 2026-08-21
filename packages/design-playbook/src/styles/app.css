@@ -687,7 +687,11 @@
 
 /* Options panel polish */
 .panel-title {
-    font-size: 15px;
+    font-size: 18px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-weight: var(--coveo-fw-bold, 500);
 }
 .settings-row {
     display: flex;

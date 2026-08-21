@@ -174,7 +174,7 @@ export const App = () => {
                 opened={panelOpen}
                 onClose={() => setPanelOpen(false)}
                 position="right"
-                title={<span className="gradient-heading panel-title">Options</span>}
+                title={<span className="panel-title">Options</span>}
                 size="sm"
                 classNames={{root: 'team-drawer'}}
             >
