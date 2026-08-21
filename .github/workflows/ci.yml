@@ -1,11 +1,8 @@
 name: CI
 
-# Build + content-sync check. Site deployment (S3 + CloudFront via the
-# coveo-platform infra repo) is wired separately once the infra exists —
-# this workflow will then gain an S3 sync step on push to main.
+# Build + content checks on every PR. No AWS access, no deploy permissions —
+# deploys live in cd.yml (main) and preview.yml (PR previews).
 on:
-  push:
-    branches: [main]
   pull_request:
   workflow_dispatch:
 
@@ -39,7 +36,7 @@ jobs:
         run: |
           pnpm build:plays
           git diff --exit-code packages/design-playbook/public/plays.json || {
-            echo "::error::public/plays.json is out of sync with plays/*.mdx — run 'pnpm build:plays' and commit the result."
+            echo "::error::plays.json is out of sync with the plays — run 'pnpm build:plays' and commit the result."
             exit 1
           }
 
@@ -48,10 +45,5 @@ jobs:
 
       - name: Build
         env:
-          BASE_PATH: /design-playbook/
+          BASE_PATH: /
         run: pnpm build
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: site
-          path: packages/design-playbook/dist
