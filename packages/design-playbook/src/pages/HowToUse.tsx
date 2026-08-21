@@ -3,6 +3,7 @@ import {useSearchParams} from 'react-router-dom';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
 import {Copyable, MCP_DOCS, MCP_URLS, REPO_SSH} from '../components/Copyable';
 import {ResourceChip} from '../components/ResourceChip';
+import {useTeamMode} from '../teamMode';
 
 const GeneralTab = () => (
     <article className="prose howto">
@@ -149,7 +150,9 @@ const McpTab = () => (
     </article>
 );
 
-const SkillsTab = () => (
+const SkillsTab = () => {
+    const [teamMode] = useTeamMode();
+    return (
     <article className="prose howto">
         <h2>What a skill is</h2>
         <p>
@@ -187,6 +190,8 @@ const SkillsTab = () => (
         </ul>
         <Copyable label="Get the repo (includes all skills)" command={`git clone ${REPO_SSH}`} />
 
+        {teamMode && (
+        <>
         <h2>Research skills (coveo/ai-tools)</h2>
         <p>
             The research plays plug into the shared AI-tools skills — the full chain from plan to
@@ -208,8 +213,11 @@ const SkillsTab = () => (
                 Research narrative
             </ResourceChip>
         </div>
+        </>
+        )}
     </article>
-);
+    );
+};
 
 export const HowToUse = () => {
     const [searchParams, setSearchParams] = useSearchParams();

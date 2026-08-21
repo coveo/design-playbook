@@ -6,11 +6,13 @@ import {
     IconLayoutSidebarLeftCollapse,
     IconLayoutSidebarLeftExpand,
 } from '@coveord/plasma-react-icons';
-import {useDisclosure, useLocalStorage} from '@mantine/hooks';
+import {useDisclosure} from '@mantine/hooks';
 import type {ReactNode} from 'react';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import coveoLogo from './assets/coveo-logo.svg';
 import {ConfidenceMeter} from './components/ConfidenceMeter';
+import {ContributeModal} from './components/ContributeModal';
+import {useTeamMode} from './teamMode';
 import {playsInSection, sections} from './plays';
 
 interface NavRowProps {
@@ -47,9 +49,10 @@ const NavGroup = ({label, children}: {label: string; children: ReactNode}) => {
 
 export const App = () => {
     const [opened, {toggle}] = useDisclosure(true);
-    const [hideSoon, setHideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: true});
+    const [teamMode, setTeamMode] = useTeamMode();
     const location = useLocation();
     const [panelOpen, setPanelOpen] = useState(false);
+    const [contributeOpen, setContributeOpen] = useState(false);
 
     // Cmd/Ctrl-K opens the team panel — the Coveo-internal cockpit.
     useEffect(() => {
@@ -99,7 +102,7 @@ export const App = () => {
                 <AppShell.Section grow component={ScrollArea}>
                     {sections.map((section) => {
                         const sectionPlays = playsInSection(section.id).filter(
-                            (p) => !hideSoon || !p.frontmatter.comingSoon,
+                            (p) => teamMode || !p.frontmatter.comingSoon,
                         );
                         if (sectionPlays.length === 0) {
                             return null;
@@ -167,37 +170,37 @@ export const App = () => {
                 opened={panelOpen}
                 onClose={() => setPanelOpen(false)}
                 position="right"
-                title="Team Panel"
+                title="Options"
                 size="sm"
             >
                 <div className="team-panel">
-                    <p className="team-panel-intro">
-                        For Coveo folks — the playbook&rsquo;s workshop view. Toggle upcoming plays
-                        and grab the contribution paths.
-                    </p>
                     <Switch
-                        label="Show upcoming plays"
-                        description="Reveals coming-soon plays in the navigation and home grid"
-                        checked={!hideSoon}
-                        onChange={(e) => setHideSoon(!e.currentTarget.checked)}
+                        label="Team content"
+                        description="Upcoming plays, internal skill links, and contribution shortcuts"
+                        checked={teamMode}
+                        onChange={(e) => setTeamMode(e.currentTarget.checked)}
                     />
-                    <div className="team-panel-links">
-                        <Anchor href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
-                            The repo
-                        </Anchor>
-                        <Anchor
-                            href="https://github.com/coveo/design-playbook/blob/main/CONTRIBUTING.md"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            How to contribute a play
-                        </Anchor>
-                        <Anchor component={Link} to="/how-to-use?tab=skills" onClick={() => setPanelOpen(false)}>
-                            Agent skills &amp; MCP setup
-                        </Anchor>
-                    </div>
+                    {teamMode && (
+                        <div className="team-panel-links">
+                            <Anchor
+                                onClick={() => {
+                                    setPanelOpen(false);
+                                    setContributeOpen(true);
+                                }}
+                            >
+                                How to contribute a play
+                            </Anchor>
+                            <Anchor href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
+                                The repo
+                            </Anchor>
+                            <Anchor component={Link} to="/how-to-use?tab=skills" onClick={() => setPanelOpen(false)}>
+                                Agent skills &amp; MCP setup
+                            </Anchor>
+                        </div>
+                    )}
                 </div>
             </Drawer>
+            <ContributeModal opened={contributeOpen} onClose={() => setContributeOpen(false)} />
         </AppShell>
     );
 };
