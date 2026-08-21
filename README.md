@@ -34,7 +34,7 @@ Content-only PRs need a rendering check (`pnpm dev`), `pnpm type-check`, and `pn
 
 ## Deploy
 
-CI (`.github/workflows/deploy.yml`) builds the site and enforces `plays.json` sync on every push. Hosting is S3 + CloudFront via a coveo-platform infra repo (pending); the build lands in a `site` artifact until then. The Vite base path is driven by `BASE_PATH`, so the same build targets the main deploy (`/`) and per-PR preview links (`/preview/<branch>/`).
+CI (`ci.yml`) builds and checks every PR; CD (`cd.yml`) deploys main to S3 + CloudFront (infra: `coveo-platform/design-playbook-infra`); `preview.yml` deploys same-repo PRs to `preview/<branch>/` and comments the link. The Vite base path is driven by `BASE_PATH`, so the same build targets the main deploy (`/`) and per-PR preview links (`/preview/<branch>/`).
 
 ## Source material
 

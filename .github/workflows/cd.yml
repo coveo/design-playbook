@@ -1,0 +1,57 @@
+name: CD
+
+# Builds and deploys the site to S3 + CloudFront when main changes.
+# Infra: coveo-platform/design-playbook-infra (OIDC role, ci environment).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cd-main
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ci
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: corepack enable && corepack prepare --activate
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          BASE_PATH: /
+        run: pnpm build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Sync to S3
+        env:
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          cd packages/design-playbook
+          aws s3 sync dist/ "s3://$S3_BUCKET/" --delete --exclude "preview/*"
+          # CloudFront selects cache behaviors on the pre-rewrite URI, so
+          # directory URLs rely on origin Cache-Control headers (min_ttl=0
+          # honors them) to stay fresh.
+          aws s3 cp dist/index.html "s3://$S3_BUCKET/index.html" --cache-control "no-cache"
+          aws s3 cp dist/plays.json "s3://$S3_BUCKET/plays.json" --cache-control "no-cache"
+
+      - name: Invalidate index + plays.json
+        env:
+          DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_DISTRIBUTION_ID }}
+        run: aws cloudfront create-invalidation --distribution-id "$DISTRIBUTION_ID" --paths "/index.html" "/plays.json"
