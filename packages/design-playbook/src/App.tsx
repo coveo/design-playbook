@@ -155,6 +155,15 @@ export const App = () => {
                     </Tooltip>
                 )}
                 <Outlet />
+                <footer className="site-footer">
+                    <span>© 2026 Coveo Solutions Inc. Content and illustrations all rights reserved; code Apache-2.0.</span>
+                    <span>
+                        Made by Coveo Design ·{' '}
+                        <a href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
+                            GitHub
+                        </a>
+                    </span>
+                </footer>
             </AppShell.Main>
         </AppShell>
     );

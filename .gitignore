@@ -12,3 +12,4 @@ public-content-audit.md
 infra-draft/
 tsconfig.tsbuildinfo
 *.tsbuildinfo
+benchmark-plan.md
