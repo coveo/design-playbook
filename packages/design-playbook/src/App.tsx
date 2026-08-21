@@ -1,10 +1,14 @@
 import {useEffect, useState} from 'react';
-import {ActionIcon, Anchor, AppShell, Collapse, Drawer, ScrollArea, Switch, Tooltip} from '@mantine/core';
+import {ActionIcon, AppShell, Collapse, Drawer, ScrollArea, Switch, Tooltip} from '@mantine/core';
 import {
     IconChevronRight,
     IconHelpCircle,
     IconLayoutSidebarLeftCollapse,
     IconLayoutSidebarLeftExpand,
+    IconBrandGithub,
+    IconExternalLink,
+    IconPencilPlus,
+    IconSparkles,
 } from '@coveord/plasma-react-icons';
 import {useDisclosure} from '@mantine/hooks';
 import type {ReactNode} from 'react';
@@ -170,32 +174,56 @@ export const App = () => {
                 opened={panelOpen}
                 onClose={() => setPanelOpen(false)}
                 position="right"
-                title="Options"
+                title={<span className="gradient-heading panel-title">Options</span>}
                 size="sm"
             >
                 <div className="team-panel">
-                    <Switch
-                        label="Team content"
-                        description="Upcoming plays, internal skill links, and contribution shortcuts"
-                        checked={teamMode}
-                        onChange={(e) => setTeamMode(e.currentTarget.checked)}
-                    />
+                    <div className="settings-row">
+                        <div className="settings-row-text">
+                            <span className="settings-row-label">Team content</span>
+                            <span className="settings-row-desc">
+                                Upcoming plays, internal skill links, and contribution shortcuts
+                            </span>
+                        </div>
+                        <Switch
+                            checked={teamMode}
+                            onChange={(e) => setTeamMode(e.currentTarget.checked)}
+                            aria-label="Team content"
+                        />
+                    </div>
                     {teamMode && (
-                        <div className="team-panel-links">
-                            <Anchor
+                        <div className="team-links">
+                            <button
+                                type="button"
+                                className="team-link"
                                 onClick={() => {
                                     setPanelOpen(false);
                                     setContributeOpen(true);
                                 }}
                             >
-                                How to contribute a play
-                            </Anchor>
-                            <Anchor href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
-                                The repo
-                            </Anchor>
-                            <Anchor component={Link} to="/how-to-use?tab=skills" onClick={() => setPanelOpen(false)}>
-                                Agent skills &amp; MCP setup
-                            </Anchor>
+                                <IconPencilPlus size={18} />
+                                <span>Contribute a Play</span>
+                                <IconChevronRight size={14} className="team-link-end" />
+                            </button>
+                            <a
+                                className="team-link"
+                                href="https://github.com/coveo/design-playbook"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <IconBrandGithub size={18} />
+                                <span>The Repo</span>
+                                <IconExternalLink size={14} className="team-link-end" />
+                            </a>
+                            <Link
+                                className="team-link"
+                                to="/how-to-use?tab=skills"
+                                onClick={() => setPanelOpen(false)}
+                            >
+                                <IconSparkles size={18} />
+                                <span>Agent Skills &amp; MCP Setup</span>
+                                <IconChevronRight size={14} className="team-link-end" />
+                            </Link>
                         </div>
                     )}
                 </div>

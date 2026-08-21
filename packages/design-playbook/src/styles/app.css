@@ -391,7 +391,9 @@
 .prose h2 {
     font-size: 14px;
     font-weight: var(--coveo-fw-bold, 500);
-    letter-spacing: 1.5px;
+    /* caps tracking: 0.07em (~1px at 14px) — 1.5px read gappy on longer
+       headings like "The Confidence Meter"; kickers stay legible */
+    letter-spacing: 0.07em;
     text-transform: uppercase;
     margin: 44px 0 12px;
     color: var(--pb-blue);
@@ -681,4 +683,60 @@
     flex-direction: column;
     gap: 8px;
     font-size: 14px;
+}
+
+/* Options panel polish */
+.panel-title {
+    font-size: 15px;
+}
+.settings-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+.settings-row-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+.settings-row-label {
+    font-size: 14px;
+    font-weight: var(--coveo-fw-bold, 500);
+}
+.settings-row-desc {
+    font-size: 12px;
+    color: var(--pb-text-muted);
+}
+.team-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 4px -8px 0;
+}
+.team-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 0;
+    background: none;
+    border-radius: var(--radius-card);
+    font: inherit;
+    font-size: 14px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    text-align: left;
+}
+.team-link:hover {
+    background: var(--pb-sidebar-bg);
+}
+.team-link svg:first-child {
+    color: var(--pb-blue);
+    flex-shrink: 0;
+}
+.team-link-end {
+    margin-left: auto;
+    color: var(--pb-text-muted);
 }
