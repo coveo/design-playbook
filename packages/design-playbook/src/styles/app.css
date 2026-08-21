@@ -740,3 +740,26 @@
     margin-left: auto;
     color: var(--pb-text-muted);
 }
+
+/* Options panel header — the dark statement band from the homepage hero */
+.team-drawer .mantine-Drawer-header {
+    background: var(--pb-violet-dark);
+    padding: 20px 24px;
+}
+.team-drawer .mantine-Drawer-close {
+    color: rgba(255, 255, 255, 0.75);
+}
+.team-drawer .mantine-Drawer-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+/* Keep a visible-but-quiet focus indicator on the dark band; kill the
+   default purple ring that lands on auto-focus when the drawer opens */
+.team-drawer .mantine-Drawer-close:focus,
+.team-drawer .mantine-Drawer-close:focus-visible {
+    outline: 1px solid rgba(255, 255, 255, 0.4);
+    outline-offset: 1px;
+}
+.team-drawer .mantine-Drawer-body {
+    padding-top: 20px;
+}
