@@ -32,7 +32,10 @@ This repository is the Coveo Design Playbook — an interactive site of design p
 - Every play ends with the `PlayToolbox` component (frontmatter-driven, rendered automatically): agent recipe with copyable docs-CLI commands, MCP setup chips (public vendor docs, registry in `Copyable.tsx` `MCP_DOCS`/`MCP_URLS`, mirrored in `packages/mcp/server.mjs` `MCP_SERVERS`), and templates & skills chips. Keep agent copy agent-agnostic — "your agent", never a specific product.
 - **Never hardcode another play's name or coming-soon status in MDX.** Reference plays with `<PlayRef slug="design-smash" />` — it renders the live title (with "(coming soon)" derived from frontmatter) and the hovercard. When a play goes live, every reference updates automatically.
 - MDX blockquotes (`> **Before you start** — ...`) render as Mantine Alert callouts.
-- Coming-soon plays render a placeholder page with contribution guidance; they are navigable everywhere (nav, cards, refs).
+- Coming-soon plays render a placeholder page with contribution guidance. They are hidden from nav and the home grid unless **team mode** is on.
+- **Team mode** (`useTeamMode`, localStorage `playbook-team-mode`, default off): ONE flag gates all team-facing content — upcoming plays, links into coveo/ai-tools (private repo — public visitors must never see links that 404), and contribution shortcuts. Toggled from the ⌘K Options panel (Drawer in `App.tsx`). Anything internal you add must key off this flag; keep panel and public copy free of insider wording.
+- **Site footer** (in `App.tsx`) carries the © / license line and repo link — never remove it; license details live in `LICENSE-CONTENT.md`.
+- Dead ends route to `NotFound` (unknown routes and unknown play slugs) — it turns 404s into a contribution prompt.
 - Tokens live in `src/styles/theme.css`; layout styles in `src/styles/app.css`.
 
 ## Structure
