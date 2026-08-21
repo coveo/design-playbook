@@ -15,6 +15,10 @@ const GeneralTab = () => (
         </p>
         <div className="meter-scale">
             <div className="row">
+                <ConfidenceMeter />
+                <span>All bars empty: the play works at any confidence level</span>
+            </div>
+            <div className="row">
                 <ConfidenceMeter level={1} />
                 <span>Little is known — start framing the problem (e.g. Shaping Workshop)</span>
             </div>
@@ -26,12 +30,19 @@ const GeneralTab = () => (
                 </span>
             </div>
             <div className="row">
+                <ConfidenceMeter level={3} />
+                <span>
+                    A direction is chosen — make the bet concrete and testable (e.g. Creating a
+                    Visiontype)
+                </span>
+            </div>
+            <div className="row">
                 <ConfidenceMeter level={4} />
                 <span>The solution is taking shape — validate and refine it</span>
             </div>
             <div className="row">
-                <ConfidenceMeter />
-                <span>All bars empty: the play works at any confidence level</span>
+                <ConfidenceMeter level={5} />
+                <span>You know what you are building and why — ship, measure, and share</span>
             </div>
         </div>
 

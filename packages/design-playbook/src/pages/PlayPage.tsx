@@ -8,6 +8,7 @@ import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
+import {NotFound} from './NotFound';
 import {useTeamMode} from '../teamMode';
 import {asset, playBySlug, sections} from '../plays';
 
@@ -110,14 +111,7 @@ export const PlayPage = () => {
     const play = slug ? playBySlug(slug) : undefined;
 
     if (!play) {
-        return (
-            <div className="page">
-                <h2>Play not found</h2>
-                <Anchor component={Link} to="/">
-                    Back to the playbook
-                </Anchor>
-            </div>
-        );
+        return <NotFound title="No Such Play" />;
     }
 
     if (play.frontmatter.comingSoon) {
