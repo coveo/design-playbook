@@ -9,6 +9,7 @@ import {createHashRouter, RouterProvider} from 'react-router-dom';
 import {App} from './App';
 import {Home} from './pages/Home';
 import {HowToUse} from './pages/HowToUse';
+import {NotFound} from './pages/NotFound';
 import {PlayPage} from './pages/PlayPage';
 import '@fontsource-variable/inter';
 import './styles/theme.css';
@@ -31,6 +32,7 @@ const router = createHashRouter([
             {index: true, element: <Home />},
             {path: 'plays/:slug', element: <PlayPage />},
             {path: 'how-to-use', element: <HowToUse />},
+            {path: '*', element: <NotFound />},
         ],
     },
 ]);

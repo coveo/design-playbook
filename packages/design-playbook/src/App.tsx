@@ -1,17 +1,22 @@
-import {ActionIcon, AppShell, Collapse, ScrollArea, Tooltip} from '@mantine/core';
+import {useEffect, useState} from 'react';
+import {ActionIcon, AppShell, Collapse, Drawer, ScrollArea, Switch, Tooltip} from '@mantine/core';
 import {
     IconChevronRight,
-    IconEye,
-    IconEyeOff,
     IconHelpCircle,
     IconLayoutSidebarLeftCollapse,
     IconLayoutSidebarLeftExpand,
+    IconBrandGithub,
+    IconExternalLink,
+    IconPencilPlus,
+    IconSparkles,
 } from '@coveord/plasma-react-icons';
-import {useDisclosure, useLocalStorage} from '@mantine/hooks';
+import {useDisclosure} from '@mantine/hooks';
 import type {ReactNode} from 'react';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import coveoLogo from './assets/coveo-logo.svg';
 import {ConfidenceMeter} from './components/ConfidenceMeter';
+import {ContributeModal} from './components/ContributeModal';
+import {useTeamMode} from './teamMode';
 import {playsInSection, sections} from './plays';
 
 interface NavRowProps {
@@ -48,8 +53,22 @@ const NavGroup = ({label, children}: {label: string; children: ReactNode}) => {
 
 export const App = () => {
     const [opened, {toggle}] = useDisclosure(true);
-    const [hideSoon, setHideSoon] = useLocalStorage({key: 'playbook-hide-soon', defaultValue: false});
+    const [teamMode, setTeamMode] = useTeamMode();
     const location = useLocation();
+    const [panelOpen, setPanelOpen] = useState(false);
+    const [contributeOpen, setContributeOpen] = useState(false);
+
+    // Cmd/Ctrl-K opens the team panel — the Coveo-internal cockpit.
+    useEffect(() => {
+        const onKeyDown = (e: KeyboardEvent) => {
+            if ((e.metaKey || e.ctrlKey) && !e.shiftKey && e.key === 'k') {
+                e.preventDefault();
+                setPanelOpen((v) => !v);
+            }
+        };
+        window.addEventListener('keydown', onKeyDown);
+        return () => window.removeEventListener('keydown', onKeyDown);
+    }, []);
 
     return (
         <AppShell
@@ -71,20 +90,6 @@ export const App = () => {
                             <span>Design Playbook</span>
                         </Link>
                         <div>
-                            <Tooltip
-                                label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
-                                withArrow
-                                fz="xs"
-                            >
-                                <ActionIcon
-                                    variant="subtle"
-                                    color="gray"
-                                    onClick={() => setHideSoon((v) => !v)}
-                                    aria-label={hideSoon ? 'Show coming-soon plays' : 'Hide coming-soon plays'}
-                                >
-                                    {hideSoon ? <IconEye size={18} /> : <IconEyeOff size={18} />}
-                                </ActionIcon>
-                            </Tooltip>
                             <Tooltip label="Hide navigation" withArrow fz="xs">
                                 <ActionIcon
                                     variant="subtle"
@@ -101,7 +106,7 @@ export const App = () => {
                 <AppShell.Section grow component={ScrollArea}>
                     {sections.map((section) => {
                         const sectionPlays = playsInSection(section.id).filter(
-                            (p) => !hideSoon || !p.frontmatter.comingSoon,
+                            (p) => teamMode || !p.frontmatter.comingSoon,
                         );
                         if (sectionPlays.length === 0) {
                             return null;
@@ -155,7 +160,76 @@ export const App = () => {
                     </Tooltip>
                 )}
                 <Outlet />
+                <footer className="site-footer">
+                    <span>© 2026 Coveo Solutions Inc. Content and illustrations all rights reserved; code Apache-2.0.</span>
+                    <span>
+                        Made by Coveo Design ·{' '}
+                        <a href="https://github.com/coveo/design-playbook" target="_blank" rel="noreferrer">
+                            GitHub
+                        </a>
+                    </span>
+                </footer>
             </AppShell.Main>
+            <Drawer
+                opened={panelOpen}
+                onClose={() => setPanelOpen(false)}
+                position="right"
+                title={<span className="panel-title">Options</span>}
+                size="sm"
+                classNames={{root: 'team-drawer'}}
+            >
+                <div className="team-panel">
+                    <div className="settings-row">
+                        <div className="settings-row-text">
+                            <span className="settings-row-label">Team content</span>
+                            <span className="settings-row-desc">
+                                Upcoming plays, internal skill links, and contribution shortcuts
+                            </span>
+                        </div>
+                        <Switch
+                            checked={teamMode}
+                            onChange={(e) => setTeamMode(e.currentTarget.checked)}
+                            aria-label="Team content"
+                        />
+                    </div>
+                    {teamMode && (
+                        <div className="team-links">
+                            <button
+                                type="button"
+                                className="team-link"
+                                onClick={() => {
+                                    setPanelOpen(false);
+                                    setContributeOpen(true);
+                                }}
+                            >
+                                <IconPencilPlus size={18} />
+                                <span>Contribute a Play</span>
+                                <IconChevronRight size={14} className="team-link-end" />
+                            </button>
+                            <a
+                                className="team-link"
+                                href="https://github.com/coveo/design-playbook"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                <IconBrandGithub size={18} />
+                                <span>The Repo</span>
+                                <IconExternalLink size={14} className="team-link-end" />
+                            </a>
+                            <Link
+                                className="team-link"
+                                to="/how-to-use?tab=skills"
+                                onClick={() => setPanelOpen(false)}
+                            >
+                                <IconSparkles size={18} />
+                                <span>Agent Skills &amp; MCP Setup</span>
+                                <IconChevronRight size={14} className="team-link-end" />
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </Drawer>
+            <ContributeModal opened={contributeOpen} onClose={() => setContributeOpen(false)} />
         </AppShell>
     );
 };
