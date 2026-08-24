@@ -1,0 +1,99 @@
+name: Preview
+
+# Per-branch preview deploys for same-repo PRs, under preview/<branch>/.
+# Isolated from CI so PR checks themselves carry no AWS permissions; the
+# ci environment and the OIDC trust both refuse fork PRs.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: preview-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  preview:
+    if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment: ci
+    permissions:
+      id-token: write
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
+        with:
+          egress-policy: audit
+
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: corepack enable && corepack prepare --activate
+      - run: pnpm install --frozen-lockfile
+
+      - name: Build
+        env:
+          BASE_PATH: /preview/${{ github.head_ref }}/
+        run: pnpm build
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Sync preview to S3
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+        run: |
+          cd packages/design-playbook
+          aws s3 sync dist/ "s3://$S3_BUCKET/preview/$HEAD_REF/" --delete
+          aws s3 cp dist/index.html "s3://$S3_BUCKET/preview/$HEAD_REF/index.html" --cache-control "no-cache"
+
+      - name: Post preview link on PR
+        uses: actions/github-script@v7
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          CLOUDFRONT_DOMAIN: ${{ vars.CLOUDFRONT_DOMAIN }}
+        with:
+          script: |
+            const marker = '<!-- playbook-preview -->';
+            const url = `https://${process.env.CLOUDFRONT_DOMAIN}/preview/${process.env.HEAD_REF}/`;
+            const body = `${marker}\n## Design Playbook Preview\n🎨 [Open the preview](${url})\n\n*This preview serves the last successful build and may not include the latest commit.*`;
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number,
+            });
+            const existing = comments.find(c => c.body?.includes(marker));
+            if (existing) {
+              await github.rest.issues.updateComment({owner: context.repo.owner, repo: context.repo.repo, comment_id: existing.id, body});
+            } else {
+              await github.rest.issues.createComment({owner: context.repo.owner, repo: context.repo.repo, issue_number: context.issue.number, body});
+            }
+
+  cleanup:
+    if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    environment: ci
+    permissions:
+      id-token: write
+    steps:
+      - name: Harden the runner (Audit all outbound calls)
+        uses: step-security/harden-runner@05e31511f85b41b11d1cf0ef85d0992719546e2c # v2.21.0
+        with:
+          egress-policy: audit
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          aws-region: us-east-1
+
+      - name: Remove preview from S3
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+          S3_BUCKET: ${{ vars.S3_BUCKET }}
+        run: aws s3 rm --recursive "s3://$S3_BUCKET/preview/$HEAD_REF/"

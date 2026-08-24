@@ -97,4 +97,4 @@ Use the `add-play` skill in `skills/add-play/`. Manual steps: create `plays/<slu
 ## PR flow
 
 - Branch from `main`, open a PR, squash-merge. Content-only PRs (plays/*.mdx) need a rendering check, not a code review.
-- Merging to `main` deploys automatically via `.github/workflows/deploy.yml`.
+- Merging to `main` deploys automatically via `.github/workflows/cd.yml`; PRs get preview deploys via `preview.yml`.
