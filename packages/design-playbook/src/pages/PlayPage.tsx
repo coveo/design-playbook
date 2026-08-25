@@ -9,6 +9,7 @@ import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
 import {NotFound} from './NotFound';
+import {useContribute} from '../contribute';
 import {useTeamMode} from '../teamMode';
 import {asset, playBySlug, sections} from '../plays';
 
@@ -30,6 +31,7 @@ const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 
 const ComingSoon = ({play}: {play: Play}) => {
     const [teamMode] = useTeamMode();
+    const openContribute = useContribute();
     const {frontmatter} = play;
     const section = sections.find((s) => s.id === frontmatter.section);
     const coverSrc = useCoverSrc(frontmatter.cover);
@@ -78,14 +80,7 @@ const ComingSoon = ({play}: {play: Play}) => {
                     <li>Open a PR; a rendering check is all a content PR needs.</li>
                 </ul>
                 <Text mt="lg">
-                    <Button
-                        component="a"
-                        href={CONTRIBUTING_URL}
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="light"
-                        rightSection={<IconExternalLink size={16} />}
-                    >
+                    <Button onClick={openContribute} variant="light">
                         Contribute this play
                     </Button>
                 </Text>

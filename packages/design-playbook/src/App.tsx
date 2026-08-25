@@ -15,7 +15,7 @@ import type {ReactNode} from 'react';
 import {Link, Outlet, useLocation} from 'react-router-dom';
 import coveoLogo from './assets/coveo-logo.svg';
 import {ConfidenceMeter} from './components/ConfidenceMeter';
-import {ContributeModal} from './components/ContributeModal';
+import {ContributeProvider, useContribute} from './contribute';
 import {useTeamMode} from './teamMode';
 import {playsInSection, sections} from './plays';
 
@@ -51,12 +51,12 @@ const NavGroup = ({label, children}: {label: string; children: ReactNode}) => {
     );
 };
 
-export const App = () => {
+const AppInner = () => {
     const [opened, {toggle}] = useDisclosure(true);
     const [teamMode, setTeamMode] = useTeamMode();
     const location = useLocation();
     const [panelOpen, setPanelOpen] = useState(false);
-    const [contributeOpen, setContributeOpen] = useState(false);
+    const openContribute = useContribute();
 
     // Cmd/Ctrl-K opens the team panel — the Coveo-internal cockpit.
     useEffect(() => {
@@ -199,7 +199,7 @@ export const App = () => {
                                 className="team-link"
                                 onClick={() => {
                                     setPanelOpen(false);
-                                    setContributeOpen(true);
+                                    openContribute();
                                 }}
                             >
                                 <IconPencilPlus size={18} />
@@ -229,7 +229,12 @@ export const App = () => {
                     )}
                 </div>
             </Drawer>
-            <ContributeModal opened={contributeOpen} onClose={() => setContributeOpen(false)} />
         </AppShell>
     );
 };
+
+export const App = () => (
+    <ContributeProvider>
+        <AppInner />
+    </ContributeProvider>
+);
