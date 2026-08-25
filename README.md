@@ -39,3 +39,7 @@ CI (`ci.yml`) builds and checks every PR; CD (`cd.yml`) deploys main to S3 + Clo
 ## Source material
 
 The original Figma file is no longer maintained — this repo is the source of truth. A full text scan of its 81 slides lives in `docs/figma-content-scan.md` for anyone refining content.
+
+## License
+
+Source code: [Apache-2.0](./LICENSE). Playbook content and all visual assets (illustrations, brand): © Coveo Solutions Inc., all rights reserved — see [LICENSE-CONTENT.md](./LICENSE-CONTENT.md).
