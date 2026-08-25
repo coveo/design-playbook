@@ -37,6 +37,17 @@ const router = createHashRouter([
     },
 ]);
 
+// Path-style URLs (no hash) become hash routes so the router can resolve
+// them — /plays/x redirects to a working play, junk lands on NotFound.
+// CloudFront serves index.html for any missing object (SPA fallback), so
+// this runs for every bad path. BASE_URL-aware for preview deploys.
+const base = import.meta.env.BASE_URL;
+const {pathname, search, hash} = window.location;
+if (!hash && pathname !== base) {
+    const rest = pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, '');
+    window.location.replace(`${base}#/${rest}${search}`);
+}
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <Plasmantine defaultColorScheme="light" theme={theme}>
