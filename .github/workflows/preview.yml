@@ -56,7 +56,7 @@ jobs:
           aws s3 cp dist/index.html "s3://$S3_BUCKET/preview/$HEAD_REF/index.html" --cache-control "no-cache"
 
       - name: Post preview link on PR
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         env:
           HEAD_REF: ${{ github.head_ref }}
           CLOUDFRONT_DOMAIN: ${{ vars.CLOUDFRONT_DOMAIN }}
