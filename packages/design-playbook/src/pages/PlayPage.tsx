@@ -24,6 +24,7 @@ import miroLogo from '../assets/miro.svg';
 const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo, Atlassian: confluenceLogo};
 
 const REPO_URL = 'https://github.com/coveo/design-playbook';
+const CONTRIBUTING_URL = `${REPO_URL}/blob/main/CONTRIBUTING.md`;
 
 const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 
@@ -79,7 +80,7 @@ const ComingSoon = ({play}: {play: Play}) => {
                 <Text mt="lg">
                     <Button
                         component="a"
-                        href={REPO_URL}
+                        href={CONTRIBUTING_URL}
                         target="_blank"
                         rel="noreferrer"
                         variant="light"
