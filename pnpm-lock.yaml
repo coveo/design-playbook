@@ -12,7 +12,7 @@ importers:
     dependencies:
       '@coveord/plasma-mantine':
         specifier: ^61.0.2
-        version: 61.1.0(400dec334080ec9c5484f79e9c340f81)
+        version: 61.2.0(400dec334080ec9c5484f79e9c340f81)
       '@coveord/plasma-react-icons':
         specifier: ^60.0.0
         version: 60.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
@@ -203,8 +203,8 @@ packages:
     resolution: {integrity: sha512-Vj1jF3cPfxg7OAfoI7QnVKLoILlm2JF9pnVHrX8qx7AHMiYWT+NDAA7jChlNgRS4WTLc/fD1lXLmPixluj+3Gg==}
     engines: {node: '>=6.9.0'}
 
-  '@coveord/plasma-mantine@61.1.0':
-    resolution: {integrity: sha512-Sm9HrLG6pL+QXHa4Y5m+ppCjVXS/xcqTgEdcBxDHcSYot70jCeSZAN2XDshv2JkcINaG/RLIOcKtykW3c3Svvg==}
+  '@coveord/plasma-mantine@61.2.0':
+    resolution: {integrity: sha512-uXXRzPqghDcd4/CQbeofZokjnt9d5zcgk7EgEqcPTY3JjzUnmXtuMei2hanTEd+tbfvCy/L+oj38qOsd8WBiQw==}
     peerDependencies:
       '@mantine/carousel': ^9.0.0
       '@mantine/code-highlight': ^9.0.0
@@ -2032,7 +2032,7 @@ snapshots:
       '@babel/helper-string-parser': 7.29.7
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@coveord/plasma-mantine@61.1.0(400dec334080ec9c5484f79e9c340f81)':
+  '@coveord/plasma-mantine@61.2.0(400dec334080ec9c5484f79e9c340f81)':
     dependencies:
       '@coveord/plasma-react-icons': 60.0.0(react-dom@19.2.8(react@19.2.8))(react@19.2.8)
       '@coveord/plasma-tokens': 60.0.0
