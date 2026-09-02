@@ -1,7 +1,7 @@
 {
   "name": "design-playbook-root",
   "private": true,
-  "packageManager": "pnpm@11.22.0",
+  "packageManager": "pnpm@11.24.0",
   "type": "module",
   "scripts": {
     "dev": "pnpm --filter design-playbook dev",
