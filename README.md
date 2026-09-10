@@ -4,6 +4,8 @@ The interactive playbook for how we design at Coveo — plays (workshops, sessio
 
 ## Quick start
 
+> The npm package is being published — until it is live, these commands will return a 404.
+
 Want to just add the `mcp` to your local harness?
 
 ### Claude
