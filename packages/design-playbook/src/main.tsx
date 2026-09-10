@@ -9,6 +9,7 @@ import {createHashRouter, RouterProvider} from 'react-router-dom';
 import {App} from './App';
 import {Home} from './pages/Home';
 import {HowToUse} from './pages/HowToUse';
+import {NotFound} from './pages/NotFound';
 import {PlayPage} from './pages/PlayPage';
 import '@fontsource-variable/inter';
 import './styles/theme.css';
@@ -31,9 +32,21 @@ const router = createHashRouter([
             {index: true, element: <Home />},
             {path: 'plays/:slug', element: <PlayPage />},
             {path: 'how-to-use', element: <HowToUse />},
+            {path: '*', element: <NotFound />},
         ],
     },
 ]);
+
+// Path-style URLs (no hash) become hash routes so the router can resolve
+// them — /plays/x redirects to a working play, junk lands on NotFound.
+// CloudFront serves index.html for any missing object (SPA fallback), so
+// this runs for every bad path. BASE_URL-aware for preview deploys.
+const base = import.meta.env.BASE_URL;
+const {pathname, search, hash} = window.location;
+if (!hash && pathname !== base) {
+    const rest = pathname.startsWith(base) ? pathname.slice(base.length) : pathname.replace(/^\//, '');
+    window.location.replace(`${base}#/${rest}${search}`);
+}
 
 createRoot(document.getElementById('root')!).render(
     <StrictMode>

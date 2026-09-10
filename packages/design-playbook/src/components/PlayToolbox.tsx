@@ -1,10 +1,12 @@
 import type {PlayFrontmatter} from '../plays';
 import {AI_TOOLS_SSH, Copyable, MCP_DOCS, REPO_SSH} from './Copyable';
 import {ResourceChip} from './ResourceChip';
+import {useTeamMode} from '../teamMode';
 
 /** The reusable end-of-play panel: agent instructions (copyable, agent-agnostic)
  * plus templates & skills chips. Fully driven by the play's frontmatter. */
 export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
+    const [teamMode] = useTeamMode();
     const {agent, skills, miroTemplate, slug} = frontmatter;
     if (!agent?.recipe && !skills?.length && !miroTemplate) {
         return null;
@@ -20,7 +22,7 @@ export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
                 <div className="toolbox-section">
                     <div className="kicker">Run it with an agent</div>
                     <p>{agent.recipe}</p>
-                    {agent.skill ? (
+                    {agent.skill && teamMode ? (
                         <>
                             <Copyable
                                 label={
@@ -35,7 +37,7 @@ export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
                                 command={`Use the ${agent.skill} skill for this play`}
                             />
                         </>
-                    ) : skills?.length ? (
+                    ) : skills?.length && teamMode ? (
                         <>
                             <Copyable
                                 label="1. Get the skills repo (coveo/ai-tools)"
@@ -73,14 +75,14 @@ export const PlayToolbox = ({frontmatter}: {frontmatter: PlayFrontmatter}) => {
                 </div>
             )}
 
-            {(skills?.length || miroTemplate) && (
+            {((skills?.length && teamMode) || miroTemplate) && (
                 <div className="toolbox-section">
                     <div className="kicker">Templates &amp; skills</div>
                     <div className="resource-row">
                         {miroTemplate && (
                             <ResourceChip href={miroTemplate}>Miro template</ResourceChip>
                         )}
-                        {skills?.map((skill) => (
+                        {teamMode && skills?.map((skill) => (
                             <ResourceChip key={skill.url} href={skill.url}>
                                 {skill.name}
                             </ResourceChip>

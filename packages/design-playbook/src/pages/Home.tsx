@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom';
 import {ConfidenceMeter} from '../components/ConfidenceMeter';
 import {playsInSection, sections} from '../plays';
+import {useTeamMode} from '../teamMode';
 import type {Play} from '../plays';
 
 const PlayCard = ({play}: {play: Play}) => {
@@ -27,7 +28,9 @@ const PlayCard = ({play}: {play: Play}) => {
     );
 };
 
-export const Home = () => (
+export const Home = () => {
+    const [teamMode] = useTeamMode();
+    return (
     <>
         <section className="home-hero">
             <div className="home-hero-inner">
@@ -49,7 +52,9 @@ export const Home = () => (
 
         <div className="page">
             {sections.map((section) => {
-                const sectionPlays = playsInSection(section.id);
+                const sectionPlays = playsInSection(section.id).filter(
+                    (p) => teamMode || !p.frontmatter.comingSoon,
+                );
                 if (sectionPlays.length === 0) {
                     return null;
                 }
@@ -72,3 +77,4 @@ export const Home = () => (
         </div>
     </>
 );
+};

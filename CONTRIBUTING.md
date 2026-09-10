@@ -1,5 +1,10 @@
 # Contributing
 
+> This playbook is how Coveo’s design team works, published in the open.
+> Contributions are for Coveo employees — if you’re not a Covean, you’re welcome
+> to read and borrow ideas, but external PRs and issues are treated as
+> suggestions and may be closed without action.
+
 The playbook belongs to everyone who runs these plays — designers, PMs, and engineers. This guide covers how humans contribute; the technical conventions agents (and you) must follow when touching code or content live in [AGENTS.md](./AGENTS.md).
 
 ## Ways to contribute

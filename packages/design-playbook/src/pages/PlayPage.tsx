@@ -8,6 +8,9 @@ import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
+import {NotFound} from './NotFound';
+import {useContribute} from '../contribute';
+import {useTeamMode} from '../teamMode';
 import {asset, playBySlug, sections} from '../plays';
 
 /** Fresh URL per mount so one-shot SVG animations replay on every visit
@@ -22,10 +25,13 @@ import miroLogo from '../assets/miro.svg';
 const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo, Atlassian: confluenceLogo};
 
 const REPO_URL = 'https://github.com/coveo/design-playbook';
+const CONTRIBUTING_URL = `${REPO_URL}/blob/main/CONTRIBUTING.md`;
 
 const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
 
 const ComingSoon = ({play}: {play: Play}) => {
+    const [teamMode] = useTeamMode();
+    const openContribute = useContribute();
     const {frontmatter} = play;
     const section = sections.find((s) => s.id === frontmatter.section);
     const coverSrc = useCoverSrc(frontmatter.cover);
@@ -56,14 +62,14 @@ const ComingSoon = ({play}: {play: Play}) => {
                     This play hasn&rsquo;t been written yet — the title and summary above are its
                     reserved spot in the playbook.
                 </p>
-                <h2>Looking to contribute?</h2>
+                <h2>Coveo folks — looking to contribute?</h2>
                 <p>
-                    The playbook lives in a repo, and plays are simple MDX files. If you&rsquo;ve
-                    run this play (or want to define how we run it):
+                    The playbook lives in a repo, and plays are simple MDX files. If you&rsquo;re
+                    at Coveo and you&rsquo;ve run this play (or want to define how we run it):
                 </p>
                 <ul>
                     <li>
-                        Edit <code>plays/{frontmatter.slug}.mdx</code>, remove the{' '}
+                        Edit <code>packages/design-playbook/plays/{frontmatter.slug}.mdx</code>, remove the{' '}
                         <code>comingSoon</code> flag, and follow the play grammar — When? / Why? /
                         Step by step / What next?
                     </li>
@@ -74,18 +80,11 @@ const ComingSoon = ({play}: {play: Play}) => {
                     <li>Open a PR; a rendering check is all a content PR needs.</li>
                 </ul>
                 <Text mt="lg">
-                    <Button
-                        component="a"
-                        href={REPO_URL}
-                        target="_blank"
-                        rel="noreferrer"
-                        variant="light"
-                        rightSection={<IconExternalLink size={16} />}
-                    >
+                    <Button onClick={openContribute} variant="light">
                         Contribute this play
                     </Button>
                 </Text>
-                {frontmatter.skills?.length && (
+                {teamMode && frontmatter.skills?.length && (
                     <>
                         <h2>Meanwhile</h2>
                         <p>An agent skill already covers this ground:</p>
@@ -108,14 +107,7 @@ export const PlayPage = () => {
     const play = slug ? playBySlug(slug) : undefined;
 
     if (!play) {
-        return (
-            <div className="page">
-                <h2>Play not found</h2>
-                <Anchor component={Link} to="/">
-                    Back to the playbook
-                </Anchor>
-            </div>
-        );
+        return <NotFound title="No Such Play" />;
     }
 
     if (play.frontmatter.comingSoon) {
