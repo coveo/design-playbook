@@ -1,5 +1,10 @@
 # Coveo Design Playbook
 
+[The Coveo Design Playbook Website](https://url.coveo.com/design-playbook)
+
+<img width="600" alt="Screenshot 2026-09-10 at 12 22 02" src="https://github.com/user-attachments/assets/f9388fa4-ca9a-44a4-a8e7-9fd9348643bc" />
+
+
 The interactive playbook for how we design at Coveo — plays (workshops, sessions, frameworks) for understanding problems, designing solutions, and testing them with users. Migrated from the design team's original Figma playbook into a site that agents can read, run, and extend.
 
 ## What's inside
