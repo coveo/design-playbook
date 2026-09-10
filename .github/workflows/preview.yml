@@ -1,8 +1,8 @@
 name: Preview
 
 # Per-branch preview deploys for same-repo PRs, under preview/<branch>/.
-# Isolated from CI so PR checks themselves carry no AWS permissions; the
-# ci environment and the OIDC trust both refuse fork PRs.
+# Isolated from CI; PR deployments use the least-privilege preview environment,
+# while the workflow refuses fork PRs.
 on:
   pull_request:
     types: [opened, synchronize, reopened, closed]
@@ -18,7 +18,7 @@ jobs:
   preview:
     if: github.event.action != 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    environment: ci
+    environment: preview
     permissions:
       id-token: write
       contents: read
@@ -43,7 +43,7 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          role-to-assume: ${{ vars.AWS_PREVIEW_ROLE_ARN }}
           aws-region: us-east-1
 
       - name: Sync preview to S3
@@ -78,7 +78,7 @@ jobs:
   cleanup:
     if: github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    environment: ci
+    environment: preview
     permissions:
       id-token: write
     steps:
@@ -89,7 +89,7 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          role-to-assume: ${{ vars.AWS_DEPLOY_ROLE_ARN }}
+          role-to-assume: ${{ vars.AWS_PREVIEW_ROLE_ARN }}
           aws-region: us-east-1
 
       - name: Remove preview from S3
