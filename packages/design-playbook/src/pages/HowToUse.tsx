@@ -108,7 +108,7 @@ const McpTab = () => (
         </p>
 
         <h2>Connect</h2>
-        <p>Connecting is one line — exactly like the Plasma MCP:</p>
+        <p>Connecting is one line:</p>
         <Copyable
             label="Claude Code (any MCP client works — same npx command)"
             command="claude mcp add design-playbook -- npx -y @coveord/design-playbook-mcp"

@@ -19,7 +19,7 @@ Every read tool takes an optional `version` (tag / branch / SHA). Omitted → `m
 
 ## Install
 
-**Install** (one-liner, same model as `@coveord/plasma-mcp-server`):
+**Install** (one line, no clone needed):
 
 ```sh
 claude mcp add design-playbook -- npx -y @coveord/design-playbook-mcp
