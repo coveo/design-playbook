@@ -108,19 +108,15 @@ const McpTab = () => (
         </p>
 
         <h2>Connect</h2>
-        <p>
-            Once the server is published, connecting will be one line — exactly like the Plasma
-            MCP. Until then, it runs from a clone:
-        </p>
-        <Copyable label="1. Get the repo" command={`git clone ${REPO_SSH}`} />
-        <Copyable label="2. Install the server" command="cd design-playbook && pnpm install" />
+        <p>Connecting is one line:</p>
         <Copyable
-            label="3. Register it with your agent (Claude Code shown; any MCP client works — point it at packages/mcp/server.mjs)"
-            command="claude mcp add design-playbook -- node ./design-playbook/packages/mcp/server.mjs"
+            label="Claude Code (any MCP client works — same npx command)"
+            command="claude mcp add design-playbook -- npx -y @coveord/design-playbook-mcp"
         />
         <p>
-            Auth rides your existing GitHub SSO (<code>gh auth login</code>) — nothing extra to set
-            up.
+            Reads work anonymously — the playbook is public. Contributing through the MCP
+            (<code>propose_play</code>) uses your existing GitHub SSO (<code>gh auth login</code>);
+            nothing extra to set up.
         </p>
 
         <h2>What your agent can do with it</h2>

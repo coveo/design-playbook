@@ -15,5 +15,5 @@ metadata:
     snyk.io/org-id: f931e59e-41ad-49e2-8972-b79d33c6b89e
 spec:
   type: website
-  lifecycle: experimental
+  lifecycle: production
   owner: design-commerce
