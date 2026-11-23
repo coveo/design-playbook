@@ -6,6 +6,7 @@ import {Link, useParams} from 'react-router-dom';
 import {Callout} from '../components/Callout';
 import {ConfidenceLevel} from '../components/ConfidenceMeter';
 import {PlayAnchor, PlayRef} from '../components/PlayAnchor';
+import {YouTube} from '../components/YouTube';
 import {PlayToolbox} from '../components/PlayToolbox';
 import {ResourceChip} from '../components/ResourceChip';
 import {NotFound} from './NotFound';
@@ -27,7 +28,7 @@ const MCP_ICONS: Record<string, string> = {Miro: miroLogo, Figma: figmaLogo, Atl
 const REPO_URL = 'https://github.com/coveo/design-playbook';
 const CONTRIBUTING_URL = `${REPO_URL}/blob/main/CONTRIBUTING.md`;
 
-const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef};
+const mdxComponents = {a: PlayAnchor, blockquote: Callout, PlayRef, YouTube};
 
 const ComingSoon = ({play}: {play: Play}) => {
     const [teamMode] = useTeamMode();
