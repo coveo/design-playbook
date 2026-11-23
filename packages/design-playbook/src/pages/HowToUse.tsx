@@ -177,6 +177,10 @@ const SkillsTab = () => {
                 scaffolds the full Miro board from its play&rsquo;s steps
             </li>
             <li>
+                <strong>run-async-design-crit</strong> — asks for your topics and deadline, then builds an
+                empty, labelled board for an async crit
+            </li>
+            <li>
                 <strong>add-play</strong> — scaffolds a new play file following the playbook&rsquo;s
                 contract
             </li>
