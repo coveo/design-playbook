@@ -430,6 +430,15 @@
     border: 1px solid var(--pb-border);
 }
 
+.prose .video-embed {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 0 14px;
+    border-radius: var(--radius-card);
+    border: 1px solid var(--pb-border);
+}
+
 .prose table {
     border-collapse: collapse;
     margin: 0 0 14px;
